@@ -9,7 +9,7 @@ import UIKit
 
 final class SplashView: UIView {
     
-    let imageView: UIImageView = {
+    let splashImageView: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.image = UIImage(named: ImageAssets.splashImage)
         $0.layer.opacity = 0
@@ -29,11 +29,11 @@ final class SplashView: UIView {
     }
     
     private func layoutImageView() {
-        addSubview(imageView)
+        addSubview(splashImageView)
         
         NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            splashImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            splashImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
 }

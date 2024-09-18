@@ -14,4 +14,11 @@ final class ModuleFactory {
         splashViewController.viewModel = splashViewModel
         return splashViewController
     }
+    
+    static func createWelcomeModule() -> WelcomeViewController {
+        let welcomeViewController = WelcomeViewController()
+        let welcomeViewModel = WelcomeViewModel()
+        welcomeViewController.viewModel = welcomeViewModel
+        return welcomeViewController
+    }
 }

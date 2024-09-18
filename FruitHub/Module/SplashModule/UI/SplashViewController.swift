@@ -9,7 +9,7 @@ import UIKit
 
 final class SplashViewController: UIViewController {
     
-    var viewModel: SplashViewModelProtocol?
+    var viewModel: ScreenTransition?
     private let contentView = SplashView()
     
     override func loadView() {
@@ -17,14 +17,14 @@ final class SplashViewController: UIViewController {
         view = contentView
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         animateImageView()
     }
     
     private func animateImageView() {
         UIView.animate(withDuration: 2.0) { [weak self] in
-            self?.contentView.imageView.layer.opacity = 1
+            self?.contentView.splashImageView.layer.opacity = 1
         } completion: { [weak self] _ in
             self?.viewModel?.goToNextScreen()
         }

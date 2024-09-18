@@ -9,4 +9,6 @@ import Foundation
 
 struct Colors {
     static let whiteForSplash: String = "#FFFFFF"
+    static let orange: String = "#FFA451"
+    static let white: String = "#E5E5E5"
 }

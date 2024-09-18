@@ -24,8 +24,17 @@ final class AppCoordinator: AppCoordinatorProtocol {
         let splashCoordinator = CoordinatorFactory.createSplashCoordinator(navigationController: navigationController)
         childCoordinator.append(splashCoordinator)
         splashCoordinator.start()
-        splashCoordinator.flowCompletionHandler = {
-           
+        splashCoordinator.flowCompletionHandler = { [weak self] in
+            self?.showWelcomeFlow()
+        }
+    }
+    
+    private func showWelcomeFlow() {
+        let welcomeCoordinator = CoordinatorFactory.createWelcomeCoordinator(navigationController: navigationController)
+        childCoordinator.append(welcomeCoordinator)
+        welcomeCoordinator.start()
+        welcomeCoordinator.flowCompletionHandler = {
+
         }
     }
 }

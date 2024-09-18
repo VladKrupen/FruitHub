@@ -17,4 +17,9 @@ final class CoordinatorFactory {
         let splashCoordinator = SplashCoordinator(navigationController: navigationController)
         return splashCoordinator
     }
+    
+    static func createWelcomeCoordinator(navigationController: UINavigationController) -> CoordinatorProtocol {
+        let welcomeCoordinator = WelcomeCoordinator(navigationController: navigationController)
+        return welcomeCoordinator
+    }
 }
