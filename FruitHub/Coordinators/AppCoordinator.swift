@@ -25,7 +25,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
         childCoordinator.append(splashCoordinator)
         splashCoordinator.start()
         splashCoordinator.flowCompletionHandler = {
-            
+           
         }
     }
 }

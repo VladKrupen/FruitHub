@@ -7,6 +7,15 @@
 
 import Foundation
 
-final class SplashViewModel {
+protocol SplashViewModelProtocol {
+    var completionHandler: (() -> Void)? { get set }
+    func goToNextScreen()
+}
+
+final class SplashViewModel: SplashViewModelProtocol {
+    var completionHandler: (() -> Void)?
     
+    func goToNextScreen() {
+        completionHandler?()
+    }
 }

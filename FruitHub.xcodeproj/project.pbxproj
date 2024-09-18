@@ -19,6 +19,10 @@
 		0199B41E2C9AC853006253EF /* ModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B41D2C9AC853006253EF /* ModuleFactory.swift */; };
 		0199B4242C9AC8BE006253EF /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B4232C9AC8BE006253EF /* SplashViewController.swift */; };
 		0199B42C2C9ACC28006253EF /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B42B2C9ACC28006253EF /* SplashViewModel.swift */; };
+		0199B42F2C9ACF80006253EF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B42E2C9ACF80006253EF /* UIColor+Extension.swift */; };
+		0199B4322C9AD00E006253EF /* ImageAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B4312C9AD00E006253EF /* ImageAssets.swift */; };
+		0199B4342C9AD133006253EF /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B4332C9AD133006253EF /* SplashView.swift */; };
+		0199B4362C9AD3C4006253EF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B4352C9AD3C4006253EF /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		0199B41D2C9AC853006253EF /* ModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactory.swift; sourceTree = "<group>"; };
 		0199B4232C9AC8BE006253EF /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		0199B42B2C9ACC28006253EF /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		0199B42E2C9ACF80006253EF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		0199B4312C9AD00E006253EF /* ImageAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssets.swift; sourceTree = "<group>"; };
+		0199B4332C9AD133006253EF /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		0199B4352C9AD3C4006253EF /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +78,9 @@
 			children = (
 				0199B40C2C9AB36E006253EF /* Application */,
 				0199B40E2C9AC043006253EF /* Coordinators */,
+				0199B42D2C9ACF6C006253EF /* Extension */,
 				0199B4142C9AC445006253EF /* Factories */,
+				0199B4302C9ACFD3006253EF /* Helper */,
 				0199B41F2C9AC893006253EF /* Module */,
 				0199B40D2C9AB37E006253EF /* Resource */,
 			);
@@ -161,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				0199B4232C9AC8BE006253EF /* SplashViewController.swift */,
+				0199B4332C9AD133006253EF /* SplashView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -171,6 +182,23 @@
 				0199B42B2C9ACC28006253EF /* SplashViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0199B42D2C9ACF6C006253EF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0199B42E2C9ACF80006253EF /* UIColor+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		0199B4302C9ACFD3006253EF /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0199B4312C9AD00E006253EF /* ImageAssets.swift */,
+				0199B4352C9AD3C4006253EF /* Colors.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,10 +273,14 @@
 			files = (
 				0199B4102C9AC3A0006253EF /* AppCoordinator.swift in Sources */,
 				0199B41E2C9AC853006253EF /* ModuleFactory.swift in Sources */,
+				0199B4322C9AD00E006253EF /* ImageAssets.swift in Sources */,
+				0199B4362C9AD3C4006253EF /* Colors.swift in Sources */,
 				0199B41B2C9AC5FD006253EF /* CoordinatorProtocol.swift in Sources */,
+				0199B42F2C9ACF80006253EF /* UIColor+Extension.swift in Sources */,
 				0199B4242C9AC8BE006253EF /* SplashViewController.swift in Sources */,
 				0199B3F92C9AB332006253EF /* AppDelegate.swift in Sources */,
 				0199B42C2C9ACC28006253EF /* SplashViewModel.swift in Sources */,
+				0199B4342C9AD133006253EF /* SplashView.swift in Sources */,
 				0199B4172C9AC47B006253EF /* CoordinatorFactory.swift in Sources */,
 				0199B4192C9AC5DC006253EF /* SplashCoordinator.swift in Sources */,
 				0199B4132C9AC3C5006253EF /* AppCoordinatorProtocol.swift in Sources */,
