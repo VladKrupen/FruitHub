@@ -9,19 +9,33 @@
 /* Begin PBXBuildFile section */
 		0199B3F92C9AB332006253EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B3F82C9AB332006253EF /* AppDelegate.swift */; };
 		0199B3FB2C9AB332006253EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B3FA2C9AB332006253EF /* SceneDelegate.swift */; };
-		0199B3FD2C9AB332006253EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B3FC2C9AB332006253EF /* ViewController.swift */; };
 		0199B4022C9AB334006253EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0199B4012C9AB334006253EF /* Assets.xcassets */; };
 		0199B4052C9AB334006253EF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0199B4042C9AB334006253EF /* Base */; };
+		0199B4102C9AC3A0006253EF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B40F2C9AC3A0006253EF /* AppCoordinator.swift */; };
+		0199B4132C9AC3C5006253EF /* AppCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B4122C9AC3C5006253EF /* AppCoordinatorProtocol.swift */; };
+		0199B4172C9AC47B006253EF /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B4162C9AC47B006253EF /* CoordinatorFactory.swift */; };
+		0199B4192C9AC5DC006253EF /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B4182C9AC5DC006253EF /* SplashCoordinator.swift */; };
+		0199B41B2C9AC5FD006253EF /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B41A2C9AC5FD006253EF /* CoordinatorProtocol.swift */; };
+		0199B41E2C9AC853006253EF /* ModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B41D2C9AC853006253EF /* ModuleFactory.swift */; };
+		0199B4242C9AC8BE006253EF /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B4232C9AC8BE006253EF /* SplashViewController.swift */; };
+		0199B42C2C9ACC28006253EF /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B42B2C9ACC28006253EF /* SplashViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0199B3F52C9AB332006253EF /* FruitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0199B3F82C9AB332006253EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0199B3FA2C9AB332006253EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0199B3FC2C9AB332006253EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0199B4012C9AB334006253EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0199B4042C9AB334006253EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0199B4062C9AB334006253EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0199B40F2C9AC3A0006253EF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		0199B4122C9AC3C5006253EF /* AppCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		0199B4162C9AC47B006253EF /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		0199B4182C9AC5DC006253EF /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
+		0199B41A2C9AC5FD006253EF /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		0199B41D2C9AC853006253EF /* ModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactory.swift; sourceTree = "<group>"; };
+		0199B4232C9AC8BE006253EF /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		0199B42B2C9ACC28006253EF /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +69,10 @@
 			isa = PBXGroup;
 			children = (
 				0199B40C2C9AB36E006253EF /* Application */,
+				0199B40E2C9AC043006253EF /* Coordinators */,
+				0199B4142C9AC445006253EF /* Factories */,
+				0199B41F2C9AC893006253EF /* Module */,
 				0199B40D2C9AB37E006253EF /* Resource */,
-				0199B3FC2C9AB332006253EF /* ViewController.swift */,
 			);
 			path = FruitHub;
 			sourceTree = "<group>";
@@ -78,6 +94,83 @@
 				0199B4062C9AB334006253EF /* Info.plist */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		0199B40E2C9AC043006253EF /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				0199B4112C9AC3AE006253EF /* Protocols */,
+				0199B40F2C9AC3A0006253EF /* AppCoordinator.swift */,
+				0199B4182C9AC5DC006253EF /* SplashCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		0199B4112C9AC3AE006253EF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0199B4122C9AC3C5006253EF /* AppCoordinatorProtocol.swift */,
+				0199B41A2C9AC5FD006253EF /* CoordinatorProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0199B4142C9AC445006253EF /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				0199B4152C9AC45F006253EF /* Coordinator */,
+				0199B41C2C9AC756006253EF /* Module */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		0199B4152C9AC45F006253EF /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				0199B4162C9AC47B006253EF /* CoordinatorFactory.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		0199B41C2C9AC756006253EF /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				0199B41D2C9AC853006253EF /* ModuleFactory.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		0199B41F2C9AC893006253EF /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				0199B4222C9AC8AE006253EF /* SplashModule */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		0199B4222C9AC8AE006253EF /* SplashModule */ = {
+			isa = PBXGroup;
+			children = (
+				0199B4252C9ACB68006253EF /* UI */,
+				0199B42A2C9ACBC6006253EF /* ViewModel */,
+			);
+			path = SplashModule;
+			sourceTree = "<group>";
+		};
+		0199B4252C9ACB68006253EF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0199B4232C9AC8BE006253EF /* SplashViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		0199B42A2C9ACBC6006253EF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0199B42B2C9ACC28006253EF /* SplashViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,8 +243,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0199B3FD2C9AB332006253EF /* ViewController.swift in Sources */,
+				0199B4102C9AC3A0006253EF /* AppCoordinator.swift in Sources */,
+				0199B41E2C9AC853006253EF /* ModuleFactory.swift in Sources */,
+				0199B41B2C9AC5FD006253EF /* CoordinatorProtocol.swift in Sources */,
+				0199B4242C9AC8BE006253EF /* SplashViewController.swift in Sources */,
 				0199B3F92C9AB332006253EF /* AppDelegate.swift in Sources */,
+				0199B42C2C9ACC28006253EF /* SplashViewModel.swift in Sources */,
+				0199B4172C9AC47B006253EF /* CoordinatorFactory.swift in Sources */,
+				0199B4192C9AC5DC006253EF /* SplashCoordinator.swift in Sources */,
+				0199B4132C9AC3C5006253EF /* AppCoordinatorProtocol.swift in Sources */,
 				0199B3FB2C9AB332006253EF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
