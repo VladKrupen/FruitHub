@@ -28,6 +28,16 @@
 		0199B4402C9ADEC5006253EF /* ScreenTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B43F2C9ADEC5006253EF /* ScreenTransition.swift */; };
 		0199B4422C9AE007006253EF /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B4412C9AE007006253EF /* WelcomeCoordinator.swift */; };
 		0199B4442C9AE308006253EF /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B4432C9AE308006253EF /* WelcomeView.swift */; };
+		01B2B3D82CA16B030064B319 /* EnterNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3D72CA16B030064B319 /* EnterNameViewController.swift */; };
+		01B2B3DA2CA16B0D0064B319 /* EnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3D92CA16B0D0064B319 /* EnterNameView.swift */; };
+		01B2B3DD2CA16B1D0064B319 /* EnterNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3DC2CA16B1D0064B319 /* EnterNameViewModel.swift */; };
+		01B2B3DF2CA16E8B0064B319 /* EnterNameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3DE2CA16E8B0064B319 /* EnterNameCoordinator.swift */; };
+		01B2B3E22CA1723C0064B319 /* OrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3E12CA1723B0064B319 /* OrangeButton.swift */; };
+		01B2B3E42CA1744F0064B319 /* ButtonTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3E32CA1744F0064B319 /* ButtonTitles.swift */; };
+		01B2B3E82CA17C520064B319 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3E72CA17C520064B319 /* CustomTextField.swift */; };
+		01B2B3EA2CA17E760064B319 /* Placeholders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3E92CA17E760064B319 /* Placeholders.swift */; };
+		01B2B3ED2CA188090064B319 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3EC2CA188090064B319 /* AnimationManager.swift */; };
+		01B2B3EF2CA1B9F70064B319 /* LabelNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3EE2CA1B9F70064B319 /* LabelNames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +64,16 @@
 		0199B43F2C9ADEC5006253EF /* ScreenTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTransition.swift; sourceTree = "<group>"; };
 		0199B4412C9AE007006253EF /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
 		0199B4432C9AE308006253EF /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		01B2B3D72CA16B030064B319 /* EnterNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameViewController.swift; sourceTree = "<group>"; };
+		01B2B3D92CA16B0D0064B319 /* EnterNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameView.swift; sourceTree = "<group>"; };
+		01B2B3DC2CA16B1D0064B319 /* EnterNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameViewModel.swift; sourceTree = "<group>"; };
+		01B2B3DE2CA16E8B0064B319 /* EnterNameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameCoordinator.swift; sourceTree = "<group>"; };
+		01B2B3E12CA1723B0064B319 /* OrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButton.swift; sourceTree = "<group>"; };
+		01B2B3E32CA1744F0064B319 /* ButtonTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTitles.swift; sourceTree = "<group>"; };
+		01B2B3E72CA17C520064B319 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		01B2B3E92CA17E760064B319 /* Placeholders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholders.swift; sourceTree = "<group>"; };
+		01B2B3EC2CA188090064B319 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
+		01B2B3EE2CA1B9F70064B319 /* LabelNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNames.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +111,10 @@
 				0199B42D2C9ACF6C006253EF /* Extension */,
 				0199B4142C9AC445006253EF /* Factories */,
 				0199B4302C9ACFD3006253EF /* Helper */,
+				01B2B3EB2CA187F50064B319 /* Manager */,
 				0199B41F2C9AC893006253EF /* Module */,
 				0199B40D2C9AB37E006253EF /* Resource */,
+				01B2B3E02CA171FD0064B319 /* SharedView */,
 			);
 			path = FruitHub;
 			sourceTree = "<group>";
@@ -123,6 +145,7 @@
 				0199B40F2C9AC3A0006253EF /* AppCoordinator.swift */,
 				0199B4182C9AC5DC006253EF /* SplashCoordinator.swift */,
 				0199B4412C9AE007006253EF /* WelcomeCoordinator.swift */,
+				01B2B3DE2CA16E8B0064B319 /* EnterNameCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -167,6 +190,7 @@
 				0199B43E2C9ADE9D006253EF /* Protocols */,
 				0199B4222C9AC8AE006253EF /* SplashModule */,
 				0199B4372C9ADC73006253EF /* WelcomeModule */,
+				01B2B3D42CA16A5C0064B319 /* EnterNameModule */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -210,6 +234,9 @@
 			children = (
 				0199B4312C9AD00E006253EF /* ImageAssets.swift */,
 				0199B4352C9AD3C4006253EF /* Colors.swift */,
+				01B2B3E32CA1744F0064B319 /* ButtonTitles.swift */,
+				01B2B3E92CA17E760064B319 /* Placeholders.swift */,
+				01B2B3EE2CA1B9F70064B319 /* LabelNames.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -246,6 +273,49 @@
 				0199B43F2C9ADEC5006253EF /* ScreenTransition.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		01B2B3D42CA16A5C0064B319 /* EnterNameModule */ = {
+			isa = PBXGroup;
+			children = (
+				01B2B3D62CA16AED0064B319 /* UI */,
+				01B2B3D52CA16AE70064B319 /* ViewModel */,
+			);
+			path = EnterNameModule;
+			sourceTree = "<group>";
+		};
+		01B2B3D52CA16AE70064B319 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				01B2B3DC2CA16B1D0064B319 /* EnterNameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01B2B3D62CA16AED0064B319 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				01B2B3D72CA16B030064B319 /* EnterNameViewController.swift */,
+				01B2B3D92CA16B0D0064B319 /* EnterNameView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		01B2B3E02CA171FD0064B319 /* SharedView */ = {
+			isa = PBXGroup;
+			children = (
+				01B2B3E12CA1723B0064B319 /* OrangeButton.swift */,
+				01B2B3E72CA17C520064B319 /* CustomTextField.swift */,
+			);
+			path = SharedView;
+			sourceTree = "<group>";
+		};
+		01B2B3EB2CA187F50064B319 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				01B2B3EC2CA188090064B319 /* AnimationManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,9 +388,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01B2B3E82CA17C520064B319 /* CustomTextField.swift in Sources */,
 				0199B4102C9AC3A0006253EF /* AppCoordinator.swift in Sources */,
 				0199B41E2C9AC853006253EF /* ModuleFactory.swift in Sources */,
 				0199B4322C9AD00E006253EF /* ImageAssets.swift in Sources */,
+				01B2B3ED2CA188090064B319 /* AnimationManager.swift in Sources */,
 				0199B4362C9AD3C4006253EF /* Colors.swift in Sources */,
 				0199B41B2C9AC5FD006253EF /* CoordinatorProtocol.swift in Sources */,
 				0199B4422C9AE007006253EF /* WelcomeCoordinator.swift in Sources */,
@@ -331,11 +403,19 @@
 				0199B3F92C9AB332006253EF /* AppDelegate.swift in Sources */,
 				0199B43D2C9ADCC9006253EF /* WelcomeViewModel.swift in Sources */,
 				0199B42C2C9ACC28006253EF /* SplashViewModel.swift in Sources */,
+				01B2B3EA2CA17E760064B319 /* Placeholders.swift in Sources */,
+				01B2B3E22CA1723C0064B319 /* OrangeButton.swift in Sources */,
 				0199B4342C9AD133006253EF /* SplashView.swift in Sources */,
+				01B2B3EF2CA1B9F70064B319 /* LabelNames.swift in Sources */,
 				0199B4172C9AC47B006253EF /* CoordinatorFactory.swift in Sources */,
 				0199B4192C9AC5DC006253EF /* SplashCoordinator.swift in Sources */,
+				01B2B3DA2CA16B0D0064B319 /* EnterNameView.swift in Sources */,
 				0199B4132C9AC3C5006253EF /* AppCoordinatorProtocol.swift in Sources */,
+				01B2B3DD2CA16B1D0064B319 /* EnterNameViewModel.swift in Sources */,
+				01B2B3E42CA1744F0064B319 /* ButtonTitles.swift in Sources */,
+				01B2B3DF2CA16E8B0064B319 /* EnterNameCoordinator.swift in Sources */,
 				0199B3FB2C9AB332006253EF /* SceneDelegate.swift in Sources */,
+				01B2B3D82CA16B030064B319 /* EnterNameViewController.swift in Sources */,
 				0199B4442C9AE308006253EF /* WelcomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,7 @@ import UIKit
 
 final class WelcomeView: UIView {
     
+    //MARK: UI
     private let whiteView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = UIColor(hex: Colors.white)
@@ -18,19 +19,21 @@ final class WelcomeView: UIView {
     private let fruitImageView: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.image = UIImage(named: ImageAssets.welcomeFruit)
+        $0.contentMode = .scaleAspectFit
+        $0.clipsToBounds = true
         return $0
     }(UIImageView())
     
     private let titleLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "Get The Freshest Fruit Salad Combo"
+        $0.text = LabelNames.titleForWelcomeModule
         $0.font = UIFont.systemFont(ofSize: 20, weight: .light)
         return $0
     }(UILabel())
     
     private let descriptionLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "We deliver the best and freshest fruit salad in town. Order for a combo today!!!"
+        $0.text = LabelNames.descriptionForWelcomeModule
         $0.numberOfLines = 0
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 8
@@ -47,15 +50,12 @@ final class WelcomeView: UIView {
         return $0
     }(UIStackView())
     
-    let continueButton: UIButton = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setTitle("Let's Continue", for: .normal)
-        $0.setTitleColor(.white, for: .normal)
-        $0.backgroundColor = UIColor(hex: Colors.orange)
-        $0.layer.cornerRadius = 10
+    let continueButton: OrangeButton = {
+        $0.setTitle(ButtonTitles.continueButton, for: .normal)
         return $0
-    }(UIButton(type: .system))
+    }(OrangeButton())
     
+    //MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor(hex: Colors.orange)
@@ -66,10 +66,11 @@ final class WelcomeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Layout
     private func layoutElements() {
         layoutWhiteView()
         layoutImageView()
-        layoutTitleLabel()
+        layoutStack()
         layoutContinueButton()
     }
     
@@ -89,12 +90,13 @@ final class WelcomeView: UIView {
         addSubview(fruitImageView)
         
         NSLayoutConstraint.activate([
+            fruitImageView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: 30),
             fruitImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             fruitImageView.bottomAnchor.constraint(equalTo: whiteView.topAnchor, constant: -70),
         ])
     }
     
-    private func layoutTitleLabel() {
+    private func layoutStack() {
         hStackLabel.addArrangedSubview(titleLabel)
         hStackLabel.addArrangedSubview(descriptionLabel)
         whiteView.addSubview(hStackLabel)

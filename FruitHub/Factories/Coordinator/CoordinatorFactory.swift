@@ -22,4 +22,9 @@ final class CoordinatorFactory {
         let welcomeCoordinator = WelcomeCoordinator(navigationController: navigationController)
         return welcomeCoordinator
     }
+    
+    static func createEnterNameCoordinator(navigationController: UINavigationController) -> CoordinatorProtocol {
+        let enterNameCoordinator = EnterNameCoordinator(navigationController: navigationController)
+        return enterNameCoordinator
+    }
 }

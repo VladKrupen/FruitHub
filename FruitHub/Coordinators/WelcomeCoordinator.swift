@@ -20,9 +20,9 @@ final class WelcomeCoordinator: CoordinatorProtocol {
     }
     
     func showWelcomeModule() {
-        let welcomeCoordinator = ModuleFactory.createWelcomeModule()
-        navigationController.setViewControllers([welcomeCoordinator], animated: true)
-        welcomeCoordinator.viewModel?.completionHandler = { [weak self] in
+        let welcomeController = ModuleFactory.createWelcomeModule()
+        navigationController.setViewControllers([welcomeController], animated: true)
+        welcomeController.viewModel?.completionHandler = { [weak self] in
             self?.flowCompletionHandler?()
         }
     }

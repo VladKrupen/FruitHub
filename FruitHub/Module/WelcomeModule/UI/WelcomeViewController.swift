@@ -12,6 +12,7 @@ final class WelcomeViewController: UIViewController {
     var viewModel: ScreenTransition?
     private var contentView = WelcomeView()
     
+    //MARK: Life cycle
     override func loadView() {
         super.loadView()
         view = contentView
@@ -22,13 +23,17 @@ final class WelcomeViewController: UIViewController {
         setTargetForContinueButton()
     }
     
+    //MARK: Setup
     private func setTargetForContinueButton() {
         contentView.continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
     }
 }
 
+//MARK: OBJC
 extension WelcomeViewController {
     @objc private func continueButtonTapped() {
-        viewModel?.goToNextScreen()
+        AnimationManager.animateClick(view: contentView.continueButton) { [weak self] in
+            self?.viewModel?.goToNextScreen()
+        }
     }
 }

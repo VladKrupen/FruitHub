@@ -10,4 +10,5 @@ import Foundation
 struct ImageAssets {
     static let splashImage: String = "splashImage"
     static let welcomeFruit: String = "welcomeFruit"
+    static let enternameFruit: String = "enterNameFruit"
 }

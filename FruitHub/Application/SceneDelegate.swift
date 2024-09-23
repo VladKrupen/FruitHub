@@ -21,5 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.overrideUserInterfaceStyle = .light
         self.window = window
     }
+    
+    func sceneWillResignActive(_ scene: UIScene) {
+        window?.rootViewController?.view.endEditing(true)
+    }
 }
 

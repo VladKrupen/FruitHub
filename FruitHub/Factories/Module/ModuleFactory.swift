@@ -21,4 +21,11 @@ final class ModuleFactory {
         welcomeViewController.viewModel = welcomeViewModel
         return welcomeViewController
     }
+    
+    static func createEnterNameModule() -> EnterNameViewController {
+        let enterNameViewController = EnterNameViewController()
+        let enterNameViewModel = EnterNameViewModel()
+        enterNameViewController.viewModel = enterNameViewModel
+        return enterNameViewController
+    }
 }

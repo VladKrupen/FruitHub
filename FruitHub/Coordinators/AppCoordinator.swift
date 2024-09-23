@@ -33,8 +33,17 @@ final class AppCoordinator: AppCoordinatorProtocol {
         let welcomeCoordinator = CoordinatorFactory.createWelcomeCoordinator(navigationController: navigationController)
         childCoordinator.append(welcomeCoordinator)
         welcomeCoordinator.start()
-        welcomeCoordinator.flowCompletionHandler = {
-
+        welcomeCoordinator.flowCompletionHandler = { [weak self] in
+            self?.showEnterNameFlow()
+        }
+    }
+    
+    private func showEnterNameFlow() {
+        let enterNameCoordinator = CoordinatorFactory.createEnterNameCoordinator(navigationController: navigationController)
+        childCoordinator.append(enterNameCoordinator)
+        enterNameCoordinator.start()
+        enterNameCoordinator.flowCompletionHandler = {
+            
         }
     }
 }
