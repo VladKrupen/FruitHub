@@ -9,7 +9,7 @@ import UIKit
 
 final class WelcomeViewController: UIViewController {
     
-    var viewModel: ScreenTransition?
+    var viewModel: WelcomeViewModelProtocol?
     private var contentView = WelcomeView()
     
     //MARK: Life cycle

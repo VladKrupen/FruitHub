@@ -7,7 +7,11 @@
 
 import Foundation
 
-final class SplashViewModel: ScreenTransition {
+protocol SplashViewModelProtocol: ScreenTransition {
+    func goToNextScreen()
+}
+
+final class SplashViewModel: SplashViewModelProtocol {
     var completionHandler: (() -> Void)?
     
     func goToNextScreen() {

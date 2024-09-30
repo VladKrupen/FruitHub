@@ -28,4 +28,11 @@ final class ModuleFactory {
         enterNameViewController.viewModel = enterNameViewModel
         return enterNameViewController
     }
+    
+    static func createHomeModule() -> HomeViewController {
+        let homeViewController = HomeViewController()
+        let homeViewModel = HomeViewModel()
+        homeViewController.viewModel = homeViewModel
+        return homeViewController
+    }
 }

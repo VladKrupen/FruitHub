@@ -8,7 +8,7 @@
 import Foundation
 
 protocol EnterNameViewModelProtocol: ScreenTransition {
-
+    func goToNextScreen()
 }
 
 final class EnterNameViewModel: EnterNameViewModelProtocol {

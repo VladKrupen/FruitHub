@@ -23,8 +23,8 @@ final class EnterNameCoordinator: CoordinatorProtocol {
     private func showEnterNameModule() {
         let enterNameController = ModuleFactory.createEnterNameModule()
         navigationController.setViewControllers([enterNameController], animated: true)
-        enterNameController.viewModel?.completionHandler = {
-            
+        enterNameController.viewModel?.completionHandler = { [weak self] in
+            self?.flowCompletionHandler?()
         }
     }
 }

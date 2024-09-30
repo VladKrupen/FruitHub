@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011AFC382CAAB638006541F9 /* NavigationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011AFC372CAAB638006541F9 /* NavigationCell.swift */; };
+		011AFC3E2CAAF3C2006541F9 /* SaladCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011AFC3D2CAAF3C2006541F9 /* SaladCellIdentifier.swift */; };
+		013567C92CA418AA00CF6696 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567C82CA418AA00CF6696 /* PlusButton.swift */; };
+		013567CF2CA41C6800CF6696 /* SystemImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567CE2CA41C6800CF6696 /* SystemImages.swift */; };
+		013567D22CA41E2D00CF6696 /* FruitSalad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567D12CA41E2D00CF6696 /* FruitSalad.swift */; };
+		013567D42CA421DC00CF6696 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567D32CA421DC00CF6696 /* FavoriteButton.swift */; };
+		0157A2AB2CA29F33005FEE4E /* SaladCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157A2AA2CA29F33005FEE4E /* SaladCell.swift */; };
+		0157A2AE2CA2BFC9005FEE4E /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0157A2AD2CA2BFC9005FEE4E /* SDWebImage */; };
+		0157A2B02CA2BFC9005FEE4E /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0157A2AF2CA2BFC9005FEE4E /* SDWebImageMapKit */; };
 		0199B3F92C9AB332006253EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B3F82C9AB332006253EF /* AppDelegate.swift */; };
 		0199B3FB2C9AB332006253EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B3FA2C9AB332006253EF /* SceneDelegate.swift */; };
 		0199B4022C9AB334006253EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0199B4012C9AB334006253EF /* Assets.xcassets */; };
@@ -38,9 +47,21 @@
 		01B2B3EA2CA17E760064B319 /* Placeholders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3E92CA17E760064B319 /* Placeholders.swift */; };
 		01B2B3ED2CA188090064B319 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3EC2CA188090064B319 /* AnimationManager.swift */; };
 		01B2B3EF2CA1B9F70064B319 /* LabelNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3EE2CA1B9F70064B319 /* LabelNames.swift */; };
+		01B2B3F42CA1C82A0064B319 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3F32CA1C82A0064B319 /* HomeViewController.swift */; };
+		01B2B3F62CA1C8530064B319 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3F52CA1C8530064B319 /* HomeViewModel.swift */; };
+		01B2B3F82CA1CC000064B319 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3F72CA1CC000064B319 /* HomeCoordinator.swift */; };
+		01B2B3FA2CA1CE960064B319 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3F92CA1CE960064B319 /* HomeView.swift */; };
+		01B2B3FC2CA1D6CA0064B319 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3FB2CA1D6CA0064B319 /* BasketView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		011AFC372CAAB638006541F9 /* NavigationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCell.swift; sourceTree = "<group>"; };
+		011AFC3D2CAAF3C2006541F9 /* SaladCellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladCellIdentifier.swift; sourceTree = "<group>"; };
+		013567C82CA418AA00CF6696 /* PlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
+		013567CE2CA41C6800CF6696 /* SystemImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImages.swift; sourceTree = "<group>"; };
+		013567D12CA41E2D00CF6696 /* FruitSalad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitSalad.swift; sourceTree = "<group>"; };
+		013567D32CA421DC00CF6696 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		0157A2AA2CA29F33005FEE4E /* SaladCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladCell.swift; sourceTree = "<group>"; };
 		0199B3F52C9AB332006253EF /* FruitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0199B3F82C9AB332006253EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0199B3FA2C9AB332006253EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +95,11 @@
 		01B2B3E92CA17E760064B319 /* Placeholders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholders.swift; sourceTree = "<group>"; };
 		01B2B3EC2CA188090064B319 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		01B2B3EE2CA1B9F70064B319 /* LabelNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNames.swift; sourceTree = "<group>"; };
+		01B2B3F32CA1C82A0064B319 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		01B2B3F52CA1C8530064B319 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		01B2B3F72CA1CC000064B319 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		01B2B3F92CA1CE960064B319 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		01B2B3FB2CA1D6CA0064B319 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +107,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0157A2B02CA2BFC9005FEE4E /* SDWebImageMapKit in Frameworks */,
+				0157A2AE2CA2BFC9005FEE4E /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		011AFC3A2CAAEF05006541F9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0157A2AA2CA29F33005FEE4E /* SaladCell.swift */,
+				011AFC372CAAB638006541F9 /* NavigationCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		013567D02CA41E0D00CF6696 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				013567D12CA41E2D00CF6696 /* FruitSalad.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		0199B3EC2C9AB332006253EF = {
 			isa = PBXGroup;
 			children = (
@@ -108,13 +153,14 @@
 			children = (
 				0199B40C2C9AB36E006253EF /* Application */,
 				0199B40E2C9AC043006253EF /* Coordinators */,
+				013567D02CA41E0D00CF6696 /* Entity */,
 				0199B42D2C9ACF6C006253EF /* Extension */,
 				0199B4142C9AC445006253EF /* Factories */,
 				0199B4302C9ACFD3006253EF /* Helper */,
 				01B2B3EB2CA187F50064B319 /* Manager */,
 				0199B41F2C9AC893006253EF /* Module */,
 				0199B40D2C9AB37E006253EF /* Resource */,
-				01B2B3E02CA171FD0064B319 /* SharedView */,
+				01B2B3E02CA171FD0064B319 /* Shared */,
 			);
 			path = FruitHub;
 			sourceTree = "<group>";
@@ -146,6 +192,7 @@
 				0199B4182C9AC5DC006253EF /* SplashCoordinator.swift */,
 				0199B4412C9AE007006253EF /* WelcomeCoordinator.swift */,
 				01B2B3DE2CA16E8B0064B319 /* EnterNameCoordinator.swift */,
+				01B2B3F72CA1CC000064B319 /* HomeCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -191,6 +238,7 @@
 				0199B4222C9AC8AE006253EF /* SplashModule */,
 				0199B4372C9ADC73006253EF /* WelcomeModule */,
 				01B2B3D42CA16A5C0064B319 /* EnterNameModule */,
+				01B2B3F02CA1C7F30064B319 /* HomeModule */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -235,8 +283,10 @@
 				0199B4312C9AD00E006253EF /* ImageAssets.swift */,
 				0199B4352C9AD3C4006253EF /* Colors.swift */,
 				01B2B3E32CA1744F0064B319 /* ButtonTitles.swift */,
+				013567CE2CA41C6800CF6696 /* SystemImages.swift */,
 				01B2B3E92CA17E760064B319 /* Placeholders.swift */,
 				01B2B3EE2CA1B9F70064B319 /* LabelNames.swift */,
+				011AFC3D2CAAF3C2006541F9 /* SaladCellIdentifier.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -301,13 +351,16 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		01B2B3E02CA171FD0064B319 /* SharedView */ = {
+		01B2B3E02CA171FD0064B319 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				01B2B3E12CA1723B0064B319 /* OrangeButton.swift */,
 				01B2B3E72CA17C520064B319 /* CustomTextField.swift */,
+				01B2B3FB2CA1D6CA0064B319 /* BasketView.swift */,
+				013567C82CA418AA00CF6696 /* PlusButton.swift */,
+				013567D32CA421DC00CF6696 /* FavoriteButton.swift */,
 			);
-			path = SharedView;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		01B2B3EB2CA187F50064B319 /* Manager */ = {
@@ -316,6 +369,33 @@
 				01B2B3EC2CA188090064B319 /* AnimationManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		01B2B3F02CA1C7F30064B319 /* HomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				01B2B3F22CA1C8200064B319 /* UI */,
+				01B2B3F12CA1C81B0064B319 /* ViewModel */,
+			);
+			path = HomeModule;
+			sourceTree = "<group>";
+		};
+		01B2B3F12CA1C81B0064B319 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				01B2B3F52CA1C8530064B319 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01B2B3F22CA1C8200064B319 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				01B2B3F32CA1C82A0064B319 /* HomeViewController.swift */,
+				01B2B3F92CA1CE960064B319 /* HomeView.swift */,
+				011AFC3A2CAAEF05006541F9 /* Cell */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +414,10 @@
 			dependencies = (
 			);
 			name = FruitHub;
+			packageProductDependencies = (
+				0157A2AD2CA2BFC9005FEE4E /* SDWebImage */,
+				0157A2AF2CA2BFC9005FEE4E /* SDWebImageMapKit */,
+			);
 			productName = FruitHub;
 			productReference = 0199B3F52C9AB332006253EF /* FruitHub.app */;
 			productType = "com.apple.product-type.application";
@@ -362,6 +446,9 @@
 				Base,
 			);
 			mainGroup = 0199B3EC2C9AB332006253EF;
+			packageReferences = (
+				0157A2AC2CA2BFC9005FEE4E /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 0199B3F62C9AB332006253EF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -392,16 +479,23 @@
 				0199B4102C9AC3A0006253EF /* AppCoordinator.swift in Sources */,
 				0199B41E2C9AC853006253EF /* ModuleFactory.swift in Sources */,
 				0199B4322C9AD00E006253EF /* ImageAssets.swift in Sources */,
+				01B2B3FC2CA1D6CA0064B319 /* BasketView.swift in Sources */,
+				011AFC3E2CAAF3C2006541F9 /* SaladCellIdentifier.swift in Sources */,
 				01B2B3ED2CA188090064B319 /* AnimationManager.swift in Sources */,
+				01B2B3F42CA1C82A0064B319 /* HomeViewController.swift in Sources */,
 				0199B4362C9AD3C4006253EF /* Colors.swift in Sources */,
 				0199B41B2C9AC5FD006253EF /* CoordinatorProtocol.swift in Sources */,
 				0199B4422C9AE007006253EF /* WelcomeCoordinator.swift in Sources */,
 				0199B42F2C9ACF80006253EF /* UIColor+Extension.swift in Sources */,
 				0199B4402C9ADEC5006253EF /* ScreenTransition.swift in Sources */,
+				013567D42CA421DC00CF6696 /* FavoriteButton.swift in Sources */,
+				013567D22CA41E2D00CF6696 /* FruitSalad.swift in Sources */,
+				013567CF2CA41C6800CF6696 /* SystemImages.swift in Sources */,
 				0199B43B2C9ADCA4006253EF /* WelcomeViewController.swift in Sources */,
 				0199B4242C9AC8BE006253EF /* SplashViewController.swift in Sources */,
 				0199B3F92C9AB332006253EF /* AppDelegate.swift in Sources */,
 				0199B43D2C9ADCC9006253EF /* WelcomeViewModel.swift in Sources */,
+				0157A2AB2CA29F33005FEE4E /* SaladCell.swift in Sources */,
 				0199B42C2C9ACC28006253EF /* SplashViewModel.swift in Sources */,
 				01B2B3EA2CA17E760064B319 /* Placeholders.swift in Sources */,
 				01B2B3E22CA1723C0064B319 /* OrangeButton.swift in Sources */,
@@ -414,9 +508,14 @@
 				01B2B3DD2CA16B1D0064B319 /* EnterNameViewModel.swift in Sources */,
 				01B2B3E42CA1744F0064B319 /* ButtonTitles.swift in Sources */,
 				01B2B3DF2CA16E8B0064B319 /* EnterNameCoordinator.swift in Sources */,
+				01B2B3FA2CA1CE960064B319 /* HomeView.swift in Sources */,
 				0199B3FB2C9AB332006253EF /* SceneDelegate.swift in Sources */,
 				01B2B3D82CA16B030064B319 /* EnterNameViewController.swift in Sources */,
+				01B2B3F82CA1CC000064B319 /* HomeCoordinator.swift in Sources */,
+				01B2B3F62CA1C8530064B319 /* HomeViewModel.swift in Sources */,
 				0199B4442C9AE308006253EF /* WelcomeView.swift in Sources */,
+				013567C92CA418AA00CF6696 /* PlusButton.swift in Sources */,
+				011AFC382CAAB638006541F9 /* NavigationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,7 +585,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -543,7 +642,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -629,6 +728,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0157A2AC2CA2BFC9005FEE4E /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.19.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0157A2AD2CA2BFC9005FEE4E /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0157A2AC2CA2BFC9005FEE4E /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		0157A2AF2CA2BFC9005FEE4E /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0157A2AC2CA2BFC9005FEE4E /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0199B3ED2C9AB332006253EF /* Project object */;
 }

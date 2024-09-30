@@ -17,7 +17,8 @@ final class AppCoordinator: AppCoordinatorProtocol {
     }
     
     func start() {
-        showSplashFlow()
+//        showSplashFlow()
+        showHomeFlow()
     }
     
     private func showSplashFlow() {
@@ -42,7 +43,16 @@ final class AppCoordinator: AppCoordinatorProtocol {
         let enterNameCoordinator = CoordinatorFactory.createEnterNameCoordinator(navigationController: navigationController)
         childCoordinator.append(enterNameCoordinator)
         enterNameCoordinator.start()
-        enterNameCoordinator.flowCompletionHandler = {
+        enterNameCoordinator.flowCompletionHandler = { [weak self] in
+            self?.showHomeFlow()
+        }
+    }
+    
+    private func showHomeFlow() {
+        let homeCoordinator = CoordinatorFactory.createHomeCoordiantor(navigationController: navigationController)
+        childCoordinator.append(homeCoordinator)
+        homeCoordinator.start()
+        homeCoordinator.flowCompletionHandler = {
             
         }
     }

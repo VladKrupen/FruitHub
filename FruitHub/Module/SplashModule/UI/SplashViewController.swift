@@ -9,7 +9,7 @@ import UIKit
 
 final class SplashViewController: UIViewController {
     
-    var viewModel: ScreenTransition?
+    var viewModel: SplashViewModelProtocol?
     private let contentView = SplashView()
     
     override func loadView() {

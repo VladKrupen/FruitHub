@@ -7,7 +7,11 @@
 
 import Foundation
 
-final class WelcomeViewModel: ScreenTransition {
+protocol WelcomeViewModelProtocol: ScreenTransition {
+    func goToNextScreen()
+}
+
+final class WelcomeViewModel: WelcomeViewModelProtocol {
     var completionHandler: (() -> Void)?
     
     func goToNextScreen() {

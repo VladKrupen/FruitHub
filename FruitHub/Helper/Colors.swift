@@ -12,4 +12,5 @@ struct Colors {
     static let orange: String = "#FFA451"
     static let white: String = "#F3F1F1"
     static let backgroundTextField: String = "#E5E5E5"
+    static let backgroundColorForButtonPlus: String = "#FFF2E7"
 }
