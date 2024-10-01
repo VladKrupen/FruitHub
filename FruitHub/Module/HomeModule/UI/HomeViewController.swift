@@ -24,9 +24,13 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
         setupAction()
         setupCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
     }
     
     //MARK: Setup
@@ -148,10 +152,12 @@ extension HomeViewController: UICollectionViewDelegate {
         switch indexPath.section {
         case 0:
             print(indexPath)
+            viewModel?.goToSaladModule()
         case 1:
             didSelectNavigationCell(collectionView: collectionView, indexPath: indexPath)
         case 2:
             print(indexPath)
+            viewModel?.goToSaladModule()
         default:
             fatalError()
         }

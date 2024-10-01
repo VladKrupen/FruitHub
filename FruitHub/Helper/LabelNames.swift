@@ -13,4 +13,5 @@ struct LabelNames {
     static let userFirstNameInquiry: String = "What is your firstname?"
     static let titleBasketView: String = "My basket"
     static let recommendedCombo: String = "Recommended Combo"
+    static let onePackContains: String = "One Pack Contains:"
 }

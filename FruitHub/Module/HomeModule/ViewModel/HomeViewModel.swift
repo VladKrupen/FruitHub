@@ -9,13 +9,14 @@ import Foundation
 import Combine
 
 protocol HomeViewModelProtocol {
-    
+    var completionHandler: ((HomeActions) -> Void)? { get set }
+    func goToSaladModule()
 }
 
-final class HomeViewModel {
-    
-}
+final class HomeViewModel: HomeViewModelProtocol {
+    var completionHandler: ((HomeActions) -> Void)?
 
-extension HomeViewModel: HomeViewModelProtocol {
- 
+    func goToSaladModule() {
+        completionHandler?(.saladCellPressed)
+    }
 }

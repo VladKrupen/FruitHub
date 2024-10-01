@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		011AFC382CAAB638006541F9 /* NavigationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011AFC372CAAB638006541F9 /* NavigationCell.swift */; };
 		011AFC3E2CAAF3C2006541F9 /* SaladCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011AFC3D2CAAF3C2006541F9 /* SaladCellIdentifier.swift */; };
+		011AFC4E2CAB0728006541F9 /* HomeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011AFC4D2CAB0728006541F9 /* HomeActions.swift */; };
+		011AFC522CAB0C06006541F9 /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011AFC512CAB0C06006541F9 /* BackButtonView.swift */; };
 		013567C92CA418AA00CF6696 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567C82CA418AA00CF6696 /* PlusButton.swift */; };
 		013567CF2CA41C6800CF6696 /* SystemImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567CE2CA41C6800CF6696 /* SystemImages.swift */; };
 		013567D22CA41E2D00CF6696 /* FruitSalad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567D12CA41E2D00CF6696 /* FruitSalad.swift */; };
@@ -37,6 +39,10 @@
 		0199B4402C9ADEC5006253EF /* ScreenTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B43F2C9ADEC5006253EF /* ScreenTransition.swift */; };
 		0199B4422C9AE007006253EF /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B4412C9AE007006253EF /* WelcomeCoordinator.swift */; };
 		0199B4442C9AE308006253EF /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B4432C9AE308006253EF /* WelcomeView.swift */; };
+		01B2A5822CABF1B700FE62EB /* SaladView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2A57C2CABF1B700FE62EB /* SaladView.swift */; };
+		01B2A5832CABF1B700FE62EB /* SaladViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2A57D2CABF1B700FE62EB /* SaladViewController.swift */; };
+		01B2A5842CABF1B700FE62EB /* SaladViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2A57F2CABF1B700FE62EB /* SaladViewModel.swift */; };
+		01B2A5862CAC3E9E00FE62EB /* CounterChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2A5852CAC3E9E00FE62EB /* CounterChange.swift */; };
 		01B2B3D82CA16B030064B319 /* EnterNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3D72CA16B030064B319 /* EnterNameViewController.swift */; };
 		01B2B3DA2CA16B0D0064B319 /* EnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3D92CA16B0D0064B319 /* EnterNameView.swift */; };
 		01B2B3DD2CA16B1D0064B319 /* EnterNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3DC2CA16B1D0064B319 /* EnterNameViewModel.swift */; };
@@ -57,6 +63,8 @@
 /* Begin PBXFileReference section */
 		011AFC372CAAB638006541F9 /* NavigationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCell.swift; sourceTree = "<group>"; };
 		011AFC3D2CAAF3C2006541F9 /* SaladCellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladCellIdentifier.swift; sourceTree = "<group>"; };
+		011AFC4D2CAB0728006541F9 /* HomeActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeActions.swift; sourceTree = "<group>"; };
+		011AFC512CAB0C06006541F9 /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
 		013567C82CA418AA00CF6696 /* PlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
 		013567CE2CA41C6800CF6696 /* SystemImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImages.swift; sourceTree = "<group>"; };
 		013567D12CA41E2D00CF6696 /* FruitSalad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitSalad.swift; sourceTree = "<group>"; };
@@ -85,6 +93,10 @@
 		0199B43F2C9ADEC5006253EF /* ScreenTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTransition.swift; sourceTree = "<group>"; };
 		0199B4412C9AE007006253EF /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
 		0199B4432C9AE308006253EF /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		01B2A57C2CABF1B700FE62EB /* SaladView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladView.swift; sourceTree = "<group>"; };
+		01B2A57D2CABF1B700FE62EB /* SaladViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladViewController.swift; sourceTree = "<group>"; };
+		01B2A57F2CABF1B700FE62EB /* SaladViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladViewModel.swift; sourceTree = "<group>"; };
+		01B2A5852CAC3E9E00FE62EB /* CounterChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterChange.swift; sourceTree = "<group>"; };
 		01B2B3D72CA16B030064B319 /* EnterNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameViewController.swift; sourceTree = "<group>"; };
 		01B2B3D92CA16B0D0064B319 /* EnterNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameView.swift; sourceTree = "<group>"; };
 		01B2B3DC2CA16B1D0064B319 /* EnterNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameViewModel.swift; sourceTree = "<group>"; };
@@ -239,6 +251,7 @@
 				0199B4372C9ADC73006253EF /* WelcomeModule */,
 				01B2B3D42CA16A5C0064B319 /* EnterNameModule */,
 				01B2B3F02CA1C7F30064B319 /* HomeModule */,
+				01B2A5812CABF1B700FE62EB /* SaladModule */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -325,6 +338,32 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		01B2A57E2CABF1B700FE62EB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				01B2A57D2CABF1B700FE62EB /* SaladViewController.swift */,
+				01B2A57C2CABF1B700FE62EB /* SaladView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		01B2A5802CABF1B700FE62EB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				01B2A57F2CABF1B700FE62EB /* SaladViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01B2A5812CABF1B700FE62EB /* SaladModule */ = {
+			isa = PBXGroup;
+			children = (
+				01B2A57E2CABF1B700FE62EB /* UI */,
+				01B2A5802CABF1B700FE62EB /* ViewModel */,
+			);
+			path = SaladModule;
+			sourceTree = "<group>";
+		};
 		01B2B3D42CA16A5C0064B319 /* EnterNameModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +398,8 @@
 				01B2B3FB2CA1D6CA0064B319 /* BasketView.swift */,
 				013567C82CA418AA00CF6696 /* PlusButton.swift */,
 				013567D32CA421DC00CF6696 /* FavoriteButton.swift */,
+				011AFC512CAB0C06006541F9 /* BackButtonView.swift */,
+				01B2A5852CAC3E9E00FE62EB /* CounterChange.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -374,6 +415,7 @@
 		01B2B3F02CA1C7F30064B319 /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				011AFC4D2CAB0728006541F9 /* HomeActions.swift */,
 				01B2B3F22CA1C8200064B319 /* UI */,
 				01B2B3F12CA1C81B0064B319 /* ViewModel */,
 			);
@@ -480,6 +522,7 @@
 				0199B41E2C9AC853006253EF /* ModuleFactory.swift in Sources */,
 				0199B4322C9AD00E006253EF /* ImageAssets.swift in Sources */,
 				01B2B3FC2CA1D6CA0064B319 /* BasketView.swift in Sources */,
+				01B2A5862CAC3E9E00FE62EB /* CounterChange.swift in Sources */,
 				011AFC3E2CAAF3C2006541F9 /* SaladCellIdentifier.swift in Sources */,
 				01B2B3ED2CA188090064B319 /* AnimationManager.swift in Sources */,
 				01B2B3F42CA1C82A0064B319 /* HomeViewController.swift in Sources */,
@@ -489,6 +532,7 @@
 				0199B42F2C9ACF80006253EF /* UIColor+Extension.swift in Sources */,
 				0199B4402C9ADEC5006253EF /* ScreenTransition.swift in Sources */,
 				013567D42CA421DC00CF6696 /* FavoriteButton.swift in Sources */,
+				011AFC522CAB0C06006541F9 /* BackButtonView.swift in Sources */,
 				013567D22CA41E2D00CF6696 /* FruitSalad.swift in Sources */,
 				013567CF2CA41C6800CF6696 /* SystemImages.swift in Sources */,
 				0199B43B2C9ADCA4006253EF /* WelcomeViewController.swift in Sources */,
@@ -516,6 +560,10 @@
 				0199B4442C9AE308006253EF /* WelcomeView.swift in Sources */,
 				013567C92CA418AA00CF6696 /* PlusButton.swift in Sources */,
 				011AFC382CAAB638006541F9 /* NavigationCell.swift in Sources */,
+				01B2A5822CABF1B700FE62EB /* SaladView.swift in Sources */,
+				01B2A5832CABF1B700FE62EB /* SaladViewController.swift in Sources */,
+				01B2A5842CABF1B700FE62EB /* SaladViewModel.swift in Sources */,
+				011AFC4E2CAB0728006541F9 /* HomeActions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

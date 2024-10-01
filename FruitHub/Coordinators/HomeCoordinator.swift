@@ -19,11 +19,24 @@ final class HomeCoordinator: CoordinatorProtocol {
     
     func start() {
         showHomeModule()
+//        showSaladModule()
     }
     
     private func showHomeModule() {
         let homeController = ModuleFactory.createHomeModule()
         navigationController.setViewControllers([homeController], animated: true)
+        homeController.viewModel?.completionHandler = { [weak self] actions in
+            switch actions {
+            case .saladCellPressed:
+                self?.showSaladModule()
+            case .basketPressed:
+                print("1")
+            }
+        }
+    }
     
+    private func showSaladModule() {
+        let saladController = ModuleFactory.createSaladModule()
+        navigationController.pushViewController(saladController, animated: true)
     }
 }

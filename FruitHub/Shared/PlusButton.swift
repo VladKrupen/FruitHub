@@ -19,10 +19,10 @@ final class PlusButton: UIButton {
     }
     
     private func setupButton() {
-        let backgroundImage = UIImage(systemName: SystemImages.backgroundImageForPlusButton)?
+        let backgroundImage = UIImage(systemName: SystemImages.backgroundImageCircleFill)?
             .withTintColor(UIColor(hex: Colors.backgroundColorForButtonPlus)!, renderingMode: .alwaysOriginal)
         self.setBackgroundImage(backgroundImage, for: .normal)
-        let plusImage = UIImage(systemName: SystemImages.imageForPlusButton)?
+        let plusImage = UIImage(systemName: SystemImages.plus)?
             .withTintColor(UIColor(hex: Colors.orange)!, renderingMode: .alwaysOriginal)
         self.setImage(plusImage, for: .normal)
         self.translatesAutoresizingMaskIntoConstraints = false

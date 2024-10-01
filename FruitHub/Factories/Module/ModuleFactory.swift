@@ -35,4 +35,11 @@ final class ModuleFactory {
         homeViewController.viewModel = homeViewModel
         return homeViewController
     }
+    
+    static func createSaladModule() -> SaladViewController {
+        let saladController = SaladViewController()
+        let saladViewModel = SaladViewModel()
+        saladController.viewModel = saladViewModel
+        return saladController
+    }
 }

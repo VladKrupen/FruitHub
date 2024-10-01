@@ -10,9 +10,11 @@ import Foundation
 struct SystemImages {
     static let menuButton: String = "text.justify"
     static let basketView: String = "basket.fill"
-    static let backgroundImageForPlusButton: String = "circle.fill"
-    static let imageForPlusButton: String = "plus"
-    static let placeholderForRecommendedCell: String = "photo"
+    static let backgroundImageCircleFill: String = "circle.fill"
+    static let plus: String = "plus"
+    static let placeholderForSaladImage: String = "photo"
     static let heart: String = "heart"
     static let heartFill: String = "heart.fill"
+    static let backward: String = "chevron.backward"
+    static let minus: String = "minus"
 }

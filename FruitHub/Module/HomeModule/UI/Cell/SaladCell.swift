@@ -47,6 +47,7 @@ final class SaladCell: UICollectionViewCell {
     }(UILabel())
     
     private lazy var favoriteButton: FavoriteButton = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
         return $0
     }(FavoriteButton(type: .system))
@@ -63,7 +64,7 @@ final class SaladCell: UICollectionViewCell {
     
     //MARK: Configure
     func configureCell(recommended: FruitSalad) {
-        saladImageView.sd_setImage(with: URL(string: recommended.imageUrl), placeholderImage: UIImage(systemName: SystemImages.placeholderForRecommendedCell))
+        saladImageView.sd_setImage(with: URL(string: recommended.imageUrl), placeholderImage: UIImage(systemName: SystemImages.placeholderForSaladImage))
         priceLabel.text = "$ \(recommended.price)"
         saladNameLabel.text = recommended.nameSalad
         favoriteButton.isFavorite = recommended.isFavorite
@@ -138,6 +139,9 @@ final class SaladCell: UICollectionViewCell {
         customView.addSubview(favoriteButton)
         
         NSLayoutConstraint.activate([
+            favoriteButton.widthAnchor.constraint(equalToConstant: 30),
+            favoriteButton.heightAnchor.constraint(equalToConstant: 30),
+            
             favoriteButton.topAnchor.constraint(equalTo: customView.topAnchor, constant: 10),
             favoriteButton.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: -10),
         ])

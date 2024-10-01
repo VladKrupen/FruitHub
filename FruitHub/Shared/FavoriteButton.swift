@@ -22,16 +22,12 @@ final class FavoriteButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupButton()
+        self.imageView?.contentMode = .scaleAspectFit
+        self.contentHorizontalAlignment = .fill
+        self.contentVerticalAlignment = .fill
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupButton() {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        self.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
 }

@@ -10,4 +10,5 @@ import Foundation
 struct ButtonTitles {
     static let continueButton: String = "Let's Continue"
     static let startOrdering: String = "Start Ordering"
+    static let addToBasket: String = "Add to basket"
 }
