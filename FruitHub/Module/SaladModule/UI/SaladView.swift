@@ -10,6 +10,8 @@ import SDWebImage
 
 final class SaladView: UIView {
     
+    private var price: Float?
+    
     private let imageView: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFit
@@ -38,6 +40,7 @@ final class SaladView: UIView {
     private let scrollView: UIScrollView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.layer.cornerRadius = 25
+        $0.showsVerticalScrollIndicator = false
         return $0
     }(UIScrollView())
     
@@ -61,8 +64,9 @@ final class SaladView: UIView {
     }(CounterChange())
     
     private let counterLabel: UILabel = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = UIFont.systemFont(ofSize: 24)
-        $0.text = "1"
+        $0.textAlignment = .center
         return $0
     }(UILabel())
     
@@ -141,12 +145,19 @@ final class SaladView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(salad: FruitSalad) {
+    func configureView(salad: FruitSalad) {
         imageView.sd_setImage(with: URL(string: salad.imageUrl), placeholderImage: UIImage(systemName: SystemImages.placeholderForSaladImage))
         nameSaladLabel.text = salad.nameSalad
+        price = salad.price
         priceLabel.text = "$ \(salad.price)"
         compositionLabel.text = "Red Quinoa, Lime, Honey, Blueberries, Strawberries, Mango, Fresh mint"
         noteLabel.text = "If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you."
+    }
+    
+    func updateCounterAndPriceLables(counter: Int) {
+        counterLabel.text = "\(counter)"
+        guard let price = price else { return }
+        priceLabel.text = "$ \(Float(counter)*price)"
     }
     
     private func layoutElements() {
@@ -241,6 +252,8 @@ final class SaladView: UIView {
         scrollView.addSubview(counterHStack)
         
         NSLayoutConstraint.activate([
+            counterLabel.widthAnchor.constraint(equalToConstant: 30),
+            
             counterHStack.topAnchor.constraint(equalTo: nameSaladLabel.bottomAnchor, constant: 30),
             counterHStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
         ])

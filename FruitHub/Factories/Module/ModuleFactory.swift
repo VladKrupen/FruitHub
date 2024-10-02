@@ -37,8 +37,9 @@ final class ModuleFactory {
     }
     
     static func createSaladModule() -> SaladViewController {
+        let counterManager = CounterManager()
         let saladController = SaladViewController()
-        let saladViewModel = SaladViewModel()
+        let saladViewModel = SaladViewModel(counterManager: counterManager)
         saladController.viewModel = saladViewModel
         return saladController
     }

@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 final class SaladViewController: UIViewController {
+    
+    private var cancellables = Set<AnyCancellable>()
     
     var viewModel: SaladViewModelProtocol?
     private let contentView = SaladView()
@@ -23,8 +26,10 @@ final class SaladViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addActionsContentView()
-        let salad = FruitSalad(imageUrl: "", nameSalad: "Quinoa fruit salad", price: "10", isFavorite: false)
-        contentView.configure(salad: salad)
+        bindViewModelToView()
+        let salad = FruitSalad(imageUrl: "", nameSalad: "Quinoa fruit salad", price: 10, isFavorite: false)
+        contentView.configureView(salad: salad)
+        viewModel?.viewDidLoaded()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,6 +37,24 @@ final class SaladViewController: UIViewController {
         setupNavigationController()
     }
     
+    private func bindViewModelToView() {
+        viewModel?.counter
+            .sink { [weak self] value in
+                switch value {
+                case _ where value == 10:
+                    self?.contentView.increaseButton.isActive = false
+                case _ where value > 1:
+                    self?.contentView.decreaseButton.isActive = true
+                    self?.contentView.increaseButton.isActive = true
+                default:
+                    self?.contentView.decreaseButton.isActive = false
+                }
+                self?.contentView.updateCounterAndPriceLables(counter: value)
+            }
+            .store(in: &cancellables)
+    }
+    
+    //MARK: Setup
     private func setupNavigationController() {
         navigationController?.isNavigationBarHidden = false
         let backButton = UIBarButtonItem(customView: backButtonView)
@@ -41,6 +64,7 @@ final class SaladViewController: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
+    //MARK: Actions
     private func addActionsContentView() {
         addTargetForFavoriteButton()
         addTargetForAddToBasketButton()
@@ -87,14 +111,14 @@ extension SaladViewController {
     }
     
     @objc private func decreaseButtonTapped() {
-        AnimationManager.animateClick(view: contentView.decreaseButton) {
-            
+        AnimationManager.animateClick(view: contentView.decreaseButton) { [weak self] in
+            self?.viewModel?.decreaseButtonPressed()
         }
     }
     
     @objc private func increaseButtonTapped() {
-        AnimationManager.animateClick(view: contentView.increaseButton) {
-            
+        AnimationManager.animateClick(view: contentView.increaseButton) { [weak self] in
+            self?.viewModel?.increaseButtonPressed()
         }
     }
 }

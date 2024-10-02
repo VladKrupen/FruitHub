@@ -96,7 +96,7 @@ final class HomeView: UIView {
                 let recommendedHorizontalSection = NSCollectionLayoutSection(group: group)
                 recommendedHorizontalSection.interGroupSpacing = 20
                 recommendedHorizontalSection.orthogonalScrollingBehavior = .groupPaging
-                recommendedHorizontalSection.contentInsets = .init(top: 30, leading: 20, bottom: 0, trailing: 20)
+                recommendedHorizontalSection.contentInsets = .init(top: 30, leading: 20, bottom: 30, trailing: 20)
                 return recommendedHorizontalSection
             default:
                 fatalError()

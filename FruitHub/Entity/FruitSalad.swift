@@ -10,6 +10,6 @@ import Foundation
 struct FruitSalad {
     let imageUrl: String
     let nameSalad: String
-    let price: String
+    let price: Float
     let isFavorite: Bool
 }

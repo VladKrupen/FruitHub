@@ -59,7 +59,7 @@ final class HomeViewController: UIViewController {
         guard let recommendedCell = collectionView.dequeueReusableCell(withReuseIdentifier: SaladCellIdentifier.recommendedSalad, for: indexPath) as? SaladCell else {
             return UICollectionViewCell(frame: .zero)
         }
-        let recommended = FruitSalad(imageUrl: "https://w7.pngwing.com/pngs/259/411/png-transparent-computer-icons-text-information-link-blue-angle-text.png", nameSalad: "Honey lime combo", price: "5", isFavorite: false)
+        let recommended = FruitSalad(imageUrl: "https://w7.pngwing.com/pngs/259/411/png-transparent-computer-icons-text-information-link-blue-angle-text.png", nameSalad: "Honey lime combo", price: 5, isFavorite: false)
         recommendedCell.configureCell(recommended: recommended)
         return recommendedCell
     }
@@ -81,7 +81,7 @@ final class HomeViewController: UIViewController {
         guard let allSaladCell = collectionView.dequeueReusableCell(withReuseIdentifier: SaladCellIdentifier.allSalad, for: indexPath) as? SaladCell else {
             return UICollectionViewCell(frame: .zero)
         }
-        let recommended = FruitSalad(imageUrl: "https://w7.pngwing.com/pngs/259/411/png-transparent-computer-icons-text-information-link-blue-angle-text.png", nameSalad: "Honey lime combo", price: "5", isFavorite: false)
+        let recommended = FruitSalad(imageUrl: "https://w7.pngwing.com/pngs/259/411/png-transparent-computer-icons-text-information-link-blue-angle-text.png", nameSalad: "Honey lime combo", price: 5, isFavorite: false)
         allSaladCell.configureCell(recommended: recommended)
         return allSaladCell
     }
