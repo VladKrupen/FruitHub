@@ -30,7 +30,7 @@ final class HomeCoordinator: CoordinatorProtocol {
             case .saladCellPressed:
                 self?.showSaladModule()
             case .basketPressed:
-                print("1")
+                self?.showOrderListModule()
             }
         }
     }
@@ -38,5 +38,10 @@ final class HomeCoordinator: CoordinatorProtocol {
     private func showSaladModule() {
         let saladController = ModuleFactory.createSaladModule()
         navigationController.pushViewController(saladController, animated: true)
+    }
+    
+    private func showOrderListModule() {
+        let orderListController = ModuleFactory.createOrderListModule()
+        navigationController.pushViewController(orderListController, animated: true)
     }
 }

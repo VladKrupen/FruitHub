@@ -10,11 +10,11 @@ import UIKit
 final class HomeView: UIView {
     
     //MARK: UI
-    let basketView: BasketView = {
+    let basket: Basket = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.isUserInteractionEnabled = true
         return $0
-    }(BasketView())
+    }(Basket())
     
     let menuButton: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -114,14 +114,14 @@ final class HomeView: UIView {
     }
     
     private func layoutBasketButton() {
-        addSubview(basketView)
+        addSubview(basket)
         
         NSLayoutConstraint.activate([
-            basketView.widthAnchor.constraint(equalToConstant: 45),
-            basketView.heightAnchor.constraint(equalToConstant: 38),
+            basket.widthAnchor.constraint(equalToConstant: 45),
+            basket.heightAnchor.constraint(equalToConstant: 38),
             
-            basketView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            basketView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            basket.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            basket.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
         ])
     }
     

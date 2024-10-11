@@ -12,6 +12,7 @@ final class SaladView: UIView {
     
     private var price: Float?
     
+    //MARK: UI
     private let imageView: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFit
@@ -135,6 +136,7 @@ final class SaladView: UIView {
         return $0
     }(UILabel())
     
+    //MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor(hex: Colors.orange)
@@ -145,6 +147,7 @@ final class SaladView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Configure
     func configureView(salad: FruitSalad) {
         imageView.sd_setImage(with: URL(string: salad.imageUrl), placeholderImage: UIImage(systemName: SystemImages.placeholderForSaladImage))
         nameSaladLabel.text = salad.nameSalad
@@ -160,6 +163,7 @@ final class SaladView: UIView {
         priceLabel.text = "$ \(Float(counter)*price)"
     }
     
+    //MARK: Lauout
     private func layoutElements() {
         layoutImageView()
         layoutWhiteView()

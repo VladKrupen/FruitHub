@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class BasketView: UIView {
+final class Basket: UIView {
     
     private let imageView: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false

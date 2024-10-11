@@ -43,4 +43,11 @@ final class ModuleFactory {
         saladController.viewModel = saladViewModel
         return saladController
     }
+    
+    static func createOrderListModule() -> OrderListViewController {
+        let orderListViewController = OrderListViewController()
+        let orderListViewModel = OrderListViewModel()
+        orderListViewController.viewModel = orderListViewModel
+        return orderListViewController
+    }
 }

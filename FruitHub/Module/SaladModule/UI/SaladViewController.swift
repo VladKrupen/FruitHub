@@ -37,6 +37,7 @@ final class SaladViewController: UIViewController {
         setupNavigationController()
     }
     
+    //MARK: Bind
     private func bindViewModelToView() {
         viewModel?.counter
             .sink { [weak self] value in
@@ -91,6 +92,7 @@ final class SaladViewController: UIViewController {
     }
 }
 
+//MARK: OBJC
 extension SaladViewController {
     @objc private func backButtonViewTapped() {
         UIView.animate(withDuration: 0.1) { [weak self] in
@@ -123,6 +125,7 @@ extension SaladViewController {
     }
 }
 
+//MARK: UIGestureRecognizerDelegate
 extension SaladViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true

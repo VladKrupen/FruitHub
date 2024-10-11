@@ -11,6 +11,7 @@ import Combine
 protocol HomeViewModelProtocol {
     var completionHandler: ((HomeActions) -> Void)? { get set }
     func goToSaladModule()
+    func goToOrderListModule()
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
@@ -18,5 +19,9 @@ final class HomeViewModel: HomeViewModelProtocol {
 
     func goToSaladModule() {
         completionHandler?(.saladCellPressed)
+    }
+    
+    func goToOrderListModule() {
+        completionHandler?(.basketPressed)
     }
 }

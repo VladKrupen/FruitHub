@@ -41,7 +41,7 @@ final class HomeViewController: UIViewController {
     
     private func setupGestureForBasketView() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(basketViewTapped))
-        contentView.basketView.addGestureRecognizer(tapGesture)
+        contentView.basket.addGestureRecognizer(tapGesture)
     }
     
     private func menuButtonAction() {
@@ -101,8 +101,8 @@ final class HomeViewController: UIViewController {
 //MARK: OBJC
 extension HomeViewController {
     @objc private func basketViewTapped(_ sender: UIButton) {
-        AnimationManager.animateClick(view: contentView.basketView) {
-          
+        AnimationManager.animateClick(view: contentView.basket) { [weak self] in
+            self?.viewModel?.goToOrderListModule()
         }
     }
     
