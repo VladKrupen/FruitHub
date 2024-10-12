@@ -33,10 +33,10 @@ final class SaladView: UIView {
         return $0
     }(FavoriteButton())
     
-    let addToBasketButton: OrangeButton = {
+    let addToBasketButton: OrangeFillButton = {
         $0.setTitle(ButtonTitles.addToBasket, for: .normal)
         return $0
-    }(OrangeButton())
+    }(OrangeFillButton())
     
     private let scrollView: UIScrollView = {
         $0.translatesAutoresizingMaskIntoConstraints = false

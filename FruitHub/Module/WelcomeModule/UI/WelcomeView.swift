@@ -50,10 +50,10 @@ final class WelcomeView: UIView {
         return $0
     }(UIStackView())
     
-    let continueButton: OrangeButton = {
+    let continueButton: OrangeFillButton = {
         $0.setTitle(ButtonTitles.continueButton, for: .normal)
         return $0
-    }(OrangeButton())
+    }(OrangeFillButton())
     
     //MARK: Init
     override init(frame: CGRect) {

@@ -17,4 +17,5 @@ struct SystemImages {
     static let heartFill: String = "heart.fill"
     static let backward: String = "chevron.backward"
     static let minus: String = "minus"
+    static let multiply: String = "multiply"
 }

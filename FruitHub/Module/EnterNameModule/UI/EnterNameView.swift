@@ -48,11 +48,11 @@ final class EnterNameView: UIView {
         return $0
     }(UIStackView())
     
-    private lazy var startOrderingButton: OrangeButton = {
+    private lazy var startOrderingButton: OrangeFillButton = {
         $0.setTitle(ButtonTitles.startOrdering, for: .normal)
         $0.addTarget(self, action: #selector(startOrderingButtonTapped), for: .touchUpInside)
         return $0
-    }(OrangeButton())
+    }(OrangeFillButton())
     
     //MARK: Init
     override init(frame: CGRect) {

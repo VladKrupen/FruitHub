@@ -2,12 +2,12 @@
 //  OrangeButton.swift
 //  FruitHub
 //
-//  Created by Vlad on 12.10.24.
+//  Created by Vlad on 23.09.24.
 //
 
 import UIKit
 
-final class OrangeButton: UIButton {
+final class OrangeFillButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,10 +20,8 @@ final class OrangeButton: UIButton {
     
     private func setupButton() {
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.setTitleColor(UIColor(hex: Colors.orange), for: .normal)
-        self.titleLabel?.font = .systemFont(ofSize: 16)
+        self.setTitleColor(.white, for: .normal)
+        self.backgroundColor = UIColor(hex: Colors.orange)
         self.layer.cornerRadius = 10
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor(hex: Colors.orange)?.cgColor
     }
 }

@@ -22,6 +22,8 @@
 		0168EFD82CB91FAB008DFDD5 /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0168EFD72CB91FAB008DFDD5 /* OrderListView.swift */; };
 		0168EFDA2CB91FE0008DFDD5 /* OrderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0168EFD92CB91FE0008DFDD5 /* OrderListViewModel.swift */; };
 		0171D63E2CAD3CD100A9AC88 /* CounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0171D63D2CAD3CD100A9AC88 /* CounterManager.swift */; };
+		0172D6F52CB97BE100902C50 /* XmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0172D6F42CB97BE100902C50 /* XmarkButton.swift */; };
+		0172D6F72CB985BD00902C50 /* CompleteDetailsActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0172D6F62CB985BD00902C50 /* CompleteDetailsActions.swift */; };
 		0199B3F92C9AB332006253EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B3F82C9AB332006253EF /* AppDelegate.swift */; };
 		0199B3FB2C9AB332006253EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B3FA2C9AB332006253EF /* SceneDelegate.swift */; };
 		0199B4022C9AB334006253EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0199B4012C9AB334006253EF /* Assets.xcassets */; };
@@ -51,7 +53,7 @@
 		01B2B3DA2CA16B0D0064B319 /* EnterNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3D92CA16B0D0064B319 /* EnterNameView.swift */; };
 		01B2B3DD2CA16B1D0064B319 /* EnterNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3DC2CA16B1D0064B319 /* EnterNameViewModel.swift */; };
 		01B2B3DF2CA16E8B0064B319 /* EnterNameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3DE2CA16E8B0064B319 /* EnterNameCoordinator.swift */; };
-		01B2B3E22CA1723C0064B319 /* OrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3E12CA1723B0064B319 /* OrangeButton.swift */; };
+		01B2B3E22CA1723C0064B319 /* OrangeFillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3E12CA1723B0064B319 /* OrangeFillButton.swift */; };
 		01B2B3E42CA1744F0064B319 /* ButtonTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3E32CA1744F0064B319 /* ButtonTitles.swift */; };
 		01B2B3E82CA17C520064B319 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3E72CA17C520064B319 /* CustomTextField.swift */; };
 		01B2B3EA2CA17E760064B319 /* Placeholders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3E92CA17E760064B319 /* Placeholders.swift */; };
@@ -64,6 +66,10 @@
 		01B2B3FC2CA1D6CA0064B319 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2B3FB2CA1D6CA0064B319 /* Basket.swift */; };
 		01B8AAC62CB93BD0009BE3EB /* NavigationItemTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8AAC52CB93BD0009BE3EB /* NavigationItemTitle.swift */; };
 		01B8AAC82CB94FB3009BE3EB /* OrderListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8AAC72CB94FB3009BE3EB /* OrderListCell.swift */; };
+		01B8AACD2CB9660A009BE3EB /* CompleteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8AACC2CB9660A009BE3EB /* CompleteDetailsViewController.swift */; };
+		01B8AACF2CB9667B009BE3EB /* CompleteDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8AACE2CB9667B009BE3EB /* CompleteDetailsView.swift */; };
+		01B8AAD12CB966DB009BE3EB /* CompleteDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8AAD02CB966DB009BE3EB /* CompleteDetailsViewModel.swift */; };
+		01CA6A322CBA806E00D4AF80 /* OrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA6A312CBA806E00D4AF80 /* OrangeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +86,8 @@
 		0168EFD72CB91FAB008DFDD5 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
 		0168EFD92CB91FE0008DFDD5 /* OrderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewModel.swift; sourceTree = "<group>"; };
 		0171D63D2CAD3CD100A9AC88 /* CounterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterManager.swift; sourceTree = "<group>"; };
+		0172D6F42CB97BE100902C50 /* XmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmarkButton.swift; sourceTree = "<group>"; };
+		0172D6F62CB985BD00902C50 /* CompleteDetailsActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteDetailsActions.swift; sourceTree = "<group>"; };
 		0199B3F52C9AB332006253EF /* FruitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0199B3F82C9AB332006253EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0199B3FA2C9AB332006253EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +119,7 @@
 		01B2B3D92CA16B0D0064B319 /* EnterNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameView.swift; sourceTree = "<group>"; };
 		01B2B3DC2CA16B1D0064B319 /* EnterNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameViewModel.swift; sourceTree = "<group>"; };
 		01B2B3DE2CA16E8B0064B319 /* EnterNameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNameCoordinator.swift; sourceTree = "<group>"; };
-		01B2B3E12CA1723B0064B319 /* OrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButton.swift; sourceTree = "<group>"; };
+		01B2B3E12CA1723B0064B319 /* OrangeFillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeFillButton.swift; sourceTree = "<group>"; };
 		01B2B3E32CA1744F0064B319 /* ButtonTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTitles.swift; sourceTree = "<group>"; };
 		01B2B3E72CA17C520064B319 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		01B2B3E92CA17E760064B319 /* Placeholders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholders.swift; sourceTree = "<group>"; };
@@ -124,6 +132,10 @@
 		01B2B3FB2CA1D6CA0064B319 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 		01B8AAC52CB93BD0009BE3EB /* NavigationItemTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItemTitle.swift; sourceTree = "<group>"; };
 		01B8AAC72CB94FB3009BE3EB /* OrderListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListCell.swift; sourceTree = "<group>"; };
+		01B8AACC2CB9660A009BE3EB /* CompleteDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteDetailsViewController.swift; sourceTree = "<group>"; };
+		01B8AACE2CB9667B009BE3EB /* CompleteDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteDetailsView.swift; sourceTree = "<group>"; };
+		01B8AAD02CB966DB009BE3EB /* CompleteDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteDetailsViewModel.swift; sourceTree = "<group>"; };
+		01CA6A312CBA806E00D4AF80 /* OrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +304,7 @@
 				01B2B3F02CA1C7F30064B319 /* HomeModule */,
 				01B2A5812CABF1B700FE62EB /* SaladModule */,
 				0168EFC92CB91B14008DFDD5 /* OrderListModule */,
+				01B8AAC92CB965C2009BE3EB /* CompleteDetailsModule */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -434,13 +447,15 @@
 		01B2B3E02CA171FD0064B319 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				01B2B3E12CA1723B0064B319 /* OrangeButton.swift */,
+				01B2B3E12CA1723B0064B319 /* OrangeFillButton.swift */,
 				01B2B3E72CA17C520064B319 /* CustomTextField.swift */,
 				01B2B3FB2CA1D6CA0064B319 /* Basket.swift */,
 				013567C82CA418AA00CF6696 /* PlusButton.swift */,
 				013567D32CA421DC00CF6696 /* FavoriteButton.swift */,
 				011AFC512CAB0C06006541F9 /* BackButtonView.swift */,
 				01B2A5852CAC3E9E00FE62EB /* CounterChange.swift */,
+				0172D6F42CB97BE100902C50 /* XmarkButton.swift */,
+				01CA6A312CBA806E00D4AF80 /* OrangeButton.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -478,6 +493,33 @@
 				01B2B3F32CA1C82A0064B319 /* HomeViewController.swift */,
 				01B2B3F92CA1CE960064B319 /* HomeView.swift */,
 				011AFC3A2CAAEF05006541F9 /* Cell */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		01B8AAC92CB965C2009BE3EB /* CompleteDetailsModule */ = {
+			isa = PBXGroup;
+			children = (
+				0172D6F62CB985BD00902C50 /* CompleteDetailsActions.swift */,
+				01B8AACB2CB965F2009BE3EB /* UI */,
+				01B8AACA2CB965ED009BE3EB /* ViewModel */,
+			);
+			path = CompleteDetailsModule;
+			sourceTree = "<group>";
+		};
+		01B8AACA2CB965ED009BE3EB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				01B8AAD02CB966DB009BE3EB /* CompleteDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01B8AACB2CB965F2009BE3EB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				01B8AACC2CB9660A009BE3EB /* CompleteDetailsViewController.swift */,
+				01B8AACE2CB9667B009BE3EB /* CompleteDetailsView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -570,7 +612,9 @@
 				01B2B3ED2CA188090064B319 /* AnimationManager.swift in Sources */,
 				01B2B3F42CA1C82A0064B319 /* HomeViewController.swift in Sources */,
 				0199B4362C9AD3C4006253EF /* Colors.swift in Sources */,
+				0172D6F72CB985BD00902C50 /* CompleteDetailsActions.swift in Sources */,
 				0171D63E2CAD3CD100A9AC88 /* CounterManager.swift in Sources */,
+				0172D6F52CB97BE100902C50 /* XmarkButton.swift in Sources */,
 				0199B41B2C9AC5FD006253EF /* CoordinatorProtocol.swift in Sources */,
 				0199B4422C9AE007006253EF /* WelcomeCoordinator.swift in Sources */,
 				0199B42F2C9ACF80006253EF /* UIColor+Extension.swift in Sources */,
@@ -585,16 +629,19 @@
 				0199B3F92C9AB332006253EF /* AppDelegate.swift in Sources */,
 				0199B43D2C9ADCC9006253EF /* WelcomeViewModel.swift in Sources */,
 				0157A2AB2CA29F33005FEE4E /* SaladCell.swift in Sources */,
+				01B8AACD2CB9660A009BE3EB /* CompleteDetailsViewController.swift in Sources */,
 				0199B42C2C9ACC28006253EF /* SplashViewModel.swift in Sources */,
 				01B2B3EA2CA17E760064B319 /* Placeholders.swift in Sources */,
-				01B2B3E22CA1723C0064B319 /* OrangeButton.swift in Sources */,
+				01B2B3E22CA1723C0064B319 /* OrangeFillButton.swift in Sources */,
 				0199B4342C9AD133006253EF /* SplashView.swift in Sources */,
 				01B2B3EF2CA1B9F70064B319 /* LabelNames.swift in Sources */,
 				0199B4172C9AC47B006253EF /* CoordinatorFactory.swift in Sources */,
 				0199B4192C9AC5DC006253EF /* SplashCoordinator.swift in Sources */,
 				01B2B3DA2CA16B0D0064B319 /* EnterNameView.swift in Sources */,
 				0199B4132C9AC3C5006253EF /* AppCoordinatorProtocol.swift in Sources */,
+				01B8AAD12CB966DB009BE3EB /* CompleteDetailsViewModel.swift in Sources */,
 				01B2B3DD2CA16B1D0064B319 /* EnterNameViewModel.swift in Sources */,
+				01B8AACF2CB9667B009BE3EB /* CompleteDetailsView.swift in Sources */,
 				0168EFD82CB91FAB008DFDD5 /* OrderListView.swift in Sources */,
 				01B8AAC62CB93BD0009BE3EB /* NavigationItemTitle.swift in Sources */,
 				01B2B3E42CA1744F0064B319 /* ButtonTitles.swift in Sources */,
@@ -609,6 +656,7 @@
 				011AFC382CAAB638006541F9 /* NavigationCell.swift in Sources */,
 				01B2A5822CABF1B700FE62EB /* SaladView.swift in Sources */,
 				01B2A5832CABF1B700FE62EB /* SaladViewController.swift in Sources */,
+				01CA6A322CBA806E00D4AF80 /* OrangeButton.swift in Sources */,
 				01B8AAC82CB94FB3009BE3EB /* OrderListCell.swift in Sources */,
 				01B2A5842CABF1B700FE62EB /* SaladViewModel.swift in Sources */,
 				011AFC4E2CAB0728006541F9 /* HomeActions.swift in Sources */,

@@ -50,4 +50,11 @@ final class ModuleFactory {
         orderListViewController.viewModel = orderListViewModel
         return orderListViewController
     }
+    
+    static func createCompleteDetailsModule() -> CompleteDetailsViewController {
+        let completeDetailsViewController = CompleteDetailsViewController()
+        let completeDetailsViewModel = CompleteDetailsViewModel()
+        completeDetailsViewController.viewModel = completeDetailsViewModel
+        return completeDetailsViewController
+    }
 }

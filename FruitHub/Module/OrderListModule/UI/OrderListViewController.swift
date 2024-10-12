@@ -62,8 +62,8 @@ extension OrderListViewController {
     }
     
     @objc private func checkoutButtonTapped() {
-        AnimationManager.animateClick(view: contentView.chekoutButton) {
-            
+        AnimationManager.animateClick(view: contentView.chekoutButton) { [weak self] in
+            self?.viewModel?.goToCompleteDetailsModule()
         }
     }
 }

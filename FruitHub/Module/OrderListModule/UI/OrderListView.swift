@@ -33,10 +33,10 @@ final class OrderListView: UIView {
         return $0
     }(UILabel())
     
-    let chekoutButton: OrangeButton = {
+    let chekoutButton: OrangeFillButton = {
         $0.setTitle(ButtonTitles.addToBasket, for: .normal)
         return $0
-    }(OrangeButton())
+    }(OrangeFillButton())
     
     private let hStack: UIStackView = {
         $0.translatesAutoresizingMaskIntoConstraints = false

@@ -20,6 +20,7 @@ final class HomeCoordinator: CoordinatorProtocol {
     func start() {
         showHomeModule()
 //        showSaladModule()
+//        showOrderListModule()
     }
     
     private func showHomeModule() {
@@ -43,5 +44,28 @@ final class HomeCoordinator: CoordinatorProtocol {
     private func showOrderListModule() {
         let orderListController = ModuleFactory.createOrderListModule()
         navigationController.pushViewController(orderListController, animated: true)
+        orderListController.viewModel?.completionHandler = { [weak self] in
+            self?.showCompleteDetailsModule()
+        }
+    }
+    
+    private func showCompleteDetailsModule() {
+        let completeDetailsController = ModuleFactory.createCompleteDetailsModule()
+        if let sheetController = completeDetailsController.sheetPresentationController {
+            sheetController.detents = [.custom(resolver: { context in
+                context.maximumDetentValue * 0.6
+            })]
+        }
+        navigationController.present(completeDetailsController, animated: true)
+        completeDetailsController.viewModel?.completionHandler = { [weak self] actions in
+            switch actions {
+            case .dismissButton:
+                self?.navigationController.dismiss(animated: true)
+            case .payOnDeliveryButton:
+                print()
+            case .payWithCardButton:
+                print()
+            }
+        }
     }
 }

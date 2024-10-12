@@ -17,8 +17,8 @@ final class AppCoordinator: AppCoordinatorProtocol {
     }
     
     func start() {
-//        showSplashFlow()
-        showHomeFlow()
+        showSplashFlow()
+//        showHomeFlow()
     }
     
     private func showSplashFlow() {

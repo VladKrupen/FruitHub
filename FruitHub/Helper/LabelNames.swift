@@ -15,4 +15,6 @@ struct LabelNames {
     static let recommendedCombo: String = "Recommended Combo"
     static let onePackContains: String = "One Pack Contains:"
     static let total: String = "Total"
+    static let deliveryAddress: String = "Delivery address"
+    static let numberPhone: String = "Number we can call"
 }
