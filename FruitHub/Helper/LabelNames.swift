@@ -17,4 +17,8 @@ struct LabelNames {
     static let total: String = "Total"
     static let deliveryAddress: String = "Delivery address"
     static let numberPhone: String = "Number we can call"
+    static let cardHoldersName: String = "Card Holders Name"
+    static let cardNumber: String = "Card Number"
+    static let date: String = "Date"
+    static let cvv: String = "CVV"
 }

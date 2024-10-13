@@ -34,7 +34,7 @@ final class OrderListView: UIView {
     }(UILabel())
     
     let chekoutButton: OrangeFillButton = {
-        $0.setTitle(ButtonTitles.addToBasket, for: .normal)
+        $0.setTitle(ButtonTitles.checkout, for: .normal)
         return $0
     }(OrangeFillButton())
     

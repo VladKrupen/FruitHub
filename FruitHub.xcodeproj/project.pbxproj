@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010FAD182CBBBA94009D1250 /* CardDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010FAD172CBBBA94009D1250 /* CardDetailsView.swift */; };
+		010FAD1C2CBBBAE3009D1250 /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010FAD1B2CBBBAE3009D1250 /* CardDetailsViewController.swift */; };
+		010FAD1E2CBBBB5D009D1250 /* CardDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010FAD1D2CBBBB5D009D1250 /* CardDetailsViewModel.swift */; };
+		010FAD202CBBBF00009D1250 /* CardDetailsActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010FAD1F2CBBBF00009D1250 /* CardDetailsActions.swift */; };
 		011AFC382CAAB638006541F9 /* NavigationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011AFC372CAAB638006541F9 /* NavigationCell.swift */; };
 		011AFC3E2CAAF3C2006541F9 /* SaladCellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011AFC3D2CAAF3C2006541F9 /* SaladCellIdentifier.swift */; };
 		011AFC4E2CAB0728006541F9 /* HomeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011AFC4D2CAB0728006541F9 /* HomeActions.swift */; };
@@ -15,6 +19,7 @@
 		013567CF2CA41C6800CF6696 /* SystemImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567CE2CA41C6800CF6696 /* SystemImages.swift */; };
 		013567D22CA41E2D00CF6696 /* FruitSalad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567D12CA41E2D00CF6696 /* FruitSalad.swift */; };
 		013567D42CA421DC00CF6696 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567D32CA421DC00CF6696 /* FavoriteButton.swift */; };
+		014D9DD32CBBEB2B00E99251 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D9DD22CBBEB2B00E99251 /* Card.swift */; };
 		0157A2AB2CA29F33005FEE4E /* SaladCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157A2AA2CA29F33005FEE4E /* SaladCell.swift */; };
 		0157A2AE2CA2BFC9005FEE4E /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0157A2AD2CA2BFC9005FEE4E /* SDWebImage */; };
 		0157A2B02CA2BFC9005FEE4E /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0157A2AF2CA2BFC9005FEE4E /* SDWebImageMapKit */; };
@@ -73,6 +78,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010FAD172CBBBA94009D1250 /* CardDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsView.swift; sourceTree = "<group>"; };
+		010FAD1B2CBBBAE3009D1250 /* CardDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
+		010FAD1D2CBBBB5D009D1250 /* CardDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewModel.swift; sourceTree = "<group>"; };
+		010FAD1F2CBBBF00009D1250 /* CardDetailsActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsActions.swift; sourceTree = "<group>"; };
 		011AFC372CAAB638006541F9 /* NavigationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCell.swift; sourceTree = "<group>"; };
 		011AFC3D2CAAF3C2006541F9 /* SaladCellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladCellIdentifier.swift; sourceTree = "<group>"; };
 		011AFC4D2CAB0728006541F9 /* HomeActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeActions.swift; sourceTree = "<group>"; };
@@ -81,6 +90,7 @@
 		013567CE2CA41C6800CF6696 /* SystemImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImages.swift; sourceTree = "<group>"; };
 		013567D12CA41E2D00CF6696 /* FruitSalad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitSalad.swift; sourceTree = "<group>"; };
 		013567D32CA421DC00CF6696 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		014D9DD22CBBEB2B00E99251 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		0157A2AA2CA29F33005FEE4E /* SaladCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladCell.swift; sourceTree = "<group>"; };
 		0168EFD52CB91F7E008DFDD5 /* OrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
 		0168EFD72CB91FAB008DFDD5 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
@@ -151,6 +161,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		010FAD142CBBBA62009D1250 /* CardDetailsModule */ = {
+			isa = PBXGroup;
+			children = (
+				010FAD1F2CBBBF00009D1250 /* CardDetailsActions.swift */,
+				010FAD162CBBBA78009D1250 /* UI */,
+				010FAD152CBBBA71009D1250 /* ViewModel */,
+			);
+			path = CardDetailsModule;
+			sourceTree = "<group>";
+		};
+		010FAD152CBBBA71009D1250 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				010FAD1D2CBBBB5D009D1250 /* CardDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		010FAD162CBBBA78009D1250 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				010FAD1B2CBBBAE3009D1250 /* CardDetailsViewController.swift */,
+				010FAD172CBBBA94009D1250 /* CardDetailsView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		011AFC3A2CAAEF05006541F9 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				013567D12CA41E2D00CF6696 /* FruitSalad.swift */,
+				014D9DD22CBBEB2B00E99251 /* Card.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -305,6 +343,7 @@
 				01B2A5812CABF1B700FE62EB /* SaladModule */,
 				0168EFC92CB91B14008DFDD5 /* OrderListModule */,
 				01B8AAC92CB965C2009BE3EB /* CompleteDetailsModule */,
+				010FAD142CBBBA62009D1250 /* CardDetailsModule */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -607,7 +646,9 @@
 				0168EFD62CB91F7E008DFDD5 /* OrderListViewController.swift in Sources */,
 				0199B4322C9AD00E006253EF /* ImageAssets.swift in Sources */,
 				01B2B3FC2CA1D6CA0064B319 /* Basket.swift in Sources */,
+				010FAD202CBBBF00009D1250 /* CardDetailsActions.swift in Sources */,
 				01B2A5862CAC3E9E00FE62EB /* CounterChange.swift in Sources */,
+				010FAD182CBBBA94009D1250 /* CardDetailsView.swift in Sources */,
 				011AFC3E2CAAF3C2006541F9 /* SaladCellIdentifier.swift in Sources */,
 				01B2B3ED2CA188090064B319 /* AnimationManager.swift in Sources */,
 				01B2B3F42CA1C82A0064B319 /* HomeViewController.swift in Sources */,
@@ -619,6 +660,7 @@
 				0199B4422C9AE007006253EF /* WelcomeCoordinator.swift in Sources */,
 				0199B42F2C9ACF80006253EF /* UIColor+Extension.swift in Sources */,
 				0199B4402C9ADEC5006253EF /* ScreenTransition.swift in Sources */,
+				010FAD1E2CBBBB5D009D1250 /* CardDetailsViewModel.swift in Sources */,
 				013567D42CA421DC00CF6696 /* FavoriteButton.swift in Sources */,
 				011AFC522CAB0C06006541F9 /* BackButtonView.swift in Sources */,
 				013567D22CA41E2D00CF6696 /* FruitSalad.swift in Sources */,
@@ -629,6 +671,7 @@
 				0199B3F92C9AB332006253EF /* AppDelegate.swift in Sources */,
 				0199B43D2C9ADCC9006253EF /* WelcomeViewModel.swift in Sources */,
 				0157A2AB2CA29F33005FEE4E /* SaladCell.swift in Sources */,
+				014D9DD32CBBEB2B00E99251 /* Card.swift in Sources */,
 				01B8AACD2CB9660A009BE3EB /* CompleteDetailsViewController.swift in Sources */,
 				0199B42C2C9ACC28006253EF /* SplashViewModel.swift in Sources */,
 				01B2B3EA2CA17E760064B319 /* Placeholders.swift in Sources */,
@@ -646,6 +689,7 @@
 				01B8AAC62CB93BD0009BE3EB /* NavigationItemTitle.swift in Sources */,
 				01B2B3E42CA1744F0064B319 /* ButtonTitles.swift in Sources */,
 				01B2B3DF2CA16E8B0064B319 /* EnterNameCoordinator.swift in Sources */,
+				010FAD1C2CBBBAE3009D1250 /* CardDetailsViewController.swift in Sources */,
 				01B2B3FA2CA1CE960064B319 /* HomeView.swift in Sources */,
 				0199B3FB2C9AB332006253EF /* SceneDelegate.swift in Sources */,
 				01B2B3D82CA16B030064B319 /* EnterNameViewController.swift in Sources */,

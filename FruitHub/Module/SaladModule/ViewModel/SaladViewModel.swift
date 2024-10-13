@@ -11,8 +11,8 @@ import Combine
 protocol SaladViewModelProtocol {
     var counter: PassthroughSubject<Int, Never> { get set }
     func viewDidLoaded()
-    func decreaseButtonPressed()
-    func increaseButtonPressed()
+    func decreaseButtonWasPressed()
+    func increaseButtonWasPressed()
 }
 
 final class SaladViewModel: SaladViewModelProtocol {
@@ -29,12 +29,12 @@ final class SaladViewModel: SaladViewModelProtocol {
         sendCounter()
     }
     
-    func decreaseButtonPressed() {
+    func decreaseButtonWasPressed() {
         counterManager.decreaseCounter()
         sendCounter()
     }
     
-    func increaseButtonPressed() {
+    func increaseButtonWasPressed() {
         counterManager.increaseCounter()
         sendCounter()
     }

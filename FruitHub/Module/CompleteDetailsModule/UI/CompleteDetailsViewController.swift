@@ -45,7 +45,7 @@ final class CompleteDetailsViewController: UIViewController {
 //MARK: OBJC
 extension CompleteDetailsViewController {
     @objc private func dismissButtonTapped() {
-        viewModel?.dismissAction()
+        viewModel?.dismissButtonWasPressed()
     }
     
     @objc private func payOnDeliveryButtonTapped() {
@@ -55,8 +55,8 @@ extension CompleteDetailsViewController {
     }
     
     @objc private func payWithCardButtonTapped() {
-        AnimationManager.animateClick(view: contentView.payWithCardButton) {
-            
+        AnimationManager.animateClick(view: contentView.payWithCardButton) { [weak self] in
+            self?.viewModel?.payWithCardButtonWasPressed()
         }
     }
 }

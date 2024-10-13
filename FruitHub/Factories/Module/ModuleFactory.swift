@@ -57,4 +57,11 @@ final class ModuleFactory {
         completeDetailsViewController.viewModel = completeDetailsViewModel
         return completeDetailsViewController
     }
+    
+    static func createCardDetailsModule() -> CardDetailsViewController {
+        let cardDetailsViewController = CardDetailsViewController()
+        let cardDetailsViewModel = CardDetailsViewModel()
+        cardDetailsViewController.viewModel = cardDetailsViewModel
+        return cardDetailsViewController
+    }
 }

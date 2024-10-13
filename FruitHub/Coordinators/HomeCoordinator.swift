@@ -53,17 +53,36 @@ final class HomeCoordinator: CoordinatorProtocol {
         let completeDetailsController = ModuleFactory.createCompleteDetailsModule()
         if let sheetController = completeDetailsController.sheetPresentationController {
             sheetController.detents = [.custom(resolver: { context in
-                context.maximumDetentValue * 0.6
+                return 450
             })]
         }
         navigationController.present(completeDetailsController, animated: true)
         completeDetailsController.viewModel?.completionHandler = { [weak self] actions in
             switch actions {
             case .dismissButton:
-                self?.navigationController.dismiss(animated: true)
+                completeDetailsController.dismiss(animated: true)
             case .payOnDeliveryButton:
                 print()
             case .payWithCardButton:
+                self?.showCardDetailsModule(controller: completeDetailsController)
+            }
+        }
+    }
+    
+    private func showCardDetailsModule(controller: UIViewController) {
+        let cardDetailsController = ModuleFactory.createCardDetailsModule()
+        if let sheetController = cardDetailsController.sheetPresentationController {
+            sheetController.detents = [.custom(resolver: { context in
+                return 570
+            })]
+            
+        }
+        controller.present(cardDetailsController, animated: true)
+        cardDetailsController.viewModel?.completionHandler = { actions in
+            switch actions {
+            case .dismissButton:
+                cardDetailsController.dismiss(animated: true)
+            case .completeOrderButton:
                 print()
             }
         }

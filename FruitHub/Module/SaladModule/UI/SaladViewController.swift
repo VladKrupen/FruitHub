@@ -114,13 +114,13 @@ extension SaladViewController {
     
     @objc private func decreaseButtonTapped() {
         AnimationManager.animateClick(view: contentView.decreaseButton) { [weak self] in
-            self?.viewModel?.decreaseButtonPressed()
+            self?.viewModel?.decreaseButtonWasPressed()
         }
     }
     
     @objc private func increaseButtonTapped() {
         AnimationManager.animateClick(view: contentView.increaseButton) { [weak self] in
-            self?.viewModel?.increaseButtonPressed()
+            self?.viewModel?.increaseButtonWasPressed()
         }
     }
 }

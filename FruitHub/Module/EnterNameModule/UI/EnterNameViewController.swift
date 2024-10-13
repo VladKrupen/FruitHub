@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 final class EnterNameViewController: UIViewController {
+    
+    private var cancellables = Set<AnyCancellable>()
     
     var viewModel: EnterNameViewModelProtocol?
     private let contentView = EnterNameView()
@@ -21,22 +24,28 @@ final class EnterNameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         startOrderingButtonTapped()
+        bindViewModelToView()
+    }
+    
+    //MARK: Bind
+    private func bindViewModelToView() {
+        viewModel?.nameEmptyErrorMessage
+            .sink { [weak self] message in
+                self?.showAlertEmptyField(message: message)
+            }
+            .store(in: &cancellables)
     }
     
     //MARK: Setup
     private func startOrderingButtonTapped() {
         contentView.startOrderingButtonAction = { [weak self] name in
-            guard !name.isEmpty else {
-                self?.showAlertEmptyField()
-                return
-            }
-            self?.viewModel?.goToNextScreen()
+            self?.viewModel?.checkIfNameIsEmpty(name: name)
         }
     }
     
     //MARK: Alert
-    private func showAlertEmptyField() {
-        let alert = UIAlertController(title: nil, message: "Please enter your name", preferredStyle: .alert)
+    private func showAlertEmptyField(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(okAction)
         DispatchQueue.main.async { [weak self] in

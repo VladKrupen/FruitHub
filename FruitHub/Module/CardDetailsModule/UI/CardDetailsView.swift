@@ -1,13 +1,13 @@
 //
-//  CompleteDetailsView.swift
+//  CardDetailsView.swift
 //  FruitHub
 //
-//  Created by Vlad on 11.10.24.
+//  Created by Vlad on 13.10.24.
 //
 
 import UIKit
 
-final class CompleteDetailsView: UIView {
+final class CardDetailsView: UIView {
     
     //MARK: UI
     let dismissButton: XmarkButton = {
@@ -21,61 +21,96 @@ final class CompleteDetailsView: UIView {
         return $0
     }(UIView())
     
-    private let scrollView: UIScrollView = {
+    let scrollView: UIScrollView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.layer.cornerRadius = 20
         return $0
     }(UIScrollView())
     
-    private let deliveryAddressLabel: UILabel = {
+    private let cardHoldersNameLabel: UILabel = {
         $0.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        $0.text = LabelNames.deliveryAddress
+        $0.text = LabelNames.cardHoldersName
         return $0
     }(UILabel())
-    
-    private lazy var deliveryAddressTextField: CustomTextField = {
-        $0.placeholder = Placeholders.deliveryAddress
+
+    private lazy var cardHoldersNameTextField: CustomTextField = {
+        $0.placeholder = Placeholders.cardHoldersName
         $0.delegate = self
         return $0
     }(CustomTextField())
     
-    private let numberPhoneLabel: UILabel = {
+    private let cardNumberLabel: UILabel = {
         $0.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        $0.text = LabelNames.numberPhone
+        $0.text = LabelNames.cardNumber
         return $0
     }(UILabel())
     
-    private lazy var numberPhoneTextField: CustomTextField = {
-        $0.placeholder = Placeholders.numberPhone
+    private lazy var cardNumberTextField: CustomTextField = {
+        $0.placeholder = Placeholders.cardNumber
         $0.delegate = self
         return $0
     }(CustomTextField())
+    
+    private let dateLabel: UILabel = {
+        $0.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        $0.text = LabelNames.date
+        return $0
+    }(UILabel())
+    
+    private lazy var dateTextField: CustomTextField = {
+        $0.widthAnchor.constraint(equalToConstant: 135).isActive = true
+        $0.placeholder = Placeholders.date
+        $0.textAlignment = .center
+        $0.delegate = self
+        return $0
+    }(CustomTextField())
+    
+    private let dateVStack: UIStackView = {
+        $0.axis = .vertical
+        $0.alignment = .center
+        $0.spacing = 20
+        return $0
+    }(UIStackView())
+    
+    private let cvvLabel: UILabel = {
+        $0.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        $0.text = LabelNames.cvv
+        return $0
+    }(UILabel())
+    
+    private lazy var cvvTextField: CustomTextField = {
+        $0.widthAnchor.constraint(equalToConstant: 135).isActive = true
+        $0.placeholder = Placeholders.cvv
+        $0.textAlignment = .center
+        $0.delegate = self
+        return $0
+    }(CustomTextField())
+    
+    private let cvvVStack: UIStackView = {
+        $0.axis = .vertical
+        $0.alignment = .center
+        $0.spacing = 20
+        return $0
+    }(UIStackView())
+    
+    private let hStack: UIStackView = {
+        $0.axis = .horizontal
+        $0.distribution = .equalSpacing
+        return $0
+    }(UIStackView())
+    
+    private lazy var completeOrderButton: OrangeButton = {
+        $0.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        $0.widthAnchor.constraint(equalToConstant: 130).isActive = true
+        $0.setTitle(ButtonTitles.payWithCard, for: .normal)
+        $0.addTarget(self, action: #selector(completeOrderButtonTapped), for: .touchUpInside)
+        return $0
+    }(OrangeButton())
     
     private let vStack: UIStackView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.axis = .vertical
         $0.spacing = 20
-        return $0
-    }(UIStackView())
-    
-    let payOnDeliveryButton: OrangeButton = {
-        $0.heightAnchor.constraint(equalToConstant: 56).isActive = true
-        $0.widthAnchor.constraint(equalToConstant: 130).isActive = true
-        $0.setTitle(ButtonTitles.payOnDelivery, for: .normal)
-        return $0
-    }(OrangeButton())
-    
-    let payWithCardButton: OrangeButton = {
-        $0.heightAnchor.constraint(equalToConstant: 56).isActive = true
-        $0.widthAnchor.constraint(equalToConstant: 130).isActive = true
-        $0.setTitle(ButtonTitles.payWithCard, for: .normal)
-        return $0
-    }(OrangeButton())
-    
-    private let hStackButton: UIStackView = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.distribution = .equalSpacing
-        $0.axis = .horizontal
         return $0
     }(UIStackView())
     
@@ -107,14 +142,14 @@ final class CompleteDetailsView: UIView {
         tapGesture.delegate = self
         whiteView.addGestureRecognizer(tapGesture)
     }
-
+    
     //MARK: Layout
     private func layoutElements() {
         layoutDismissButton()
         layoutWhiteView()
         layoutScrollView()
         layoutVStack()
-        layoutHStackButton()
+        layoutCompleteOrderButton()
     }
     
     private func layoutDismissButton() {
@@ -149,10 +184,21 @@ final class CompleteDetailsView: UIView {
     }
     
     private func layoutVStack() {
-        vStack.addArrangedSubview(deliveryAddressLabel)
-        vStack.addArrangedSubview(deliveryAddressTextField)
-        vStack.addArrangedSubview(numberPhoneLabel)
-        vStack.addArrangedSubview(numberPhoneTextField)
+        vStack.addArrangedSubview(cardHoldersNameLabel)
+        vStack.addArrangedSubview(cardHoldersNameTextField)
+        vStack.addArrangedSubview(cardNumberLabel)
+        vStack.addArrangedSubview(cardNumberTextField)
+        
+        dateVStack.addArrangedSubview(dateLabel)
+        dateVStack.addArrangedSubview(dateTextField)
+        
+        cvvVStack.addArrangedSubview(cvvLabel)
+        cvvVStack.addArrangedSubview(cvvTextField)
+        
+        hStack.addArrangedSubview(dateVStack)
+        hStack.addArrangedSubview(cvvVStack)
+        
+        vStack.addArrangedSubview(hStack)
         
         scrollView.addSubview(vStack)
         
@@ -163,22 +209,25 @@ final class CompleteDetailsView: UIView {
         ])
     }
     
-    private func layoutHStackButton() {
-        hStackButton.addArrangedSubview(payOnDeliveryButton)
-        hStackButton.addArrangedSubview(payWithCardButton)
-        scrollView.addSubview(hStackButton)
+    private func layoutCompleteOrderButton() {
+        scrollView.addSubview(completeOrderButton)
         
         NSLayoutConstraint.activate([
-            hStackButton.topAnchor.constraint(equalTo: vStack.bottomAnchor, constant: 30),
-            hStackButton.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: 20),
-            hStackButton.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -20),
-            scrollView.bottomAnchor.constraint(equalTo: hStackButton.bottomAnchor, constant: 30)
+            completeOrderButton.topAnchor.constraint(equalTo: vStack.bottomAnchor, constant: 30),
+            completeOrderButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: completeOrderButton.bottomAnchor, constant: 30),
         ])
     }
 }
 
 //MARK: OBJC
-extension CompleteDetailsView {
+extension CardDetailsView {
+    @objc private func completeOrderButtonTapped() {
+        AnimationManager.animateClick(view: completeOrderButton) {
+            
+        }
+    }
+    
     @objc private func whiteViewTapped() {
         endEditing(true)
     }
@@ -199,12 +248,16 @@ extension CompleteDetailsView {
 }
 
 //MARK: UITextFieldDelegate
-extension CompleteDetailsView: UITextFieldDelegate {
+extension CardDetailsView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
-        case deliveryAddressTextField:
-            numberPhoneTextField.becomeFirstResponder()
-        case numberPhoneTextField:
+        case cardHoldersNameTextField:
+            cardNumberTextField.becomeFirstResponder()
+        case cardNumberTextField:
+            dateTextField.becomeFirstResponder()
+        case dateTextField:
+            cvvTextField.becomeFirstResponder()
+        case cvvTextField:
             endEditing(true)
         default:
             return true
@@ -222,7 +275,7 @@ extension CompleteDetailsView: UITextFieldDelegate {
 }
 
 //MARK: UIGestureRecognizerDelegate
-extension CompleteDetailsView: UIGestureRecognizerDelegate {
+extension CardDetailsView: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }

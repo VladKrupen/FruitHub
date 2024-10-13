@@ -9,13 +9,18 @@ import Foundation
 
 protocol CompleteDetailsViewModelProtocol: AnyObject {
     var completionHandler: ((CompleteDetailsActions) -> Void)? { get set }
-    func dismissAction()
+    func dismissButtonWasPressed()
+    func payWithCardButtonWasPressed()
 }
 
 final class CompleteDetailsViewModel: CompleteDetailsViewModelProtocol {
     var completionHandler: ((CompleteDetailsActions) -> Void)?
     
-    func dismissAction() {
+    func dismissButtonWasPressed() {
         completionHandler?(.dismissButton)
+    }
+    
+    func payWithCardButtonWasPressed() {
+        completionHandler?(.payWithCardButton)
     }
 }
