@@ -9,6 +9,8 @@ import UIKit
 
 final class CardDetailsView: UIView {
     
+    var completeOrderButtonAction: (() -> Void)?
+    
     //MARK: UI
     let dismissButton: XmarkButton = {
         return $0
@@ -223,8 +225,8 @@ final class CardDetailsView: UIView {
 //MARK: OBJC
 extension CardDetailsView {
     @objc private func completeOrderButtonTapped() {
-        AnimationManager.animateClick(view: completeOrderButton) {
-            
+        AnimationManager.animateClick(view: completeOrderButton) { [weak self] in
+            self?.completeOrderButtonAction?()
         }
     }
     

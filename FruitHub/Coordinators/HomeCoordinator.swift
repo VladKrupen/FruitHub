@@ -57,13 +57,15 @@ final class HomeCoordinator: CoordinatorProtocol {
             })]
         }
         navigationController.present(completeDetailsController, animated: true)
-        completeDetailsController.viewModel?.completionHandler = { [weak self] actions in
+        completeDetailsController.viewModel?.completionHandler = { [weak self, weak completeDetailsController] actions in
             switch actions {
             case .dismissButton:
-                completeDetailsController.dismiss(animated: true)
+                completeDetailsController?.dismiss(animated: true)
             case .payOnDeliveryButton:
-                print()
+                guard let completeDetailsController = completeDetailsController else { return }
+                self?.showOrderCompleteModule(controller: completeDetailsController)
             case .payWithCardButton:
+                guard let completeDetailsController = completeDetailsController else { return }
                 self?.showCardDetailsModule(controller: completeDetailsController)
             }
         }
@@ -75,15 +77,30 @@ final class HomeCoordinator: CoordinatorProtocol {
             sheetController.detents = [.custom(resolver: { context in
                 return 570
             })]
-            
         }
         controller.present(cardDetailsController, animated: true)
-        cardDetailsController.viewModel?.completionHandler = { actions in
+        cardDetailsController.viewModel?.completionHandler = { [weak self, weak cardDetailsController] actions in
             switch actions {
             case .dismissButton:
-                cardDetailsController.dismiss(animated: true)
+                cardDetailsController?.dismiss(animated: true)
             case .completeOrderButton:
-                print()
+                guard let cardDetailsController = cardDetailsController else { return }
+                self?.showOrderCompleteModule(controller: cardDetailsController)
+            }
+        }
+    }
+    
+    private func showOrderCompleteModule(controller: UIViewController) {
+        let orderCompleteController = ModuleFactory.createOrderCompleteModule()
+        orderCompleteController.modalPresentationStyle = .fullScreen
+        orderCompleteController.modalTransitionStyle = .crossDissolve
+        
+        controller.present(orderCompleteController, animated: true) { [weak self] in
+            self?.navigationController.popToRootViewController(animated: false)
+        }
+        orderCompleteController.viewModel?.completionHandler = { [weak self, weak orderCompleteController] in
+            self?.navigationController.dismiss(animated: true) {
+                orderCompleteController?.dismiss(animated: true)
             }
         }
     }

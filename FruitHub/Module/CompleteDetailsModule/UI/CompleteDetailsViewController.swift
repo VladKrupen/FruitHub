@@ -49,8 +49,8 @@ extension CompleteDetailsViewController {
     }
     
     @objc private func payOnDeliveryButtonTapped() {
-        AnimationManager.animateClick(view: contentView.payOnDeliveryButton) {
-            
+        AnimationManager.animateClick(view: contentView.payOnDeliveryButton) { [weak self] in
+            self?.viewModel?.payOnDeliveryButtonWasPressed()
         }
     }
     

@@ -11,6 +11,7 @@ protocol CompleteDetailsViewModelProtocol: AnyObject {
     var completionHandler: ((CompleteDetailsActions) -> Void)? { get set }
     func dismissButtonWasPressed()
     func payWithCardButtonWasPressed()
+    func payOnDeliveryButtonWasPressed()
 }
 
 final class CompleteDetailsViewModel: CompleteDetailsViewModelProtocol {
@@ -22,5 +23,9 @@ final class CompleteDetailsViewModel: CompleteDetailsViewModelProtocol {
     
     func payWithCardButtonWasPressed() {
         completionHandler?(.payWithCardButton)
+    }
+    
+    func payOnDeliveryButtonWasPressed() {
+        completionHandler?(.payOnDeliveryButton)
     }
 }

@@ -21,6 +21,7 @@ final class CardDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addTargets()
+        completeOrderButtonTapped()
     }
     
     //MARK: Targets
@@ -30,6 +31,12 @@ final class CardDetailsViewController: UIViewController {
     
     private func addTargetForDismissButton() {
         contentView.dismissButton.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
+    }
+    
+    private func completeOrderButtonTapped() {
+        contentView.completeOrderButtonAction = { [weak self] in
+            self?.viewModel?.completeOrderButtonWasPressed()
+        }
     }
 }
 

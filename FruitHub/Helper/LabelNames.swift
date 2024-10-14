@@ -21,4 +21,6 @@ struct LabelNames {
     static let cardNumber: String = "Card Number"
     static let date: String = "Date"
     static let cvv: String = "CVV"
+    static let congratulation: String = "Congratulations!!!"
+    static let descriptionForOrderCompleteView: String = "Your order have been taken and is being attended to"
 }

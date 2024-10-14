@@ -26,6 +26,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
         childCoordinator.append(splashCoordinator)
         splashCoordinator.start()
         splashCoordinator.flowCompletionHandler = { [weak self] in
+            self?.childCoordinator.removeAll()
             self?.showWelcomeFlow()
         }
     }
@@ -35,6 +36,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
         childCoordinator.append(welcomeCoordinator)
         welcomeCoordinator.start()
         welcomeCoordinator.flowCompletionHandler = { [weak self] in
+            self?.childCoordinator.removeAll()
             self?.showEnterNameFlow()
         }
     }
@@ -44,6 +46,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
         childCoordinator.append(enterNameCoordinator)
         enterNameCoordinator.start()
         enterNameCoordinator.flowCompletionHandler = { [weak self] in
+            self?.childCoordinator.removeAll()
             self?.showHomeFlow()
         }
     }
@@ -52,8 +55,8 @@ final class AppCoordinator: AppCoordinatorProtocol {
         let homeCoordinator = CoordinatorFactory.createHomeCoordiantor(navigationController: navigationController)
         childCoordinator.append(homeCoordinator)
         homeCoordinator.start()
-        homeCoordinator.flowCompletionHandler = {
-            
+        homeCoordinator.flowCompletionHandler = { [weak self] in
+            self?.childCoordinator.removeAll()
         }
     }
 }

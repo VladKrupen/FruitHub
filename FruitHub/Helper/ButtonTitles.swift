@@ -14,4 +14,5 @@ struct ButtonTitles {
     static let checkout: String = "Checkout"
     static let payOnDelivery: String = "Pay on delivery"
     static let payWithCard: String = "Pay with card"
+    static let great: String = "Great"
 }
