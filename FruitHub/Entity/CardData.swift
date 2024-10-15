@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Card {
+struct CardData {
     let cardHoldersName: String
     let cardNumber: String
     let cardDate: String

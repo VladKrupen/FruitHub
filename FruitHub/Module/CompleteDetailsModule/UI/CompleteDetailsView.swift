@@ -47,6 +47,7 @@ final class CompleteDetailsView: UIView {
     
     private lazy var numberPhoneTextField: CustomTextField = {
         $0.placeholder = Placeholders.numberPhone
+        $0.keyboardType = .numberPad
         $0.delegate = self
         return $0
     }(CustomTextField())
@@ -93,6 +94,12 @@ final class CompleteDetailsView: UIView {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    func getDeliveryData() -> DeliveryData {
+        let address = deliveryAddressTextField.text ?? ""
+        let numberPhone = numberPhoneTextField.text ?? ""
+        return DeliveryData(address: address, numberPhone: numberPhone)
     }
     
     //MARK: Setup keyboard
@@ -219,11 +226,35 @@ extension CompleteDetailsView: UITextFieldDelegate {
             scrollView.setContentOffset(CGPoint(x: 0, y: offsetY), animated: true)
         }
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField {
+        case numberPhoneTextField:
+            return handleNumberPhoneTextFieldInput(textField: textField, range: range, replacementString: string)
+        default:
+            return true
+        }
+    }
 }
 
 //MARK: UIGestureRecognizerDelegate
 extension CompleteDetailsView: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+}
+
+//MARK: Handle TextFields
+extension CompleteDetailsView {
+    private func handleNumberPhoneTextFieldInput(textField: UITextField, range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else {
+            return false
+        }
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        guard updatedText.count < 12 else {
+            return false
+        }
         return true
     }
 }

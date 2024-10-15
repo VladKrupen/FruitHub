@@ -9,7 +9,7 @@ import UIKit
 
 final class EnterNameView: UIView {
     
-    var startOrderingButtonAction: ((String) -> Void)?
+    var startOrderingButtonAction: ((User) -> Void)?
     private var originalOriginY: CGFloat = .zero
     private var keyboardIsVisible: Bool = false
     
@@ -143,8 +143,8 @@ final class EnterNameView: UIView {
 extension EnterNameView {
     @objc private func startOrderingButtonTapped() {
         AnimationManager.animateClick(view: startOrderingButton) { [weak self] in
-            guard let name = self?.nameField.text else { return }
-            self?.startOrderingButtonAction?(name)
+            let name = self?.nameField.text ?? ""
+            self?.startOrderingButtonAction?(User(name: name))
             self?.endEditing(true)
         }
     }

@@ -19,19 +19,26 @@
 		013567CF2CA41C6800CF6696 /* SystemImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567CE2CA41C6800CF6696 /* SystemImages.swift */; };
 		013567D22CA41E2D00CF6696 /* FruitSalad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567D12CA41E2D00CF6696 /* FruitSalad.swift */; };
 		013567D42CA421DC00CF6696 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567D32CA421DC00CF6696 /* FavoriteButton.swift */; };
-		014D9DD32CBBEB2B00E99251 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D9DD22CBBEB2B00E99251 /* Card.swift */; };
+		014D9DD32CBBEB2B00E99251 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D9DD22CBBEB2B00E99251 /* CardData.swift */; };
 		0154F5972CBD135900670F97 /* OrderCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0154F5962CBD135900670F97 /* OrderCompleteViewController.swift */; };
 		0154F5992CBD137E00670F97 /* OrderCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0154F5982CBD137E00670F97 /* OrderCompleteView.swift */; };
 		0154F59B2CBD150900670F97 /* OrderCompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0154F59A2CBD150900670F97 /* OrderCompleteViewModel.swift */; };
 		0157A2AB2CA29F33005FEE4E /* SaladCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0157A2AA2CA29F33005FEE4E /* SaladCell.swift */; };
 		0157A2AE2CA2BFC9005FEE4E /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0157A2AD2CA2BFC9005FEE4E /* SDWebImage */; };
 		0157A2B02CA2BFC9005FEE4E /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0157A2AF2CA2BFC9005FEE4E /* SDWebImageMapKit */; };
+		015D4E032CBE651E0085C65C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E022CBE651E0085C65C /* User.swift */; };
+		015D4E052CBE6FC60085C65C /* DataVerificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E042CBE6FC60085C65C /* DataVerificationManager.swift */; };
+		015D4E082CBE71730085C65C /* UserVerificationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E072CBE71730085C65C /* UserVerificationError.swift */; };
+		015D4E0A2CBE765C0085C65C /* DeliveryDataVerificationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E092CBE765C0085C65C /* DeliveryDataVerificationError.swift */; };
+		015D4E0C2CBE7B770085C65C /* CardDataVerificationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015D4E0B2CBE7B770085C65C /* CardDataVerificationError.swift */; };
 		0168EFD62CB91F7E008DFDD5 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0168EFD52CB91F7E008DFDD5 /* OrderListViewController.swift */; };
 		0168EFD82CB91FAB008DFDD5 /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0168EFD72CB91FAB008DFDD5 /* OrderListView.swift */; };
 		0168EFDA2CB91FE0008DFDD5 /* OrderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0168EFD92CB91FE0008DFDD5 /* OrderListViewModel.swift */; };
 		0171D63E2CAD3CD100A9AC88 /* CounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0171D63D2CAD3CD100A9AC88 /* CounterManager.swift */; };
 		0172D6F52CB97BE100902C50 /* XmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0172D6F42CB97BE100902C50 /* XmarkButton.swift */; };
 		0172D6F72CB985BD00902C50 /* CompleteDetailsActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0172D6F62CB985BD00902C50 /* CompleteDetailsActions.swift */; };
+		018D973F2CBE56CD00E679A5 /* DeliveryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018D973E2CBE56CD00E679A5 /* DeliveryData.swift */; };
+		018D97412CBE585E00E679A5 /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018D97402CBE585E00E679A5 /* AlertMessage.swift */; };
 		0199B3F92C9AB332006253EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B3F82C9AB332006253EF /* AppDelegate.swift */; };
 		0199B3FB2C9AB332006253EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B3FA2C9AB332006253EF /* SceneDelegate.swift */; };
 		0199B4022C9AB334006253EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0199B4012C9AB334006253EF /* Assets.xcassets */; };
@@ -93,17 +100,24 @@
 		013567CE2CA41C6800CF6696 /* SystemImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImages.swift; sourceTree = "<group>"; };
 		013567D12CA41E2D00CF6696 /* FruitSalad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitSalad.swift; sourceTree = "<group>"; };
 		013567D32CA421DC00CF6696 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
-		014D9DD22CBBEB2B00E99251 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		014D9DD22CBBEB2B00E99251 /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
 		0154F5962CBD135900670F97 /* OrderCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteViewController.swift; sourceTree = "<group>"; };
 		0154F5982CBD137E00670F97 /* OrderCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteView.swift; sourceTree = "<group>"; };
 		0154F59A2CBD150900670F97 /* OrderCompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteViewModel.swift; sourceTree = "<group>"; };
 		0157A2AA2CA29F33005FEE4E /* SaladCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladCell.swift; sourceTree = "<group>"; };
+		015D4E022CBE651E0085C65C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		015D4E042CBE6FC60085C65C /* DataVerificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataVerificationManager.swift; sourceTree = "<group>"; };
+		015D4E072CBE71730085C65C /* UserVerificationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVerificationError.swift; sourceTree = "<group>"; };
+		015D4E092CBE765C0085C65C /* DeliveryDataVerificationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDataVerificationError.swift; sourceTree = "<group>"; };
+		015D4E0B2CBE7B770085C65C /* CardDataVerificationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataVerificationError.swift; sourceTree = "<group>"; };
 		0168EFD52CB91F7E008DFDD5 /* OrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
 		0168EFD72CB91FAB008DFDD5 /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
 		0168EFD92CB91FE0008DFDD5 /* OrderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewModel.swift; sourceTree = "<group>"; };
 		0171D63D2CAD3CD100A9AC88 /* CounterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterManager.swift; sourceTree = "<group>"; };
 		0172D6F42CB97BE100902C50 /* XmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmarkButton.swift; sourceTree = "<group>"; };
 		0172D6F62CB985BD00902C50 /* CompleteDetailsActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteDetailsActions.swift; sourceTree = "<group>"; };
+		018D973E2CBE56CD00E679A5 /* DeliveryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryData.swift; sourceTree = "<group>"; };
+		018D97402CBE585E00E679A5 /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		0199B3F52C9AB332006253EF /* FruitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0199B3F82C9AB332006253EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0199B3FA2C9AB332006253EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -207,7 +221,9 @@
 			isa = PBXGroup;
 			children = (
 				013567D12CA41E2D00CF6696 /* FruitSalad.swift */,
-				014D9DD22CBBEB2B00E99251 /* Card.swift */,
+				014D9DD22CBBEB2B00E99251 /* CardData.swift */,
+				018D973E2CBE56CD00E679A5 /* DeliveryData.swift */,
+				015D4E022CBE651E0085C65C /* User.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -236,6 +252,16 @@
 				0154F5982CBD137E00670F97 /* OrderCompleteView.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		015D4E062CBE71580085C65C /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				015D4E072CBE71730085C65C /* UserVerificationError.swift */,
+				015D4E092CBE765C0085C65C /* DeliveryDataVerificationError.swift */,
+				015D4E0B2CBE7B770085C65C /* CardDataVerificationError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		0168EFC92CB91B14008DFDD5 /* OrderListModule */ = {
@@ -287,6 +313,7 @@
 				0199B40C2C9AB36E006253EF /* Application */,
 				0199B40E2C9AC043006253EF /* Coordinators */,
 				013567D02CA41E0D00CF6696 /* Entity */,
+				015D4E062CBE71580085C65C /* Error */,
 				0199B42D2C9ACF6C006253EF /* Extension */,
 				0199B4142C9AC445006253EF /* Factories */,
 				0199B4302C9ACFD3006253EF /* Helper */,
@@ -426,6 +453,7 @@
 				01B2B3EE2CA1B9F70064B319 /* LabelNames.swift */,
 				011AFC3D2CAAF3C2006541F9 /* SaladCellIdentifier.swift */,
 				01B8AAC52CB93BD0009BE3EB /* NavigationItemTitle.swift */,
+				018D97402CBE585E00E679A5 /* AlertMessage.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -537,6 +565,7 @@
 			children = (
 				01B2B3EC2CA188090064B319 /* AnimationManager.swift */,
 				0171D63D2CAD3CD100A9AC88 /* CounterManager.swift */,
+				015D4E042CBE6FC60085C65C /* DataVerificationManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -694,17 +723,20 @@
 				0199B42F2C9ACF80006253EF /* UIColor+Extension.swift in Sources */,
 				0199B4402C9ADEC5006253EF /* ScreenTransition.swift in Sources */,
 				010FAD1E2CBBBB5D009D1250 /* CardDetailsViewModel.swift in Sources */,
+				015D4E032CBE651E0085C65C /* User.swift in Sources */,
 				013567D42CA421DC00CF6696 /* FavoriteButton.swift in Sources */,
 				011AFC522CAB0C06006541F9 /* BackButtonView.swift in Sources */,
+				018D973F2CBE56CD00E679A5 /* DeliveryData.swift in Sources */,
 				013567D22CA41E2D00CF6696 /* FruitSalad.swift in Sources */,
 				013567CF2CA41C6800CF6696 /* SystemImages.swift in Sources */,
 				0199B43B2C9ADCA4006253EF /* WelcomeViewController.swift in Sources */,
 				0168EFDA2CB91FE0008DFDD5 /* OrderListViewModel.swift in Sources */,
+				018D97412CBE585E00E679A5 /* AlertMessage.swift in Sources */,
 				0199B4242C9AC8BE006253EF /* SplashViewController.swift in Sources */,
 				0199B3F92C9AB332006253EF /* AppDelegate.swift in Sources */,
 				0199B43D2C9ADCC9006253EF /* WelcomeViewModel.swift in Sources */,
 				0157A2AB2CA29F33005FEE4E /* SaladCell.swift in Sources */,
-				014D9DD32CBBEB2B00E99251 /* Card.swift in Sources */,
+				014D9DD32CBBEB2B00E99251 /* CardData.swift in Sources */,
 				0154F5992CBD137E00670F97 /* OrderCompleteView.swift in Sources */,
 				01B8AACD2CB9660A009BE3EB /* CompleteDetailsViewController.swift in Sources */,
 				0199B42C2C9ACC28006253EF /* SplashViewModel.swift in Sources */,
@@ -712,6 +744,7 @@
 				01B2B3E22CA1723C0064B319 /* OrangeFillButton.swift in Sources */,
 				0199B4342C9AD133006253EF /* SplashView.swift in Sources */,
 				01B2B3EF2CA1B9F70064B319 /* LabelNames.swift in Sources */,
+				015D4E082CBE71730085C65C /* UserVerificationError.swift in Sources */,
 				0199B4172C9AC47B006253EF /* CoordinatorFactory.swift in Sources */,
 				0199B4192C9AC5DC006253EF /* SplashCoordinator.swift in Sources */,
 				01B2B3DA2CA16B0D0064B319 /* EnterNameView.swift in Sources */,
@@ -720,6 +753,8 @@
 				01B8AAD12CB966DB009BE3EB /* CompleteDetailsViewModel.swift in Sources */,
 				01B2B3DD2CA16B1D0064B319 /* EnterNameViewModel.swift in Sources */,
 				01B8AACF2CB9667B009BE3EB /* CompleteDetailsView.swift in Sources */,
+				015D4E0C2CBE7B770085C65C /* CardDataVerificationError.swift in Sources */,
+				015D4E0A2CBE765C0085C65C /* DeliveryDataVerificationError.swift in Sources */,
 				0168EFD82CB91FAB008DFDD5 /* OrderListView.swift in Sources */,
 				0154F59B2CBD150900670F97 /* OrderCompleteViewModel.swift in Sources */,
 				01B8AAC62CB93BD0009BE3EB /* NavigationItemTitle.swift in Sources */,
@@ -728,6 +763,7 @@
 				010FAD1C2CBBBAE3009D1250 /* CardDetailsViewController.swift in Sources */,
 				01B2B3FA2CA1CE960064B319 /* HomeView.swift in Sources */,
 				0199B3FB2C9AB332006253EF /* SceneDelegate.swift in Sources */,
+				015D4E052CBE6FC60085C65C /* DataVerificationManager.swift in Sources */,
 				01B2B3D82CA16B030064B319 /* EnterNameViewController.swift in Sources */,
 				01B2B3F82CA1CC000064B319 /* HomeCoordinator.swift in Sources */,
 				01B2B3F62CA1C8530064B319 /* HomeViewModel.swift in Sources */,

@@ -38,8 +38,8 @@ final class EnterNameViewController: UIViewController {
     
     //MARK: Setup
     private func startOrderingButtonTapped() {
-        contentView.startOrderingButtonAction = { [weak self] name in
-            self?.viewModel?.checkIfNameIsEmpty(name: name)
+        contentView.startOrderingButtonAction = { [weak self] user in
+            self?.viewModel?.startOrderingButtonWasPressed(user: user)
         }
     }
     

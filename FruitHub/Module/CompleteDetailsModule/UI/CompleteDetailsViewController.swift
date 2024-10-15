@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 final class CompleteDetailsViewController: UIViewController {
+    
+    private var cancellables = Set<AnyCancellable>()
     
     var viewModel: CompleteDetailsViewModelProtocol?
     private let contentView = CompleteDetailsView()
@@ -21,8 +24,19 @@ final class CompleteDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addTargets()
+        bindViewModelToView()
     }
     
+    //MARK: Bind
+    private func bindViewModelToView() {
+        viewModel?.deliveryDataErrorMessage
+            .sink { [weak self] message in
+                self?.showAlert(message: message)
+            }
+            .store(in: &cancellables)
+    }
+    
+    //MARK: Target
     private func addTargets() {
         addTargetForDismissButton()
         addTargetForPayOnDeliveryButton()
@@ -40,6 +54,16 @@ final class CompleteDetailsViewController: UIViewController {
     private func addTargetForPayWithCardButton() {
         contentView.payWithCardButton.addTarget(self, action: #selector(payWithCardButtonTapped), for: .touchUpInside)
     }
+    
+    //MARK: Alert
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(okAction)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true)
+        }
+    }
 }
 
 //MARK: OBJC
@@ -49,14 +73,18 @@ extension CompleteDetailsViewController {
     }
     
     @objc private func payOnDeliveryButtonTapped() {
+        let deliveryData = contentView.getDeliveryData()
         AnimationManager.animateClick(view: contentView.payOnDeliveryButton) { [weak self] in
-            self?.viewModel?.payOnDeliveryButtonWasPressed()
+            self?.contentView.endEditing(true)
+            self?.viewModel?.payOnDeliveryButtonWasPressed(deliveryData: deliveryData)
         }
     }
     
     @objc private func payWithCardButtonTapped() {
+        let deliveryData = contentView.getDeliveryData()
         AnimationManager.animateClick(view: contentView.payWithCardButton) { [weak self] in
-            self?.viewModel?.payWithCardButtonWasPressed()
+            self?.contentView.endEditing(true)
+            self?.viewModel?.payWithCardButtonWasPressed(deliveryData: deliveryData)
         }
     }
 }

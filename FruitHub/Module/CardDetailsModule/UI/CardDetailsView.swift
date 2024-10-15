@@ -9,7 +9,7 @@ import UIKit
 
 final class CardDetailsView: UIView {
     
-    var completeOrderButtonAction: (() -> Void)?
+    var completeOrderButtonAction: ((CardData) -> Void)?
     
     //MARK: UI
     let dismissButton: XmarkButton = {
@@ -37,6 +37,7 @@ final class CardDetailsView: UIView {
 
     private lazy var cardHoldersNameTextField: CustomTextField = {
         $0.placeholder = Placeholders.cardHoldersName
+        $0.autocapitalizationType = .allCharacters
         $0.delegate = self
         return $0
     }(CustomTextField())
@@ -49,6 +50,7 @@ final class CardDetailsView: UIView {
     
     private lazy var cardNumberTextField: CustomTextField = {
         $0.placeholder = Placeholders.cardNumber
+        $0.keyboardType = .numberPad
         $0.delegate = self
         return $0
     }(CustomTextField())
@@ -63,6 +65,7 @@ final class CardDetailsView: UIView {
         $0.widthAnchor.constraint(equalToConstant: 135).isActive = true
         $0.placeholder = Placeholders.date
         $0.textAlignment = .center
+        $0.keyboardType = .numberPad
         $0.delegate = self
         return $0
     }(CustomTextField())
@@ -84,6 +87,7 @@ final class CardDetailsView: UIView {
         $0.widthAnchor.constraint(equalToConstant: 135).isActive = true
         $0.placeholder = Placeholders.cvv
         $0.textAlignment = .center
+        $0.keyboardType = .numberPad
         $0.delegate = self
         return $0
     }(CustomTextField())
@@ -130,6 +134,15 @@ final class CardDetailsView: UIView {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func getCardData() -> CardData {
+        let cardHoldersName = cardHoldersNameTextField.text ?? ""
+        let cardNumber = (cardNumberTextField.text ?? "").replacingOccurrences(of: " ", with: "")
+        let dateCard = dateTextField.text ?? ""
+        let cvv = cvvTextField.text ?? ""
+        let cardData = CardData(cardHoldersName: cardHoldersName, cardNumber: cardNumber, cardDate: dateCard, cardCVV: cvv)
+        return cardData
     }
     
     //MARK: Setup keyboard
@@ -225,8 +238,10 @@ final class CardDetailsView: UIView {
 //MARK: OBJC
 extension CardDetailsView {
     @objc private func completeOrderButtonTapped() {
+        let cardData = getCardData()
         AnimationManager.animateClick(view: completeOrderButton) { [weak self] in
-            self?.completeOrderButtonAction?()
+            self?.endEditing(true)
+            self?.completeOrderButtonAction?(cardData)
         }
     }
     
@@ -274,11 +289,82 @@ extension CardDetailsView: UITextFieldDelegate {
             scrollView.setContentOffset(CGPoint(x: 0, y: offsetY), animated: true)
         }
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField {
+        case cardHoldersNameTextField:
+            handleCardHoldersNameTextField(textField: textField, range: range, replacementString: string)
+            return false
+        case cardNumberTextField:
+            return handleCardNumberTextFieldInput(textField: textField, range: range, replacementString: string)
+        case dateTextField:
+            return handleDateTextFieldInput(textField: textField, range: range, replacementString: string)
+        case cvvTextField:
+            return handleCvvTextFieldInput(textField: textField, range: range, replacementString: string)
+        default:
+            return true
+        }
+    }
 }
 
 //MARK: UIGestureRecognizerDelegate
 extension CardDetailsView: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+}
+
+//MARK: Handle TextFields
+extension CardDetailsView {
+    private func handleCardHoldersNameTextField(textField: UITextField, range: NSRange, replacementString string: String) {
+        textField.text = (textField.text as? NSString)?.replacingCharacters(in: range, with: string.uppercased())
+    }
+    
+    private func handleCardNumberTextFieldInput(textField: UITextField, range: NSRange, replacementString string: String) -> Bool {
+        guard string.count != 0 else {
+            return true
+        }
+        let currentText = textField.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else {
+            return false
+        }
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        guard updatedText.count < 20 else {
+            return false
+        }
+        if updatedText.count % 5 == 0 {
+            textField.text?.append(" ")
+        }
+        return true
+    }
+    
+    private func handleDateTextFieldInput(textField: UITextField, range: NSRange, replacementString string: String) -> Bool {
+        guard string.count != 0 else {
+            return true
+        }
+        let currentText = textField.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else {
+            return false
+        }
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        guard updatedText.count < 6 else {
+            return false
+        }
+        if updatedText.count % 3 == 0 {
+            textField.text?.append("/")
+        }
+        return true
+    }
+    
+    private func handleCvvTextFieldInput(textField: UITextField, range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else {
+            return false
+        }
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        guard updatedText.count < 4 else {
+            return false
+        }
         return true
     }
 }

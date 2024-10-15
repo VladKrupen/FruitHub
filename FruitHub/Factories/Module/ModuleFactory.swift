@@ -8,6 +8,9 @@
 import UIKit
 
 final class ModuleFactory {
+    
+    static let dataVerificationManager = DataVerificationManager()
+    
     static func createSplashModule() -> SplashViewController {
         let splashViewController = SplashViewController()
         let splashViewModel = SplashViewModel()
@@ -24,7 +27,7 @@ final class ModuleFactory {
     
     static func createEnterNameModule() -> EnterNameViewController {
         let enterNameViewController = EnterNameViewController()
-        let enterNameViewModel = EnterNameViewModel()
+        let enterNameViewModel = EnterNameViewModel(userDataVerification: dataVerificationManager)
         enterNameViewController.viewModel = enterNameViewModel
         return enterNameViewController
     }
@@ -53,14 +56,14 @@ final class ModuleFactory {
     
     static func createCompleteDetailsModule() -> CompleteDetailsViewController {
         let completeDetailsViewController = CompleteDetailsViewController()
-        let completeDetailsViewModel = CompleteDetailsViewModel()
+        let completeDetailsViewModel = CompleteDetailsViewModel(deliveryDataVerification: dataVerificationManager)
         completeDetailsViewController.viewModel = completeDetailsViewModel
         return completeDetailsViewController
     }
     
     static func createCardDetailsModule() -> CardDetailsViewController {
         let cardDetailsViewController = CardDetailsViewController()
-        let cardDetailsViewModel = CardDetailsViewModel()
+        let cardDetailsViewModel = CardDetailsViewModel(cardDataVerification: dataVerificationManager)
         cardDetailsViewController.viewModel = cardDetailsViewModel
         return cardDetailsViewController
     }

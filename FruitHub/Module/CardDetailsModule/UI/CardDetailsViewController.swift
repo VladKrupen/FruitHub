@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 final class CardDetailsViewController: UIViewController {
+    
+    private var cancellables = Set<AnyCancellable>()
     
     var viewModel: CardDetailsViewModelProtocol?
     private let contentView = CardDetailsView()
@@ -22,6 +25,16 @@ final class CardDetailsViewController: UIViewController {
         super.viewDidLoad()
         addTargets()
         completeOrderButtonTapped()
+        bindViewModelToView()
+    }
+    
+    //MARK: Bind
+    private func bindViewModelToView() {
+        viewModel?.cardDataErrorMessage
+            .sink { [weak self] message in
+                self?.showAlert(message: message)
+            }
+            .store(in: &cancellables)
     }
     
     //MARK: Targets
@@ -34,8 +47,19 @@ final class CardDetailsViewController: UIViewController {
     }
     
     private func completeOrderButtonTapped() {
-        contentView.completeOrderButtonAction = { [weak self] in
-            self?.viewModel?.completeOrderButtonWasPressed()
+        contentView.completeOrderButtonAction = { [weak self] cardData in
+            self?.viewModel?.completeOrderButtonWasPressed(cardData: cardData)
+            print(cardData)
+        }
+    }
+    
+    //MARK: Alert
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(okAction)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true)
         }
     }
 }
