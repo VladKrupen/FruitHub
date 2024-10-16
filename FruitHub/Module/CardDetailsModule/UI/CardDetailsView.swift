@@ -9,8 +9,6 @@ import UIKit
 
 final class CardDetailsView: UIView {
     
-    var completeOrderButtonAction: ((CardData) -> Void)?
-    
     //MARK: UI
     let dismissButton: XmarkButton = {
         return $0
@@ -105,11 +103,10 @@ final class CardDetailsView: UIView {
         return $0
     }(UIStackView())
     
-    private lazy var completeOrderButton: OrangeButton = {
+    lazy var completeOrderButton: OrangeButton = {
         $0.heightAnchor.constraint(equalToConstant: 56).isActive = true
         $0.widthAnchor.constraint(equalToConstant: 130).isActive = true
         $0.setTitle(ButtonTitles.payWithCard, for: .normal)
-        $0.addTarget(self, action: #selector(completeOrderButtonTapped), for: .touchUpInside)
         return $0
     }(OrangeButton())
     
@@ -136,7 +133,7 @@ final class CardDetailsView: UIView {
         NotificationCenter.default.removeObserver(self)
     }
     
-    private func getCardData() -> CardData {
+    func getCardData() -> CardData {
         let cardHoldersName = cardHoldersNameTextField.text ?? ""
         let cardNumber = (cardNumberTextField.text ?? "").replacingOccurrences(of: " ", with: "")
         let dateCard = dateTextField.text ?? ""
@@ -237,14 +234,6 @@ final class CardDetailsView: UIView {
 
 //MARK: OBJC
 extension CardDetailsView {
-    @objc private func completeOrderButtonTapped() {
-        let cardData = getCardData()
-        AnimationManager.animateClick(view: completeOrderButton) { [weak self] in
-            self?.endEditing(true)
-            self?.completeOrderButtonAction?(cardData)
-        }
-    }
-    
     @objc private func whiteViewTapped() {
         endEditing(true)
     }

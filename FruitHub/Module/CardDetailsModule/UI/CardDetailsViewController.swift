@@ -24,7 +24,6 @@ final class CardDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addTargets()
-        completeOrderButtonTapped()
         bindViewModelToView()
     }
     
@@ -40,17 +39,15 @@ final class CardDetailsViewController: UIViewController {
     //MARK: Targets
     private func addTargets() {
         addTargetForDismissButton()
+        addTargetForCompleteOrderButton()
     }
     
     private func addTargetForDismissButton() {
         contentView.dismissButton.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
     }
     
-    private func completeOrderButtonTapped() {
-        contentView.completeOrderButtonAction = { [weak self] cardData in
-            self?.viewModel?.completeOrderButtonWasPressed(cardData: cardData)
-            print(cardData)
-        }
+    private func addTargetForCompleteOrderButton() {
+        contentView.completeOrderButton.addTarget(self, action: #selector(completeOrderButtonTapped), for: .touchUpInside)
     }
     
     //MARK: Alert
@@ -68,5 +65,13 @@ final class CardDetailsViewController: UIViewController {
 extension CardDetailsViewController {
     @objc private func dismissButtonTapped() {
         viewModel?.dismissButtonWasPressed()
+    }
+    
+    @objc private func completeOrderButtonTapped() {
+        let cardData = contentView.getCardData()
+        AnimationManager.animateClick(view: contentView.completeOrderButton) { [weak self] in
+            self?.contentView.endEditing(true)
+            self?.viewModel?.completeOrderButtonWasPressed(cardData: cardData)
+        }
     }
 }

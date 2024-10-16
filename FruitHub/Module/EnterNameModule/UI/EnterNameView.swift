@@ -48,9 +48,8 @@ final class EnterNameView: UIView {
         return $0
     }(UIStackView())
     
-    private lazy var startOrderingButton: OrangeFillButton = {
+    lazy var startOrderingButton: OrangeFillButton = {
         $0.setTitle(ButtonTitles.startOrdering, for: .normal)
-        $0.addTarget(self, action: #selector(startOrderingButtonTapped), for: .touchUpInside)
         return $0
     }(OrangeFillButton())
     
@@ -70,6 +69,11 @@ final class EnterNameView: UIView {
     //MARK: Deinit
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    func getUser() -> User {
+        let name = nameField.text ?? ""
+        return User(name: name)
     }
     
     //MARK: Setup
@@ -141,14 +145,6 @@ final class EnterNameView: UIView {
 
 //MARK: OBJC
 extension EnterNameView {
-    @objc private func startOrderingButtonTapped() {
-        AnimationManager.animateClick(view: startOrderingButton) { [weak self] in
-            let name = self?.nameField.text ?? ""
-            self?.startOrderingButtonAction?(User(name: name))
-            self?.endEditing(true)
-        }
-    }
-    
     @objc private func viewTapped() {
         endEditing(true)
     }

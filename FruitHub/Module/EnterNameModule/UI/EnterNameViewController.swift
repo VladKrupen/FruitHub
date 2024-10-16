@@ -23,7 +23,7 @@ final class EnterNameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startOrderingButtonTapped()
+        addTargetForOrderingButton()
         bindViewModelToView()
     }
     
@@ -36,11 +36,9 @@ final class EnterNameViewController: UIViewController {
             .store(in: &cancellables)
     }
     
-    //MARK: Setup
-    private func startOrderingButtonTapped() {
-        contentView.startOrderingButtonAction = { [weak self] user in
-            self?.viewModel?.startOrderingButtonWasPressed(user: user)
-        }
+    //MARK: Target
+    private func addTargetForOrderingButton() {
+        contentView.startOrderingButton.addTarget(self, action: #selector(startOrderingButtonTapped), for: .touchUpInside)
     }
     
     //MARK: Alert
@@ -50,6 +48,17 @@ final class EnterNameViewController: UIViewController {
         alert.addAction(okAction)
         DispatchQueue.main.async { [weak self] in
             self?.present(alert, animated: true)
+        }
+    }
+}
+
+//MARK: OBJC
+extension EnterNameViewController {
+    @objc private func startOrderingButtonTapped() {
+        let user = contentView.getUser()
+        AnimationManager.animateClick(view: contentView.startOrderingButton) { [weak self] in
+            self?.contentView.endEditing(true)
+            self?.viewModel?.startOrderingButtonWasPressed(user: user)
         }
     }
 }

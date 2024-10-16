@@ -57,6 +57,9 @@ final class DataVerificationManager {
         guard names.count == 2 else {
             return false
         }
+        guard !names[1].isEmpty else {
+            return false
+        }
         return true
     }
     
