@@ -10,6 +10,13 @@ import UIKit
 final class HomeView: UIView {
     
     //MARK: UI
+    private let spinerView: UIActivityIndicatorView = {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.style = .large
+        $0.hidesWhenStopped = true
+        return $0
+    }(UIActivityIndicatorView())
+    
     let basket: Basket = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.isUserInteractionEnabled = true
@@ -65,6 +72,25 @@ final class HomeView: UIView {
         welcomeLabel.text = "Hello Alex, What fruit salad combo do you want today?"
     }
     
+    //MARK: Setup Spiner
+    func showSpiner() {
+        menuButton.isHidden = true
+        basket.isHidden = true
+        welcomeLabel.isHidden = true
+        recomendedComboLabel.isHidden = true
+        collectionView.isHidden = true
+        spinerView.startAnimating()
+    }
+    
+    func hideSpiner() {
+        menuButton.isHidden = false
+        basket.isHidden = false
+        welcomeLabel.isHidden = false
+        recomendedComboLabel.isHidden = false
+        collectionView.isHidden = false
+        spinerView.stopAnimating()
+    }
+    
     private func getCompositionLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { (section, environment) -> NSCollectionLayoutSection? in
             switch section {
@@ -111,6 +137,7 @@ final class HomeView: UIView {
         layoutWelcomeLabel()
         layooutRecommendedComboLabel()
         layoutCollectionView()
+        layoutSpinerView()
     }
     
     private func layoutBasketButton() {
@@ -165,6 +192,15 @@ final class HomeView: UIView {
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+        ])
+    }
+    
+    private func layoutSpinerView() {
+        addSubview(spinerView)
+        
+        NSLayoutConstraint.activate([
+            spinerView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            spinerView.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
 }

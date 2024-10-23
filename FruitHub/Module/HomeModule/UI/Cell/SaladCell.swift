@@ -20,9 +20,10 @@ final class SaladCell: UICollectionViewCell {
     
     private let saladImageView: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.contentMode = .scaleAspectFit
+        $0.contentMode = .scaleAspectFill
         $0.tintColor = UIColor(hex: Colors.orange)
         $0.clipsToBounds = true
+        $0.layer.cornerRadius = 15
         return $0
     }(UIImageView())
     
@@ -63,11 +64,11 @@ final class SaladCell: UICollectionViewCell {
     }
     
     //MARK: Configure
-    func configureCell(recommended: FruitSalad) {
-        saladImageView.sd_setImage(with: URL(string: recommended.imageUrl), placeholderImage: UIImage(systemName: SystemImages.placeholderForSaladImage))
-        priceLabel.text = "$ \(recommended.price)"
-        saladNameLabel.text = recommended.nameSalad
-        favoriteButton.isFavorite = recommended.isFavorite
+    func configureCell(fruitSalad: FruitSalad) {
+        saladImageView.sd_setImage(with: URL(string: fruitSalad.imageUrl), placeholderImage: UIImage(systemName: SystemImages.placeholderForSaladImage))
+        priceLabel.text = "$ \(fruitSalad.price)"
+        saladNameLabel.text = fruitSalad.nameSalad
+        favoriteButton.isFavorite = fruitSalad.isFavorite
     }
     
     //MARK: Layout

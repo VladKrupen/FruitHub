@@ -6,11 +6,18 @@
 //
 
 import UIKit
+import Combine
 
 final class HomeViewController: UIViewController {
     
-    private var navigationItems: [String] = ["Hottest", "Popular", "New combo", "Top"]
+    private var navigationItems: [String] = ["Fruits", "Exotica", "Citrus", "Season"]
     private var selecetedNavigationCell: Int = 0
+    
+    private var fruitSalads: [FruitSalad] = []
+    private var filteredFruitSalads: [FruitSalad] = []
+    private var recommendedFruitSalads: [FruitSalad] = []
+    
+    private var cancellable: AnyCancellable?
     
     //MARK: Dependency
     var viewModel: HomeViewModelProtocol?
@@ -26,11 +33,53 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupAction()
         setupCollectionView()
+        bindViewModelToView()
+        contentView.showSpiner()
+        viewModel?.getAllFruitSalads()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    //MARK: Bind
+    private func bindViewModelToView() {
+        cancellable = viewModel?.fruitSaladPublisher
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] results in
+                switch results {
+                case .success(let fruitSalads):
+                    self?.fruitSalads = fruitSalads
+                    self?.setRecommendedFruitSalads(fruitSalads: fruitSalads)
+                    self?.sortFruitSalads()
+                    self?.contentView.hideSpiner()
+                case .failure(let error):
+                    self?.showAlert(message: error.localizedDescription)
+                }
+            })
+    }
+    
+    //MARK: Sorting
+    private func setRecommendedFruitSalads(fruitSalads: [FruitSalad]) {
+        recommendedFruitSalads = fruitSalads.filter { $0.isRecommended == true }
+        contentView.collectionView.reloadSections(IndexSet(integer: 0))
+    }
+    
+    private func sortFruitSalads() {
+        switch selecetedNavigationCell {
+        case 0:
+            filteredFruitSalads = fruitSalads.filter { $0.isFruitSalad == true }
+        case 1:
+            filteredFruitSalads = fruitSalads.filter { $0.isExoticSalad == true }
+        case 2:
+            filteredFruitSalads = fruitSalads.filter { $0.isCitrusSalad == true }
+        case 3:
+            filteredFruitSalads = fruitSalads.filter { $0.isSeasonSalad == true }
+        default:
+            return
+        }
+        contentView.collectionView.reloadSections(IndexSet(integer: 2))
     }
     
     //MARK: Setup
@@ -59,8 +108,8 @@ final class HomeViewController: UIViewController {
         guard let recommendedCell = collectionView.dequeueReusableCell(withReuseIdentifier: SaladCellIdentifier.recommendedSalad, for: indexPath) as? SaladCell else {
             return UICollectionViewCell(frame: .zero)
         }
-        let recommended = FruitSalad(imageUrl: "https://w7.pngwing.com/pngs/259/411/png-transparent-computer-icons-text-information-link-blue-angle-text.png", nameSalad: "Honey lime combo", price: 5, isFavorite: false)
-        recommendedCell.configureCell(recommended: recommended)
+        let recommendedFruitSalad = recommendedFruitSalads[indexPath.item]
+        recommendedCell.configureCell(fruitSalad: recommendedFruitSalad)
         return recommendedCell
     }
     
@@ -81,19 +130,32 @@ final class HomeViewController: UIViewController {
         guard let allSaladCell = collectionView.dequeueReusableCell(withReuseIdentifier: SaladCellIdentifier.allSalad, for: indexPath) as? SaladCell else {
             return UICollectionViewCell(frame: .zero)
         }
-        let recommended = FruitSalad(imageUrl: "https://w7.pngwing.com/pngs/259/411/png-transparent-computer-icons-text-information-link-blue-angle-text.png", nameSalad: "Honey lime combo", price: 5, isFavorite: false)
-        allSaladCell.configureCell(recommended: recommended)
+        let fruitSalad = filteredFruitSalads[indexPath.item]
+        allSaladCell.configureCell(fruitSalad: fruitSalad)
         return allSaladCell
     }
     
     private func didSelectNavigationCell(collectionView: UICollectionView, indexPath: IndexPath) {
         selecetedNavigationCell = indexPath.row
+        sortFruitSalads()
         let visibleIndexPaths = collectionView.indexPathsForSelectedItems
         collectionView.reloadSections(IndexSet(integer: 1))
         visibleIndexPaths?.forEach {
             if $0.section == 1 {
                 collectionView.scrollToItem(at: $0, at: .centeredHorizontally, animated: false)
             }
+        }
+    }
+    
+    //MARK: Alert
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { [weak self] _ in
+            self?.viewModel?.getAllFruitSalads()
+        }
+        alert.addAction(okAction)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true)
         }
     }
 }
@@ -122,11 +184,11 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 5
+            return recommendedFruitSalads.count
         case 1:
             return navigationItems.count
         case 2:
-            return 3
+            return filteredFruitSalads.count
         default:
             fatalError()
         }
@@ -151,12 +213,10 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            print(indexPath)
             viewModel?.goToSaladModule()
         case 1:
             didSelectNavigationCell(collectionView: collectionView, indexPath: indexPath)
         case 2:
-            print(indexPath)
             viewModel?.goToSaladModule()
         default:
             fatalError()

@@ -27,7 +27,7 @@ final class SaladViewController: UIViewController {
         super.viewDidLoad()
         addActionsContentView()
         bindViewModelToView()
-        let salad = FruitSalad(imageUrl: "", nameSalad: "Quinoa fruit salad", price: 10, isFavorite: false)
+        let salad = FruitSalad(id: "", imageUrl: "", nameSalad:  "Quinoa fruit salad", price: 10, isFavorite: false, compound: "", description: "", isRecommended: false, isFruitSalad: false, isExoticSalad: false, isCitrusSalad: false, isSeasonSalad: false)
         contentView.configureView(salad: salad)
         viewModel?.viewDidLoaded()
     }
