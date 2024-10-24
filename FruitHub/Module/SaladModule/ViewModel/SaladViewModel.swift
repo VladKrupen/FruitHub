@@ -9,7 +9,8 @@ import Foundation
 import Combine
 
 protocol SaladViewModelProtocol {
-    var counter: PassthroughSubject<Int, Never> { get set }
+    var counterPublisher: PassthroughSubject<Int, Never> { get set }
+    var fruitSaladPublisher: PassthroughSubject<FruitSalad, Never> { get set }
     func viewDidLoaded()
     func decreaseButtonWasPressed()
     func increaseButtonWasPressed()
@@ -17,16 +18,20 @@ protocol SaladViewModelProtocol {
 
 final class SaladViewModel: SaladViewModelProtocol {
     
-    var counter: PassthroughSubject<Int, Never> = PassthroughSubject<Int, Never>()
+    var counterPublisher: PassthroughSubject<Int, Never> = .init()
+    var fruitSaladPublisher: PassthroughSubject<FruitSalad, Never> = .init()
     
     private let counterManager: CounterManager
+    private let fruitSalad: FruitSalad
     
-    init(counterManager: CounterManager) {
+    init(counterManager: CounterManager, fruitSalad: FruitSalad) {
         self.counterManager = counterManager
+        self.fruitSalad = fruitSalad
     }
     
     func viewDidLoaded() {
         sendCounter()
+        sendFruitSalad()
     }
     
     func decreaseButtonWasPressed() {
@@ -40,6 +45,10 @@ final class SaladViewModel: SaladViewModelProtocol {
     }
     
     private func sendCounter() {
-        counter.send(counterManager.counter)
+        counterPublisher.send(counterManager.counter)
+    }
+    
+    private func sendFruitSalad() {
+        fruitSaladPublisher.send(fruitSalad)
     }
 }

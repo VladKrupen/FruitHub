@@ -27,8 +27,6 @@ final class SaladViewController: UIViewController {
         super.viewDidLoad()
         addActionsContentView()
         bindViewModelToView()
-        let salad = FruitSalad(id: "", imageUrl: "", nameSalad:  "Quinoa fruit salad", price: 10, isFavorite: false, compound: "", description: "", isRecommended: false, isFruitSalad: false, isExoticSalad: false, isCitrusSalad: false, isSeasonSalad: false)
-        contentView.configureView(salad: salad)
         viewModel?.viewDidLoaded()
     }
     
@@ -39,7 +37,7 @@ final class SaladViewController: UIViewController {
     
     //MARK: Bind
     private func bindViewModelToView() {
-        viewModel?.counter
+        viewModel?.counterPublisher
             .sink { [weak self] value in
                 switch value {
                 case _ where value == 10:
@@ -52,6 +50,12 @@ final class SaladViewController: UIViewController {
                 }
                 self?.contentView.updateCounterAndPriceLables(counter: value)
             }
+            .store(in: &cancellables)
+        
+        viewModel?.fruitSaladPublisher
+            .sink(receiveValue: { [weak self] fruiSalad in
+                self?.contentView.configureView(salad: fruiSalad)
+            })
             .store(in: &cancellables)
     }
     

@@ -15,8 +15,10 @@ final class SaladView: UIView {
     //MARK: UI
     private let imageView: UIImageView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.contentMode = .scaleAspectFit
+        $0.contentMode = .scaleAspectFill
+        $0.clipsToBounds = true
         $0.tintColor = .white
+        $0.layer.cornerRadius = 20
         return $0
     }(UIImageView())
     
@@ -153,8 +155,9 @@ final class SaladView: UIView {
         nameSaladLabel.text = salad.nameSalad
         price = salad.price
         priceLabel.text = "$ \(salad.price)"
-        compositionLabel.text = "Red Quinoa, Lime, Honey, Blueberries, Strawberries, Mango, Fresh mint"
-        noteLabel.text = "If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you."
+        compositionLabel.text = salad.compound
+        noteLabel.text = salad.description
+        favoriteButton.isFavorite = salad.isFavorite
     }
     
     func updateCounterAndPriceLables(counter: Int) {

@@ -10,6 +10,8 @@ import SDWebImage
 
 final class SaladCell: UICollectionViewCell {
     
+    var favoriteButtonAction: ((Bool) -> Void)?
+    
     //MARK: UI
     private let customView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -157,5 +159,7 @@ extension SaladCell {
     
     @objc private func favoriteButtonTapped() {
         favoriteButton.isFavorite?.toggle()
+        guard let favorite = favoriteButton.isFavorite else { return }
+        favoriteButtonAction?(favorite)
     }
 }

@@ -10,7 +10,7 @@ import Combine
 
 final class HomeViewController: UIViewController {
     
-    private var navigationItems: [String] = ["Fruits", "Exotica", "Citrus", "Season"]
+    private var navigationItems: [String] = ["Fruits", "Exotica", "Citrus", "Season", "Favorite"]
     private var selecetedNavigationCell: Int = 0
     
     private var fruitSalads: [FruitSalad] = []
@@ -60,10 +60,27 @@ final class HomeViewController: UIViewController {
             })
     }
     
+    //MARK: Update fruit salads
+    private func updateAllFruitSalads(fruitSalad: FruitSalad) {
+        guard let index = fruitSalads.firstIndex(where: { $0.id == fruitSalad.id }) else { return }
+        fruitSalads[index] = fruitSalad
+        sortFruitSalads()
+    }
+    
+    private func updateFilteredFruitSalads(fruitSalad: FruitSalad) {
+        guard let index = filteredFruitSalads.firstIndex(where: { $0.id == fruitSalad.id }) else { return }
+        filteredFruitSalads[index] = fruitSalad
+    }
+    
+    private func updateRecommendedFruitSalads(fruitSalad: FruitSalad) {
+        guard let index = recommendedFruitSalads.firstIndex(where: { $0.id == fruitSalad.id }) else { return }
+        recommendedFruitSalads[index] = fruitSalad
+    }
+    
     //MARK: Sorting
     private func setRecommendedFruitSalads(fruitSalads: [FruitSalad]) {
         recommendedFruitSalads = fruitSalads.filter { $0.isRecommended == true }
-        contentView.collectionView.reloadSections(IndexSet(integer: 0))
+        contentView.collectionView.reloadData()
     }
     
     private func sortFruitSalads() {
@@ -76,10 +93,12 @@ final class HomeViewController: UIViewController {
             filteredFruitSalads = fruitSalads.filter { $0.isCitrusSalad == true }
         case 3:
             filteredFruitSalads = fruitSalads.filter { $0.isSeasonSalad == true }
+        case 4:
+            filteredFruitSalads = fruitSalads.filter { $0.isFavorite == true }
         default:
             return
         }
-        contentView.collectionView.reloadSections(IndexSet(integer: 2))
+        contentView.collectionView.reloadData()
     }
     
     //MARK: Setup
@@ -108,8 +127,14 @@ final class HomeViewController: UIViewController {
         guard let recommendedCell = collectionView.dequeueReusableCell(withReuseIdentifier: SaladCellIdentifier.recommendedSalad, for: indexPath) as? SaladCell else {
             return UICollectionViewCell(frame: .zero)
         }
-        let recommendedFruitSalad = recommendedFruitSalads[indexPath.item]
+        var recommendedFruitSalad = recommendedFruitSalads[indexPath.item]
         recommendedCell.configureCell(fruitSalad: recommendedFruitSalad)
+        recommendedCell.favoriteButtonAction = { [weak self] favorite in
+            recommendedFruitSalad.isFavorite = favorite
+            self?.updateAllFruitSalads(fruitSalad: recommendedFruitSalad)
+            self?.updateFilteredFruitSalads(fruitSalad: recommendedFruitSalad)
+            self?.updateRecommendedFruitSalads(fruitSalad: recommendedFruitSalad)
+        }
         return recommendedCell
     }
     
@@ -130,8 +155,14 @@ final class HomeViewController: UIViewController {
         guard let allSaladCell = collectionView.dequeueReusableCell(withReuseIdentifier: SaladCellIdentifier.allSalad, for: indexPath) as? SaladCell else {
             return UICollectionViewCell(frame: .zero)
         }
-        let fruitSalad = filteredFruitSalads[indexPath.item]
+        var fruitSalad = filteredFruitSalads[indexPath.item]
         allSaladCell.configureCell(fruitSalad: fruitSalad)
+        allSaladCell.favoriteButtonAction = { [weak self] favorite in
+            fruitSalad.isFavorite = favorite
+            self?.updateAllFruitSalads(fruitSalad: fruitSalad)
+            self?.updateFilteredFruitSalads(fruitSalad: fruitSalad)
+            self?.updateRecommendedFruitSalads(fruitSalad: fruitSalad)
+        }
         return allSaladCell
     }
     
@@ -139,7 +170,7 @@ final class HomeViewController: UIViewController {
         selecetedNavigationCell = indexPath.row
         sortFruitSalads()
         let visibleIndexPaths = collectionView.indexPathsForSelectedItems
-        collectionView.reloadSections(IndexSet(integer: 1))
+        contentView.collectionView.reloadData()
         visibleIndexPaths?.forEach {
             if $0.section == 1 {
                 collectionView.scrollToItem(at: $0, at: .centeredHorizontally, animated: false)
@@ -213,11 +244,11 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            viewModel?.goToSaladModule()
+            viewModel?.goToSaladModule(fruitSalad: recommendedFruitSalads[indexPath.item])
         case 1:
             didSelectNavigationCell(collectionView: collectionView, indexPath: indexPath)
         case 2:
-            viewModel?.goToSaladModule()
+            viewModel?.goToSaladModule(fruitSalad: filteredFruitSalads[indexPath.item])
         default:
             fatalError()
         }

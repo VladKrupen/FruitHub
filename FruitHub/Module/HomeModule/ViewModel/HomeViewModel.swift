@@ -9,15 +9,15 @@ import Foundation
 import Combine
 
 protocol HomeViewModelProtocol {
-    var completionHandler: ((HomeActions) -> Void)? { get set }
+    var completionHandler: ((HomeActions, FruitSalad?) -> Void)? { get set }
     var fruitSaladPublisher: PassthroughSubject<Result<[FruitSalad], Error>, Never> { get set }
-    func goToSaladModule()
+    func goToSaladModule(fruitSalad: FruitSalad)
     func goToOrderListModule()
     func getAllFruitSalads()
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
-    var completionHandler: ((HomeActions) -> Void)?
+    var completionHandler: ((HomeActions, FruitSalad?) -> Void)?
     
     private var cancellableFirebase: AnyCancellable?
     var fruitSaladPublisher: PassthroughSubject<Result<[FruitSalad], Error>, Never> = .init()
@@ -28,12 +28,12 @@ final class HomeViewModel: HomeViewModelProtocol {
         self.firebaseManager = firebaseManager
     }
 
-    func goToSaladModule() {
-        completionHandler?(.saladCellPressed)
+    func goToSaladModule(fruitSalad: FruitSalad) {
+        completionHandler?(.saladCellPressed, fruitSalad)
     }
     
     func goToOrderListModule() {
-        completionHandler?(.basketPressed)
+        completionHandler?(.basketPressed, nil)
     }
     
     func getAllFruitSalads() {
