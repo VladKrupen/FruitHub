@@ -10,6 +10,8 @@ import UIKit
 final class ModuleFactory {
     
     static let dataVerificationManager = DataVerificationManager()
+    static let firebaseManager = FirebaseManager()
+    static let coreDataManager = CoreDataManager()
     
     static func createSplashModule() -> SplashViewController {
         let splashViewController = SplashViewController()
@@ -27,14 +29,16 @@ final class ModuleFactory {
     
     static func createEnterNameModule() -> EnterNameViewController {
         let enterNameViewController = EnterNameViewController()
-        let enterNameViewModel = EnterNameViewModel(userDataVerification: dataVerificationManager)
+        let enterNameViewModel = EnterNameViewModel(userDataVerification: dataVerificationManager,
+                                                    coreDataCreationUser: coreDataManager)
         enterNameViewController.viewModel = enterNameViewModel
         return enterNameViewController
     }
     
     static func createHomeModule() -> HomeViewController {
         let homeViewController = HomeViewController()
-        let homeViewModel = HomeViewModel(firebaseManager: FirebaseManager())
+        let homeViewModel = HomeViewModel(firebaseManager: firebaseManager,
+                                          coreDataReceivingUser: coreDataManager)
         homeViewController.viewModel = homeViewModel
         return homeViewController
     }
@@ -42,7 +46,8 @@ final class ModuleFactory {
     static func createSaladModule(fruitSalad: FruitSalad) -> SaladViewController {
         let counterManager = CounterManager()
         let saladController = SaladViewController()
-        let saladViewModel = SaladViewModel(counterManager: counterManager, fruitSalad: fruitSalad)
+        let saladViewModel = SaladViewModel(counterManager: counterManager,
+                                            fruitSalad: fruitSalad)
         saladController.viewModel = saladViewModel
         return saladController
     }

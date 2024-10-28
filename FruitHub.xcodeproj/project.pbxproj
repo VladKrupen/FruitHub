@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010321CC2CCFC96200CF73C5 /* FruitHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 010321CA2CCFC96200CF73C5 /* FruitHub.xcdatamodeld */; };
+		010321CE2CCFC97100CF73C5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010321CD2CCFC97100CF73C5 /* CoreDataManager.swift */; };
 		010FAD182CBBBA94009D1250 /* CardDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010FAD172CBBBA94009D1250 /* CardDetailsView.swift */; };
 		010FAD1C2CBBBAE3009D1250 /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010FAD1B2CBBBAE3009D1250 /* CardDetailsViewController.swift */; };
 		010FAD1E2CBBBB5D009D1250 /* CardDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010FAD1D2CBBBB5D009D1250 /* CardDetailsViewModel.swift */; };
@@ -94,6 +96,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010321CB2CCFC96200CF73C5 /* FruitHub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FruitHub.xcdatamodel; sourceTree = "<group>"; };
+		010321CD2CCFC97100CF73C5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		010FAD172CBBBA94009D1250 /* CardDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsView.swift; sourceTree = "<group>"; };
 		010FAD1B2CBBBAE3009D1250 /* CardDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
 		010FAD1D2CBBBB5D009D1250 /* CardDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 				014D9DD22CBBEB2B00E99251 /* CardData.swift */,
 				018D973E2CBE56CD00E679A5 /* DeliveryData.swift */,
 				015D4E022CBE651E0085C65C /* User.swift */,
+				010321CA2CCFC96200CF73C5 /* FruitHub.xcdatamodeld */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -580,6 +585,7 @@
 				0171D63D2CAD3CD100A9AC88 /* CounterManager.swift */,
 				015D4E042CBE6FC60085C65C /* DataVerificationManager.swift */,
 				0125B5852CC8409500D7FC39 /* FirebaseManager.swift */,
+				010321CD2CCFC97100CF73C5 /* CoreDataManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -776,6 +782,7 @@
 				01B8AACF2CB9667B009BE3EB /* CompleteDetailsView.swift in Sources */,
 				015D4E0C2CBE7B770085C65C /* CardDataVerificationError.swift in Sources */,
 				015D4E0A2CBE765C0085C65C /* DeliveryDataVerificationError.swift in Sources */,
+				010321CE2CCFC97100CF73C5 /* CoreDataManager.swift in Sources */,
 				0168EFD82CB91FAB008DFDD5 /* OrderListView.swift in Sources */,
 				0154F59B2CBD150900670F97 /* OrderCompleteViewModel.swift in Sources */,
 				01B8AAC62CB93BD0009BE3EB /* NavigationItemTitle.swift in Sources */,
@@ -784,6 +791,7 @@
 				010FAD1C2CBBBAE3009D1250 /* CardDetailsViewController.swift in Sources */,
 				01B2B3FA2CA1CE960064B319 /* HomeView.swift in Sources */,
 				0199B3FB2C9AB332006253EF /* SceneDelegate.swift in Sources */,
+				010321CC2CCFC96200CF73C5 /* FruitHub.xcdatamodeld in Sources */,
 				015D4E052CBE6FC60085C65C /* DataVerificationManager.swift in Sources */,
 				01B2B3D82CA16B030064B319 /* EnterNameViewController.swift in Sources */,
 				01B2B3F82CA1CC000064B319 /* HomeCoordinator.swift in Sources */,
@@ -1061,6 +1069,19 @@
 			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		010321CA2CCFC96200CF73C5 /* FruitHub.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				010321CB2CCFC96200CF73C5 /* FruitHub.xcdatamodel */,
+			);
+			currentVersion = 010321CB2CCFC96200CF73C5 /* FruitHub.xcdatamodel */;
+			path = FruitHub.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0199B3ED2C9AB332006253EF /* Project object */;
 }

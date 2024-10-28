@@ -17,7 +17,7 @@ final class HomeViewController: UIViewController {
     private var filteredFruitSalads: [FruitSalad] = []
     private var recommendedFruitSalads: [FruitSalad] = []
     
-    private var cancellable: AnyCancellable?
+    private var cancellables: Set<AnyCancellable> = []
     
     //MARK: Dependency
     var viewModel: HomeViewModelProtocol?
@@ -35,7 +35,7 @@ final class HomeViewController: UIViewController {
         setupCollectionView()
         bindViewModelToView()
         contentView.showSpiner()
-        viewModel?.getAllFruitSalads()
+        viewModel?.viewDidLoaded()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,19 +45,30 @@ final class HomeViewController: UIViewController {
     
     //MARK: Bind
     private func bindViewModelToView() {
-        cancellable = viewModel?.fruitSaladPublisher
-            .receive(on: DispatchQueue.main)
+        viewModel?.fruitSaladPublisher
+            .sink(receiveValue: { [weak self] fruitSalads in
+                self?.fruitSalads = fruitSalads
+                self?.setRecommendedFruitSalads(fruitSalads: fruitSalads)
+                self?.sortFruitSalads()
+            })
+            .store(in: &cancellables)
+        
+        viewModel?.userPublisher
+            .sink(receiveValue: { [weak self] user in
+                self?.contentView.configureWelcomeLabel(name: user.name)
+            })
+            .store(in: &cancellables)
+        
+        viewModel?.completionPublisher
             .sink(receiveValue: { [weak self] results in
                 switch results {
-                case .success(let fruitSalads):
-                    self?.fruitSalads = fruitSalads
-                    self?.setRecommendedFruitSalads(fruitSalads: fruitSalads)
-                    self?.sortFruitSalads()
+                case .success:
                     self?.contentView.hideSpiner()
                 case .failure(let error):
                     self?.showAlert(message: error.localizedDescription)
                 }
             })
+            .store(in: &cancellables)
     }
     
     //MARK: Update fruit salads
@@ -182,7 +193,7 @@ final class HomeViewController: UIViewController {
     private func showAlert(message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default) { [weak self] _ in
-            self?.viewModel?.getAllFruitSalads()
+            self?.viewModel?.viewDidLoaded()
         }
         alert.addAction(okAction)
         DispatchQueue.main.async { [weak self] in

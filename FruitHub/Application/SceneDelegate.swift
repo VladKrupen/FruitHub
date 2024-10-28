@@ -26,5 +26,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController?.view.endEditing(true)
         window?.rootViewController?.presentedViewController?.view.endEditing(true)
     }
+    
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        let coreDataSaving: CoreDataSaving = CoreDataManager()
+        do {
+            try coreDataSaving.saveContext()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 

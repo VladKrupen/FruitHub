@@ -29,7 +29,8 @@ final class EnterNameViewController: UIViewController {
     
     //MARK: Bind
     private func bindViewModelToView() {
-        viewModel?.nameEmptyErrorMessage
+        viewModel?.errorMessagePublisher
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] message in
                 self?.showAlertEmptyField(message: message)
             }

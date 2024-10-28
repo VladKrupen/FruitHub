@@ -60,7 +60,6 @@ final class HomeView: UIView {
         super.init(frame: frame)
         backgroundColor = UIColor(hex: Colors.white)
         layoutElements()
-        configureWelcomeLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -68,8 +67,8 @@ final class HomeView: UIView {
     }
     
     //MARK: Configure
-    func configureWelcomeLabel() {
-        welcomeLabel.text = "Hello Alex, What fruit salad combo do you want today?"
+    func configureWelcomeLabel(name: String) {
+        welcomeLabel.text = "Hello \(name), What fruit salad combo do you want today?"
     }
     
     //MARK: Setup Spiner
