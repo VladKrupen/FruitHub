@@ -32,6 +32,10 @@ protocol CoreDataUpdatingFruitSalad: AnyObject {
     func updateFruitSalad(fruitSalad: FruitSalad) -> AnyPublisher<Void, Error>
 }
 
+protocol CoreDataReceivingOrderList: AnyObject {
+    func fetchOrderList() -> AnyPublisher<[FruitSalad], Error>
+}
+
 final class CoreDataManager {
     
     private let persistentContainer: NSPersistentContainer
@@ -205,6 +209,42 @@ extension CoreDataManager: CoreDataUpdatingFruitSalad {
                     fruitSaladModel.isBasket = fruitSalad.isBasket
                     try self.saveContext()
                     promise(.success(()))
+                } catch {
+                    promise(.failure(error))
+                }
+            }
+        }
+        .eraseToAnyPublisher()
+    }
+}
+
+extension CoreDataManager: CoreDataReceivingOrderList {
+    func fetchOrderList() -> AnyPublisher<[FruitSalad], any Error> {
+        return Future { [weak self] promise in
+            guard let self = self else { return }
+            self.backgroundContext.perform {
+                let fetchRequest = FruitSaladModel.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "isBasket == %@", NSNumber(value: true))
+                do {
+                    let fruitSaladsModel = try self.backgroundContext.fetch(fetchRequest)
+                    var fruitSalads: [FruitSalad] = []
+                    for fruitSaladModel in fruitSaladsModel {
+                        fruitSalads.append(FruitSalad(id: fruitSaladModel.id ?? "",
+                                                      imageUrl: fruitSaladModel.imageUrl ?? "",
+                                                      nameSalad: fruitSaladModel.nameSalad ?? "",
+                                                      price: fruitSaladModel.price,
+                                                      isFavorite: fruitSaladModel.isFavorite,
+                                                      compound: fruitSaladModel.compound ?? "",
+                                                      description: fruitSaladModel.descript ?? "",
+                                                      isRecommended: fruitSaladModel.isRecommended,
+                                                      isFruitSalad: fruitSaladModel.isFruitSalad,
+                                                      isExoticSalad: fruitSaladModel.isExoticSalad,
+                                                      isCitrusSalad: fruitSaladModel.isCitrusSalad,
+                                                      isSeasonSalad: fruitSaladModel.isSeasonSalad,
+                                                      isBasket: fruitSaladModel.isBasket,
+                                                      packaging: Int(fruitSaladModel.packaging)))
+                    }
+                    promise(.success(fruitSalads))
                 } catch {
                     promise(.failure(error))
                 }

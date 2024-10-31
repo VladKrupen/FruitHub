@@ -28,7 +28,6 @@ final class OrderListView: UIView {
     }(UILabel())
     
     private let priceLabel: UILabel = {
-        $0.text = "$ 70.0"
         $0.font = UIFont.systemFont(ofSize: 24)
         return $0
     }(UILabel())
@@ -61,6 +60,11 @@ final class OrderListView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: Configure
+    func configurePriceLabel(total: Float) {
+        priceLabel.text = "$ \(total)"
     }
     
     //MARK: Layout

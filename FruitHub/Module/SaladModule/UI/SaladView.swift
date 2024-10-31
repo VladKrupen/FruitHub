@@ -35,8 +35,7 @@ final class SaladView: UIView {
         return $0
     }(FavoriteButton())
     
-    let addToBasketButton: OrangeFillButton = {
-        $0.setTitle(ButtonTitles.addToBasket, for: .normal)
+    let orangeFillButton: OrangeFillButton = {
         return $0
     }(OrangeFillButton())
     
@@ -151,7 +150,8 @@ final class SaladView: UIView {
     
     //MARK: Configure
     func configureView(salad: FruitSalad) {
-        imageView.sd_setImage(with: URL(string: salad.imageUrl), placeholderImage: UIImage(systemName: SystemImages.placeholderForSaladImage))
+        imageView.sd_setImage(with: URL(string: salad.imageUrl),
+                              placeholderImage: UIImage(systemName: SystemImages.placeholderForSaladImage))
         nameSaladLabel.text = salad.nameSalad
         price = salad.price
         priceLabel.text = "$ \(salad.price)"
@@ -163,7 +163,7 @@ final class SaladView: UIView {
     func updateCounterAndPriceLables(counter: Int) {
         counterLabel.text = "\(counter)"
         guard let price = price else { return }
-        priceLabel.text = "$ \(Float(counter)*price)"
+        priceLabel.text = "$ \(Float(counter) * price)"
     }
     
     //MARK: Lauout
@@ -218,14 +218,14 @@ final class SaladView: UIView {
     }
     
     private func layoutAddToBasketButton() {
-        whiteView.addSubview(addToBasketButton)
+        whiteView.addSubview(orangeFillButton)
         
         NSLayoutConstraint.activate([
-            addToBasketButton.heightAnchor.constraint(equalToConstant: 56),
+            orangeFillButton.heightAnchor.constraint(equalToConstant: 56),
             
-            addToBasketButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
-            addToBasketButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            addToBasketButton.leadingAnchor.constraint(equalTo: favoriteButton.trailingAnchor, constant: 70),
+            orangeFillButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            orangeFillButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            orangeFillButton.leadingAnchor.constraint(equalTo: favoriteButton.trailingAnchor, constant: 70),
             favoriteButton.centerYAnchor.constraint(equalTo: favoriteButton.centerYAnchor)
         ])
     }
@@ -235,7 +235,7 @@ final class SaladView: UIView {
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: whiteView.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: addToBasketButton.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: orangeFillButton.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor),
         ])

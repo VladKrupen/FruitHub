@@ -36,11 +36,6 @@ final class SaladCell: UICollectionViewCell {
         return $0
     }(UILabel())
     
-    private lazy var plusButton: PlusButton = {
-        $0.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
-        return $0
-    }(PlusButton(type: .system))
-    
     private let priceLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.textAlignment = .left
@@ -67,7 +62,8 @@ final class SaladCell: UICollectionViewCell {
     
     //MARK: Configure
     func configureCell(fruitSalad: FruitSalad) {
-        saladImageView.sd_setImage(with: URL(string: fruitSalad.imageUrl), placeholderImage: UIImage(systemName: SystemImages.placeholderForSaladImage))
+        saladImageView.sd_setImage(with: URL(string: fruitSalad.imageUrl),
+                                   placeholderImage: UIImage(systemName: SystemImages.placeholderForSaladImage))
         priceLabel.text = "$ \(fruitSalad.price)"
         saladNameLabel.text = fruitSalad.nameSalad
         favoriteButton.isFavorite = fruitSalad.isFavorite
@@ -78,7 +74,6 @@ final class SaladCell: UICollectionViewCell {
         layoutCustomView()
         layoutSaladImageView()
         layoutSaladNameLabel()
-        layoutPlusButton()
         layoutPriceLabel()
         layoutFavoriteButton()
     }
@@ -116,25 +111,15 @@ final class SaladCell: UICollectionViewCell {
         ])
     }
     
-    private func layoutPlusButton() {
-        customView.addSubview(plusButton)
-        
-        NSLayoutConstraint.activate([
-            plusButton.topAnchor.constraint(equalTo: saladNameLabel.bottomAnchor, constant: 10),
-            plusButton.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: -15),
-            
-            customView.bottomAnchor.constraint(equalTo: plusButton.bottomAnchor, constant: 10),
-            contentView.bottomAnchor.constraint(equalTo: customView.bottomAnchor)
-        ])
-    }
-    
     private func layoutPriceLabel() {
         customView.addSubview(priceLabel)
         
         NSLayoutConstraint.activate([
-            priceLabel.centerYAnchor.constraint(equalTo: plusButton.centerYAnchor),
+            priceLabel.topAnchor.constraint(equalTo: saladNameLabel.bottomAnchor, constant: 25),
             priceLabel.leadingAnchor.constraint(equalTo: customView.leadingAnchor, constant: 20),
-            priceLabel.trailingAnchor.constraint(equalTo: plusButton.leadingAnchor, constant: -10),
+            priceLabel.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: -20),
+            customView.bottomAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 15),
+            contentView.bottomAnchor.constraint(equalTo: customView.bottomAnchor)
         ])
     }
     

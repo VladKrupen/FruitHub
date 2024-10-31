@@ -30,26 +30,34 @@ final class HomeCoordinator: CoordinatorProtocol {
             switch actions {
             case .saladCellPressed:
                 guard let fruitSalad else { return }
-                self?.showSaladModule(fruitSalad: fruitSalad)
+                self?.showSaladModule(fruitSalad: fruitSalad, callingModule: .homeModule)
             case .basketPressed:
                 self?.showOrderListModule()
             }
         }
     }
     
-    private func showSaladModule(fruitSalad: FruitSalad) {
-        let saladController = ModuleFactory.createSaladModule(fruitSalad: fruitSalad)
+    private func showSaladModule(fruitSalad: FruitSalad, callingModule: CallingModule) {
+        let saladController = ModuleFactory.createSaladModule(fruitSalad: fruitSalad, callingModule: callingModule)
         navigationController.pushViewController(saladController, animated: true)
         saladController.viewModel?.completionHandler = { [weak self] in
-            self?.navigationController.popToRootViewController(animated: true)
+            self?.navigationController.popViewController(animated: true)
         }
     }
     
     private func showOrderListModule() {
         let orderListController = ModuleFactory.createOrderListModule()
         navigationController.pushViewController(orderListController, animated: true)
-        orderListController.viewModel?.completionHandler = { [weak self] in
-            self?.showCompleteDetailsModule()
+        orderListController.viewModel?.completionHandler = { [weak self] actions, fruitSalad in
+            switch actions {
+            case .backButtonPressed:
+                self?.navigationController.popViewController(animated: true)
+            case .checkoutButtonPressed:
+                self?.showCompleteDetailsModule()
+            case .cellPressed:
+                guard let fruitSalad else { return }
+                self?.showSaladModule(fruitSalad: fruitSalad, callingModule: .orderListModule)
+            }
         }
     }
     

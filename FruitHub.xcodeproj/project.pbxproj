@@ -23,11 +23,12 @@
 		0125B5822CC7EE9200D7FC39 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0125B5812CC7EE9200D7FC39 /* FirebaseFirestore */; };
 		0125B5842CC7EE9200D7FC39 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0125B5832CC7EE9200D7FC39 /* FirebaseStorage */; };
 		0125B5862CC8409500D7FC39 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125B5852CC8409500D7FC39 /* FirebaseManager.swift */; };
-		013567C92CA418AA00CF6696 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567C82CA418AA00CF6696 /* PlusButton.swift */; };
 		013567CF2CA41C6800CF6696 /* SystemImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567CE2CA41C6800CF6696 /* SystemImages.swift */; };
 		013567D22CA41E2D00CF6696 /* FruitSalad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567D12CA41E2D00CF6696 /* FruitSalad.swift */; };
 		013567D42CA421DC00CF6696 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013567D32CA421DC00CF6696 /* FavoriteButton.swift */; };
 		014D9DD32CBBEB2B00E99251 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D9DD22CBBEB2B00E99251 /* CardData.swift */; };
+		015232352CD3BD3200B7E5C2 /* OrderListActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015232342CD3BD3200B7E5C2 /* OrderListActions.swift */; };
+		015232382CD3D4B200B7E5C2 /* CallingModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015232372CD3D4B200B7E5C2 /* CallingModule.swift */; };
 		0154F5972CBD135900670F97 /* OrderCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0154F5962CBD135900670F97 /* OrderCompleteViewController.swift */; };
 		0154F5992CBD137E00670F97 /* OrderCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0154F5982CBD137E00670F97 /* OrderCompleteView.swift */; };
 		0154F59B2CBD150900670F97 /* OrderCompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0154F59A2CBD150900670F97 /* OrderCompleteViewModel.swift */; };
@@ -108,11 +109,12 @@
 		011AFC512CAB0C06006541F9 /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
 		0125B57A2CC7ECB000D7FC39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0125B5852CC8409500D7FC39 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		013567C82CA418AA00CF6696 /* PlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
 		013567CE2CA41C6800CF6696 /* SystemImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImages.swift; sourceTree = "<group>"; };
 		013567D12CA41E2D00CF6696 /* FruitSalad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitSalad.swift; sourceTree = "<group>"; };
 		013567D32CA421DC00CF6696 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		014D9DD22CBBEB2B00E99251 /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
+		015232342CD3BD3200B7E5C2 /* OrderListActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListActions.swift; sourceTree = "<group>"; };
+		015232372CD3D4B200B7E5C2 /* CallingModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallingModule.swift; sourceTree = "<group>"; };
 		0154F5962CBD135900670F97 /* OrderCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteViewController.swift; sourceTree = "<group>"; };
 		0154F5982CBD137E00670F97 /* OrderCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteView.swift; sourceTree = "<group>"; };
 		0154F59A2CBD150900670F97 /* OrderCompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteViewModel.swift; sourceTree = "<group>"; };
@@ -200,7 +202,6 @@
 		010FAD142CBBBA62009D1250 /* CardDetailsModule */ = {
 			isa = PBXGroup;
 			children = (
-				010FAD1F2CBBBF00009D1250 /* CardDetailsActions.swift */,
 				010FAD162CBBBA78009D1250 /* UI */,
 				010FAD152CBBBA71009D1250 /* ViewModel */,
 			);
@@ -243,6 +244,18 @@
 				010321CA2CCFC96200CF73C5 /* FruitHub.xcdatamodeld */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		015232362CD3D1EF00B7E5C2 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				011AFC4D2CAB0728006541F9 /* HomeActions.swift */,
+				015232342CD3BD3200B7E5C2 /* OrderListActions.swift */,
+				0172D6F62CB985BD00902C50 /* CompleteDetailsActions.swift */,
+				010FAD1F2CBBBF00009D1250 /* CardDetailsActions.swift */,
+				015232372CD3D4B200B7E5C2 /* CallingModule.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		0154F5932CBD132000670F97 /* OrderCompleteModule */ = {
@@ -330,6 +343,7 @@
 				0199B40C2C9AB36E006253EF /* Application */,
 				0199B40E2C9AC043006253EF /* Coordinators */,
 				013567D02CA41E0D00CF6696 /* Entity */,
+				015232362CD3D1EF00B7E5C2 /* Enum */,
 				015D4E062CBE71580085C65C /* Error */,
 				0199B42D2C9ACF6C006253EF /* Extension */,
 				0199B4142C9AC445006253EF /* Factories */,
@@ -568,7 +582,6 @@
 				01B2B3E12CA1723B0064B319 /* OrangeFillButton.swift */,
 				01B2B3E72CA17C520064B319 /* CustomTextField.swift */,
 				01B2B3FB2CA1D6CA0064B319 /* Basket.swift */,
-				013567C82CA418AA00CF6696 /* PlusButton.swift */,
 				013567D32CA421DC00CF6696 /* FavoriteButton.swift */,
 				011AFC512CAB0C06006541F9 /* BackButtonView.swift */,
 				01B2A5852CAC3E9E00FE62EB /* CounterChange.swift */,
@@ -593,7 +606,6 @@
 		01B2B3F02CA1C7F30064B319 /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
-				011AFC4D2CAB0728006541F9 /* HomeActions.swift */,
 				01B2B3F22CA1C8200064B319 /* UI */,
 				01B2B3F12CA1C81B0064B319 /* ViewModel */,
 			);
@@ -621,7 +633,6 @@
 		01B8AAC92CB965C2009BE3EB /* CompleteDetailsModule */ = {
 			isa = PBXGroup;
 			children = (
-				0172D6F62CB985BD00902C50 /* CompleteDetailsActions.swift */,
 				01B8AACB2CB965F2009BE3EB /* UI */,
 				01B8AACA2CB965ED009BE3EB /* ViewModel */,
 			);
@@ -734,6 +745,7 @@
 				0168EFD62CB91F7E008DFDD5 /* OrderListViewController.swift in Sources */,
 				0199B4322C9AD00E006253EF /* ImageAssets.swift in Sources */,
 				01B2B3FC2CA1D6CA0064B319 /* Basket.swift in Sources */,
+				015232352CD3BD3200B7E5C2 /* OrderListActions.swift in Sources */,
 				010FAD202CBBBF00009D1250 /* CardDetailsActions.swift in Sources */,
 				01B2A5862CAC3E9E00FE62EB /* CounterChange.swift in Sources */,
 				010FAD182CBBBA94009D1250 /* CardDetailsView.swift in Sources */,
@@ -760,6 +772,7 @@
 				018D97412CBE585E00E679A5 /* AlertMessage.swift in Sources */,
 				0199B4242C9AC8BE006253EF /* SplashViewController.swift in Sources */,
 				0199B3F92C9AB332006253EF /* AppDelegate.swift in Sources */,
+				015232382CD3D4B200B7E5C2 /* CallingModule.swift in Sources */,
 				0199B43D2C9ADCC9006253EF /* WelcomeViewModel.swift in Sources */,
 				0157A2AB2CA29F33005FEE4E /* SaladCell.swift in Sources */,
 				014D9DD32CBBEB2B00E99251 /* CardData.swift in Sources */,
@@ -797,7 +810,6 @@
 				01B2B3F82CA1CC000064B319 /* HomeCoordinator.swift in Sources */,
 				01B2B3F62CA1C8530064B319 /* HomeViewModel.swift in Sources */,
 				0199B4442C9AE308006253EF /* WelcomeView.swift in Sources */,
-				013567C92CA418AA00CF6696 /* PlusButton.swift in Sources */,
 				011AFC382CAAB638006541F9 /* NavigationCell.swift in Sources */,
 				01B2A5822CABF1B700FE62EB /* SaladView.swift in Sources */,
 				01B2A5832CABF1B700FE62EB /* SaladViewController.swift in Sources */,

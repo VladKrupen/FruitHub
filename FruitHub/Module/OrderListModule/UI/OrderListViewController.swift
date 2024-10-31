@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import Combine
 
 final class OrderListViewController: UIViewController {
+    
+    private var orderList: [FruitSalad] = []
+    
+    private var cancellables: Set<AnyCancellable> = []
     
     var viewModel: OrderListViewModelProtocol?
     private let contentView = OrderListView()
@@ -24,11 +29,38 @@ final class OrderListViewController: UIViewController {
         super.viewDidLoad()
         addTargetForCheckoutButton()
         setupTableView()
+        bindViewModelToView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationController()
+        viewModel?.fetchOrderList()
+    }
+    
+    //MARK: BindViewModelToView
+    private func bindViewModelToView() {
+        viewModel?.fruitSaladPublisher
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] fruitSalads in
+                self?.orderList = fruitSalads
+                self?.contentView.tableView.reloadData()
+            })
+            .store(in: &cancellables)
+        
+        viewModel?.errorMessagePublisher
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] errorMessage in
+                self?.showAlert(message: errorMessage)
+            })
+            .store(in: &cancellables)
+        
+        viewModel?.totalAmountPublisher
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] totalAmount in
+                self?.contentView.configurePriceLabel(total: totalAmount)
+            })
+            .store(in: &cancellables)
     }
     
     //MARK: Setup
@@ -53,17 +85,36 @@ final class OrderListViewController: UIViewController {
     private func addTargetForCheckoutButton() {
         contentView.chekoutButton.addTarget(self, action: #selector(checkoutButtonTapped), for: .touchUpInside)
     }
+    
+    //MARK: Alert
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { [weak self] _ in
+            self?.viewModel?.backButtonWasPressed()
+        }
+        alert.addAction(okAction)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true)
+        }
+    }
+    
+    //MARK: Remove fruit salad
+    private func removeFruitSaladFromBasket(index: Int) {
+        viewModel?.removeFruidSaladFromBasket(fruitSalad: orderList[index])
+        orderList.remove(at: index)
+        viewModel?.updateTotalAmount(orderList: orderList)
+    }
 }
 
 //MARK: OBJC
 extension OrderListViewController {
     @objc private func backButtonViewTapped() {
-        navigationController?.popViewController(animated: true)
+        viewModel?.backButtonWasPressed()
     }
     
     @objc private func checkoutButtonTapped() {
         AnimationManager.animateClick(view: contentView.chekoutButton) { [weak self] in
-            self?.viewModel?.goToCompleteDetailsModule()
+            self?.viewModel?.checkoutButtonWasPressed()
         }
     }
 }
@@ -78,7 +129,7 @@ extension OrderListViewController: UIGestureRecognizerDelegate {
 //MARK: UITableViewDataSource
 extension OrderListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return orderList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,11 +137,22 @@ extension OrderListViewController: UITableViewDataSource {
                                                        for: indexPath) as? OrderListCell else {
             return UITableViewCell()
         }
+        cell.configureCell(fruitSalad: orderList[indexPath.row])
         return cell
     }
 }
 
 //MARK: UITableViewDelegate
 extension OrderListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel?.cellWasPressed(fruitSalad: orderList[indexPath.row])
+    }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            removeFruitSaladFromBasket(index: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            print(orderList.count)
+        }
+    }
 }

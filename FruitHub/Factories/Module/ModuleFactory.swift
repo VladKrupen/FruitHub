@@ -45,19 +45,21 @@ final class ModuleFactory {
         return homeViewController
     }
     
-    static func createSaladModule(fruitSalad: FruitSalad) -> SaladViewController {
+    static func createSaladModule(fruitSalad: FruitSalad, callingModule: CallingModule) -> SaladViewController {
         let counterManager = CounterManager()
         let saladController = SaladViewController()
         let saladViewModel = SaladViewModel(counterManager: counterManager,
                                             fruitSalad: fruitSalad,
-                                            coreDataUpdatingFruitSalad: coreDataManager)
+                                            coreDataUpdatingFruitSalad: coreDataManager,
+                                            callingModule: callingModule)
         saladController.viewModel = saladViewModel
         return saladController
     }
     
     static func createOrderListModule() -> OrderListViewController {
         let orderListViewController = OrderListViewController()
-        let orderListViewModel = OrderListViewModel()
+        let orderListViewModel = OrderListViewModel(coreDataReceivingOrderList: coreDataManager,
+                                                    coreDataUpdatingFruitSalad: coreDataManager)
         orderListViewController.viewModel = orderListViewModel
         return orderListViewController
     }

@@ -55,6 +55,7 @@ final class SaladViewController: UIViewController {
         viewModel?.fruitSaladPublisher
             .sink(receiveValue: { [weak self] fruiSalad in
                 self?.contentView.configureView(salad: fruiSalad)
+                self?.contentView.updateCounterAndPriceLables(counter: fruiSalad.packaging)
             })
             .store(in: &cancellables)
         
@@ -62,6 +63,17 @@ final class SaladViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] errorMessage in
                 self?.showAlert(message: errorMessage)
+            })
+            .store(in: &cancellables)
+        
+        viewModel?.titleButtonPublisher
+            .sink(receiveValue: { [weak self] callingModule in
+                switch callingModule {
+                case .homeModule:
+                    self?.contentView.orangeFillButton.setTitle(ButtonTitles.addToBasket, for: .normal)
+                case .orderListModule:
+                    self?.contentView.orangeFillButton.setTitle(ButtonTitles.save, for: .normal)
+                }
             })
             .store(in: &cancellables)
     }
@@ -89,7 +101,7 @@ final class SaladViewController: UIViewController {
     }
     
     private func addTargetForAddToBasketButton() {
-        contentView.addToBasketButton.addTarget(self, action: #selector(addToBasketButtonTapped), for: .touchUpInside)
+        contentView.orangeFillButton.addTarget(self, action: #selector(addToBasketButtonTapped), for: .touchUpInside)
     }
     
     private func addTapGestureForDecreaseButton() {
@@ -132,7 +144,7 @@ extension SaladViewController {
     }
     
     @objc private func addToBasketButtonTapped() {
-        AnimationManager.animateClick(view: contentView.addToBasketButton) { [weak self] in
+        AnimationManager.animateClick(view: contentView.orangeFillButton) { [weak self] in
             guard let favorite = self?.contentView.favoriteButton.isFavorite else { return }
             self?.viewModel?.addToBasketButtonWasPressed(favorite: favorite)
         }

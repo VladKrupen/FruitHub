@@ -14,6 +14,7 @@ protocol SaladViewModelProtocol: AnyObject {
     var counterPublisher: PassthroughSubject<Int, Never> { get set }
     var fruitSaladPublisher: PassthroughSubject<FruitSalad, Never> { get set }
     var errorMessagePublisher: PassthroughSubject<String, Never> { get set }
+    var titleButtonPublisher: PassthroughSubject<CallingModule, Never> { get set }
     
     func viewDidLoaded()
     func decreaseButtonWasPressed()
@@ -29,22 +30,27 @@ final class SaladViewModel: SaladViewModelProtocol {
     var counterPublisher: PassthroughSubject<Int, Never> = .init()
     var fruitSaladPublisher: PassthroughSubject<FruitSalad, Never> = .init()
     var errorMessagePublisher: PassthroughSubject<String, Never> = .init()
+    var titleButtonPublisher: PassthroughSubject<CallingModule, Never> = .init()
     private var cancellable: AnyCancellable?
     
     private var fruitSalad: FruitSalad
     
     private let counterManager: CounterManager
     private let coreDataUpdatingFruitSalad: CoreDataUpdatingFruitSalad
+    private let callingModule: CallingModule
     
-    init(counterManager: CounterManager, fruitSalad: FruitSalad, coreDataUpdatingFruitSalad: CoreDataUpdatingFruitSalad) {
+    init(counterManager: CounterManager, fruitSalad: FruitSalad, coreDataUpdatingFruitSalad: CoreDataUpdatingFruitSalad, callingModule: CallingModule) {
         self.counterManager = counterManager
         self.fruitSalad = fruitSalad
         self.coreDataUpdatingFruitSalad = coreDataUpdatingFruitSalad
+        self.callingModule = callingModule
     }
     
     func viewDidLoaded() {
-        sendCounter()
+        titleButtonPublisher.send(callingModule)
+        counterManager.counter = fruitSalad.packaging
         sendFruitSalad()
+        sendCounter()
     }
     
     func decreaseButtonWasPressed() {

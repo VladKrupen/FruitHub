@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class OrderListCell: UITableViewCell {
     
@@ -49,7 +50,6 @@ final class OrderListCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         layoutElements()
-        configureCell()
     }
     
     required init?(coder: NSCoder) {
@@ -57,11 +57,12 @@ final class OrderListCell: UITableViewCell {
     }
     
     //MARK: Configure
-    func configureCell() {
-        saladImageView.image = .enterNameFruit
-        saladNameLabel.text = "Quinoa fruit salad"
-        numberOfPackagesLabel.text = "2 packs"
-        priceLabel.text = "$ 10.0"
+    func configureCell(fruitSalad: FruitSalad) {
+        saladImageView.sd_setImage(with: URL(string: fruitSalad.imageUrl),
+                                   placeholderImage: UIImage(systemName: SystemImages.placeholderForSaladImage))
+        saladNameLabel.text = fruitSalad.nameSalad
+        numberOfPackagesLabel.text = "\(fruitSalad.packaging) packs"
+        priceLabel.text = "$ \(fruitSalad.price * Float(fruitSalad.packaging))"
     }
     
     //MARK: Layout
