@@ -19,8 +19,6 @@ final class HomeCoordinator: CoordinatorProtocol {
     
     func start() {
         showHomeModule()
-//        showSaladModule()
-//        showOrderListModule()
     }
     
     private func showHomeModule() {

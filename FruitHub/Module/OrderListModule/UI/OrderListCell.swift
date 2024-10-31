@@ -62,7 +62,8 @@ final class OrderListCell: UITableViewCell {
                                    placeholderImage: UIImage(systemName: SystemImages.placeholderForSaladImage))
         saladNameLabel.text = fruitSalad.nameSalad
         numberOfPackagesLabel.text = "\(fruitSalad.packaging) packs"
-        priceLabel.text = "$ \(fruitSalad.price * Float(fruitSalad.packaging))"
+        let formattedString = String(format: "%.1f", fruitSalad.price * Float(fruitSalad.packaging))
+        priceLabel.text = "$ \(formattedString)"
     }
     
     //MARK: Layout

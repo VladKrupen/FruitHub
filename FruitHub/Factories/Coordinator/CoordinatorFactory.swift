@@ -8,8 +8,12 @@
 import UIKit
 
 final class CoordinatorFactory {
+    static let userDefaultsManager = UserDefaultsManager()
+    
     static func createAppCoordinator(navigationController: UINavigationController) -> AppCoordinatorProtocol {
-        let appCoordinator = AppCoordinator(navigationController: navigationController)
+        let appCoordinator = AppCoordinator(navigationController: navigationController,
+                                            appLaunchChecking: userDefaultsManager,
+                                            appLaunchSetting: userDefaultsManager)
         return appCoordinator
     }
     

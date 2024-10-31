@@ -152,7 +152,6 @@ extension OrderListViewController: UITableViewDelegate {
         if editingStyle == .delete {
             removeFruitSaladFromBasket(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            print(orderList.count)
         }
     }
 }

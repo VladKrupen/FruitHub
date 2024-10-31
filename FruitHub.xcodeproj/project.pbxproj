@@ -29,6 +29,7 @@
 		014D9DD32CBBEB2B00E99251 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014D9DD22CBBEB2B00E99251 /* CardData.swift */; };
 		015232352CD3BD3200B7E5C2 /* OrderListActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015232342CD3BD3200B7E5C2 /* OrderListActions.swift */; };
 		015232382CD3D4B200B7E5C2 /* CallingModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015232372CD3D4B200B7E5C2 /* CallingModule.swift */; };
+		0152323C2CD3F11D00B7E5C2 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0152323B2CD3F11D00B7E5C2 /* UserDefaultsManager.swift */; };
 		0154F5972CBD135900670F97 /* OrderCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0154F5962CBD135900670F97 /* OrderCompleteViewController.swift */; };
 		0154F5992CBD137E00670F97 /* OrderCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0154F5982CBD137E00670F97 /* OrderCompleteView.swift */; };
 		0154F59B2CBD150900670F97 /* OrderCompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0154F59A2CBD150900670F97 /* OrderCompleteViewModel.swift */; };
@@ -115,6 +116,7 @@
 		014D9DD22CBBEB2B00E99251 /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
 		015232342CD3BD3200B7E5C2 /* OrderListActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListActions.swift; sourceTree = "<group>"; };
 		015232372CD3D4B200B7E5C2 /* CallingModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallingModule.swift; sourceTree = "<group>"; };
+		0152323B2CD3F11D00B7E5C2 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		0154F5962CBD135900670F97 /* OrderCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteViewController.swift; sourceTree = "<group>"; };
 		0154F5982CBD137E00670F97 /* OrderCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteView.swift; sourceTree = "<group>"; };
 		0154F59A2CBD150900670F97 /* OrderCompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteViewModel.swift; sourceTree = "<group>"; };
@@ -599,6 +601,7 @@
 				015D4E042CBE6FC60085C65C /* DataVerificationManager.swift */,
 				0125B5852CC8409500D7FC39 /* FirebaseManager.swift */,
 				010321CD2CCFC97100CF73C5 /* CoreDataManager.swift */,
+				0152323B2CD3F11D00B7E5C2 /* UserDefaultsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				0199B41B2C9AC5FD006253EF /* CoordinatorProtocol.swift in Sources */,
 				0199B4422C9AE007006253EF /* WelcomeCoordinator.swift in Sources */,
 				0199B42F2C9ACF80006253EF /* UIColor+Extension.swift in Sources */,
+				0152323C2CD3F11D00B7E5C2 /* UserDefaultsManager.swift in Sources */,
 				0199B4402C9ADEC5006253EF /* ScreenTransition.swift in Sources */,
 				010FAD1E2CBBBB5D009D1250 /* CardDetailsViewModel.swift in Sources */,
 				015D4E032CBE651E0085C65C /* User.swift in Sources */,

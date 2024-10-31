@@ -163,7 +163,8 @@ final class SaladView: UIView {
     func updateCounterAndPriceLables(counter: Int) {
         counterLabel.text = "\(counter)"
         guard let price = price else { return }
-        priceLabel.text = "$ \(Float(counter) * price)"
+        let formattedString = String(format: "%.1f", Float(counter) * price)
+        priceLabel.text = "$ \(formattedString)"
     }
     
     //MARK: Lauout

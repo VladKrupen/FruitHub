@@ -42,6 +42,7 @@ final class SaladViewController: UIViewController {
                 switch value {
                 case _ where value == 10:
                     self?.contentView.increaseButton.isActive = false
+                    self?.contentView.decreaseButton.isActive = true
                 case _ where value > 1:
                     self?.contentView.decreaseButton.isActive = true
                     self?.contentView.increaseButton.isActive = true

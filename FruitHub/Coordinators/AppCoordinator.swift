@@ -12,13 +12,17 @@ final class AppCoordinator: AppCoordinatorProtocol {
     var navigationController: UINavigationController
     private var childCoordinator: [CoordinatorProtocol] = []
     
-    init(navigationController: UINavigationController) {
+    private let appLaunchChecking: AppLaunchChecking
+    private let appLaunchSetting: AppLaunchSetting
+    
+    init(navigationController: UINavigationController, appLaunchChecking: AppLaunchChecking, appLaunchSetting: AppLaunchSetting) {
         self.navigationController = navigationController
+        self.appLaunchChecking = appLaunchChecking
+        self.appLaunchSetting = appLaunchSetting
     }
     
     func start() {
         showSplashFlow()
-//        showHomeFlow()
     }
     
     private func showSplashFlow() {
@@ -26,8 +30,13 @@ final class AppCoordinator: AppCoordinatorProtocol {
         childCoordinator.append(splashCoordinator)
         splashCoordinator.start()
         splashCoordinator.flowCompletionHandler = { [weak self] in
-            self?.childCoordinator.removeAll()
-            self?.showWelcomeFlow()
+            guard let self else { return }
+            self.childCoordinator.removeAll()
+            guard appLaunchChecking.isNotFirstAppLaunch() else {
+                self.showWelcomeFlow()
+                return
+            }
+            self.showHomeFlow()
         }
     }
     
@@ -48,6 +57,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
         enterNameCoordinator.flowCompletionHandler = { [weak self] in
             self?.childCoordinator.removeAll()
             self?.showHomeFlow()
+            self?.appLaunchSetting.setFirstAppLaunch()
         }
     }
     
