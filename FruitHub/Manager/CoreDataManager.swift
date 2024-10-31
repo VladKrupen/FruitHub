@@ -28,6 +28,10 @@ protocol CoreDataFruitSalads: AnyObject {
     func removeAllFruitSalads() -> AnyPublisher<Void, Error>
 }
 
+protocol CoreDataUpdatingFruitSalad: AnyObject {
+    func updateFruitSalad(fruitSalad: FruitSalad) -> AnyPublisher<Void, Error>
+}
+
 final class CoreDataManager {
     
     private let persistentContainer: NSPersistentContainer
@@ -82,7 +86,6 @@ extension CoreDataManager: CoreDataReceivingUser {
                 let fetchRequest = UserModel.fetchRequest()
                 do {
                     let usersModel = try self.backgroundContext.fetch(fetchRequest)
-                    print(usersModel)
                     guard let name = usersModel.last?.name else {
                         let error = NSError(domain: "Failed to get user", code: 0)
                         promise(.failure(error))
@@ -175,6 +178,31 @@ extension CoreDataManager: CoreDataFruitSalads {
                 let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
                 do {
                     try self.backgroundContext.execute(batchDeleteRequest)
+                    try self.saveContext()
+                    promise(.success(()))
+                } catch {
+                    promise(.failure(error))
+                }
+            }
+        }
+        .eraseToAnyPublisher()
+    }
+}
+
+//MARK: CoreDataFruitSaladForBasket
+extension CoreDataManager: CoreDataUpdatingFruitSalad {
+    func updateFruitSalad(fruitSalad: FruitSalad) -> AnyPublisher<Void, Error> {
+        return Future { [weak self] promise in
+            guard let self = self else { return }
+            self.backgroundContext.perform {
+                let fetchRequest = FruitSaladModel.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "id == %@", fruitSalad.id)
+                do {
+                    let fruitSaladsModel = try self.backgroundContext.fetch(fetchRequest)
+                    guard let fruitSaladModel = fruitSaladsModel.first else { return }
+                    fruitSaladModel.isFavorite = fruitSalad.isFavorite
+                    fruitSaladModel.packaging = Int16(fruitSalad.packaging)
+                    fruitSaladModel.isBasket = fruitSalad.isBasket
                     try self.saveContext()
                     promise(.success(()))
                 } catch {

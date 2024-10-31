@@ -9,6 +9,7 @@ import Foundation
 
 protocol OrderCompleteViewModelProtocol: AnyObject {
     var completionHandler: (() -> Void)? { get set }
+    
     func greatButtonWasPressed()
 }
 

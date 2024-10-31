@@ -39,7 +39,8 @@ final class ModuleFactory {
         let homeViewController = HomeViewController()
         let homeViewModel = HomeViewModel(firebaseManager: firebaseManager,
                                           coreDataReceivingUser: coreDataManager,
-                                          coreDataFruitSalads: coreDataManager)
+                                          coreDataFruitSalads: coreDataManager,
+                                          coreDataUpdatingFruitSalad: coreDataManager)
         homeViewController.viewModel = homeViewModel
         return homeViewController
     }
@@ -48,7 +49,8 @@ final class ModuleFactory {
         let counterManager = CounterManager()
         let saladController = SaladViewController()
         let saladViewModel = SaladViewModel(counterManager: counterManager,
-                                            fruitSalad: fruitSalad)
+                                            fruitSalad: fruitSalad,
+                                            coreDataUpdatingFruitSalad: coreDataManager)
         saladController.viewModel = saladViewModel
         return saladController
     }

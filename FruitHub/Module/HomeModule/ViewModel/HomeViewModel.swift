@@ -10,6 +10,7 @@ import Combine
 
 protocol HomeViewModelProtocol: AnyObject {
     var completionHandler: ((HomeActions, FruitSalad?) -> Void)? { get set }
+    
     var fruitSaladPublisher: PassthroughSubject<[FruitSalad], Never> { get set }
     var userPublisher: PassthroughSubject<User, Never> { get set }
     var completionPublisher: PassthroughSubject<Result<Void, Error>, Never> { get set }
@@ -17,12 +18,16 @@ protocol HomeViewModelProtocol: AnyObject {
     func goToSaladModule(fruitSalad: FruitSalad)
     func goToOrderListModule()
     func viewDidLoaded()
+    func fetchFruitSalads()
+    func updateFavoritStateForFruitSalad(fruitSalad: FruitSalad)
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
     var completionHandler: ((HomeActions, FruitSalad?) -> Void)?
     
     private var cancellables: Set<AnyCancellable> = .init()
+    private var fetchCancellable: AnyCancellable?
+    private var updateCancellable: AnyCancellable?
     var fruitSaladPublisher: PassthroughSubject<[FruitSalad], Never> = .init()
     var userPublisher: PassthroughSubject<User, Never> = .init()
     var completionPublisher: PassthroughSubject<Result<Void, any Error>, Never> = .init()
@@ -30,11 +35,13 @@ final class HomeViewModel: HomeViewModelProtocol {
     private let firebaseManager: FirebaseManagerProtocol
     private let coreDataReceivingUser: CoreDataReceivingUser
     private let coreDataFruitSalads: CoreDataFruitSalads
+    private let coreDataUpdatingFruitSalad: CoreDataUpdatingFruitSalad
     
-    init(firebaseManager: FirebaseManagerProtocol, coreDataReceivingUser: CoreDataReceivingUser, coreDataFruitSalads: CoreDataFruitSalads) {
+    init(firebaseManager: FirebaseManagerProtocol, coreDataReceivingUser: CoreDataReceivingUser, coreDataFruitSalads: CoreDataFruitSalads, coreDataUpdatingFruitSalad: CoreDataUpdatingFruitSalad) {
         self.firebaseManager = firebaseManager
         self.coreDataReceivingUser = coreDataReceivingUser
         self.coreDataFruitSalads = coreDataFruitSalads
+        self.coreDataUpdatingFruitSalad = coreDataUpdatingFruitSalad
     }
 
     func goToSaladModule(fruitSalad: FruitSalad) {
@@ -68,6 +75,34 @@ final class HomeViewModel: HomeViewModelProtocol {
                 self.completionPublisher.send(.success(()))
             })
             .store(in: &cancellables)
+    }
+    
+    func fetchFruitSalads() {
+        fetchCancellable = coreDataFruitSalads.fetchFruitSalads()
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    return
+                case .failure(let error):
+                    self?.completionPublisher.send(.failure(error))
+                }
+            } receiveValue: { [weak self] fruitSalads in
+                self?.fruitSaladPublisher.send(fruitSalads)
+            }
+    }
+    
+    func updateFavoritStateForFruitSalad(fruitSalad: FruitSalad) {
+        updateCancellable = coreDataUpdatingFruitSalad.updateFruitSalad(fruitSalad: fruitSalad)
+            .sink(receiveCompletion: { [weak self] completion in
+                switch completion {
+                case .finished:
+                    return
+                case .failure(let error):
+                    self?.completionPublisher.send(.failure(error))
+                }
+            }, receiveValue: {
+                return
+            })
     }
     
     private func updateFruitSaladsForCoreData(fruitSalads: [FruitSalad]) {

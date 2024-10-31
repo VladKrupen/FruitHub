@@ -10,6 +10,7 @@ import Combine
 
 protocol EnterNameViewModelProtocol: ScreenTransition, AnyObject {
     var errorMessagePublisher: PassthroughSubject<String, Never> { get set }
+    
     func startOrderingButtonWasPressed(user: User)
 }
 

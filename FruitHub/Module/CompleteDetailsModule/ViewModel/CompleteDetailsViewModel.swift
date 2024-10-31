@@ -9,8 +9,10 @@ import Foundation
 import Combine
 
 protocol CompleteDetailsViewModelProtocol: AnyObject {
-    var deliveryDataErrorMessage: PassthroughSubject<String, Never> { get set }
     var completionHandler: ((CompleteDetailsActions) -> Void)? { get set }
+    
+    var deliveryDataErrorMessage: PassthroughSubject<String, Never> { get set }
+    
     func dismissButtonWasPressed()
     func payWithCardButtonWasPressed(deliveryData: DeliveryData)
     func payOnDeliveryButtonWasPressed(deliveryData: DeliveryData)

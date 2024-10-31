@@ -9,6 +9,7 @@ import Foundation
 
 protocol OrderListViewModelProtocol: AnyObject {
     var completionHandler: (() -> Void)? { get set }
+    
     func goToCompleteDetailsModule()
 }
 

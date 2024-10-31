@@ -10,7 +10,9 @@ import Combine
 
 protocol CardDetailsViewModelProtocol: AnyObject {
     var completionHandler: ((CardDetailsActions) -> Void)? { get set }
+    
     var cardDataErrorMessage: PassthroughSubject<String, Never> { get set }
+    
     func dismissButtonWasPressed()
     func completeOrderButtonWasPressed(cardData: CardData)
 }

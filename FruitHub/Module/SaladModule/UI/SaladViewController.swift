@@ -57,6 +57,13 @@ final class SaladViewController: UIViewController {
                 self?.contentView.configureView(salad: fruiSalad)
             })
             .store(in: &cancellables)
+        
+        viewModel?.errorMessagePublisher
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] errorMessage in
+                self?.showAlert(message: errorMessage)
+            })
+            .store(in: &cancellables)
     }
     
     //MARK: Setup
@@ -94,6 +101,18 @@ final class SaladViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(increaseButtonTapped))
         contentView.increaseButton.addGestureRecognizer(tapGesture)
     }
+    
+    //MARK: Alert
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { [weak self] _ in
+            self?.viewModel?.handleCompletion()
+        }
+        alert.addAction(okAction)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true)
+        }
+    }
 }
 
 //MARK: OBJC
@@ -102,17 +121,20 @@ extension SaladViewController {
         UIView.animate(withDuration: 0.1) { [weak self] in
             self?.backButtonView.layer.opacity = 0.3
         } completion: { [weak self] bool in
-            self?.navigationController?.popViewController(animated: true)
+            self?.viewModel?.handleCompletion()
         }
     }
     
     @objc private func favoriteButtonTapped() {
         contentView.favoriteButton.isFavorite?.toggle()
+        guard let favorite = contentView.favoriteButton.isFavorite else { return }
+        viewModel?.favoriteButtonWasPressed(favorite: favorite)
     }
     
     @objc private func addToBasketButtonTapped() {
-        AnimationManager.animateClick(view: contentView.addToBasketButton) {
-            
+        AnimationManager.animateClick(view: contentView.addToBasketButton) { [weak self] in
+            guard let favorite = self?.contentView.favoriteButton.isFavorite else { return }
+            self?.viewModel?.addToBasketButtonWasPressed(favorite: favorite)
         }
     }
     

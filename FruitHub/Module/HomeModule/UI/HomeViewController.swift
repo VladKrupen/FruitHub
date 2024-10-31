@@ -41,6 +41,7 @@ final class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        viewModel?.fetchFruitSalads()
     }
     
     //MARK: Bind
@@ -148,6 +149,7 @@ final class HomeViewController: UIViewController {
             self?.updateAllFruitSalads(fruitSalad: recommendedFruitSalad)
             self?.updateFilteredFruitSalads(fruitSalad: recommendedFruitSalad)
             self?.updateRecommendedFruitSalads(fruitSalad: recommendedFruitSalad)
+            self?.viewModel?.updateFavoritStateForFruitSalad(fruitSalad: recommendedFruitSalad)
         }
         return recommendedCell
     }
@@ -176,6 +178,7 @@ final class HomeViewController: UIViewController {
             self?.updateAllFruitSalads(fruitSalad: fruitSalad)
             self?.updateFilteredFruitSalads(fruitSalad: fruitSalad)
             self?.updateRecommendedFruitSalads(fruitSalad: fruitSalad)
+            self?.viewModel?.updateFavoritStateForFruitSalad(fruitSalad: fruitSalad)
         }
         return allSaladCell
     }

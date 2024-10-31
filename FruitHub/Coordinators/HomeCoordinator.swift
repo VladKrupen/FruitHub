@@ -40,6 +40,9 @@ final class HomeCoordinator: CoordinatorProtocol {
     private func showSaladModule(fruitSalad: FruitSalad) {
         let saladController = ModuleFactory.createSaladModule(fruitSalad: fruitSalad)
         navigationController.pushViewController(saladController, animated: true)
+        saladController.viewModel?.completionHandler = { [weak self] in
+            self?.navigationController.popToRootViewController(animated: true)
+        }
     }
     
     private func showOrderListModule() {
