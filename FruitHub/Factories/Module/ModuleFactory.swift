@@ -38,7 +38,8 @@ final class ModuleFactory {
     static func createHomeModule() -> HomeViewController {
         let homeViewController = HomeViewController()
         let homeViewModel = HomeViewModel(firebaseManager: firebaseManager,
-                                          coreDataReceivingUser: coreDataManager)
+                                          coreDataReceivingUser: coreDataManager,
+                                          coreDataFruitSalads: coreDataManager)
         homeViewController.viewModel = homeViewModel
         return homeViewController
     }

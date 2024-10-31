@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-protocol EnterNameViewModelProtocol: ScreenTransition {
+protocol EnterNameViewModelProtocol: ScreenTransition, AnyObject {
     var errorMessagePublisher: PassthroughSubject<String, Never> { get set }
     func startOrderingButtonWasPressed(user: User)
 }

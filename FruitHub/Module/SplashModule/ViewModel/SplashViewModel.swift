@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SplashViewModelProtocol: ScreenTransition {
+protocol SplashViewModelProtocol: ScreenTransition, AnyObject {
     func goToNextScreen()
 }
 

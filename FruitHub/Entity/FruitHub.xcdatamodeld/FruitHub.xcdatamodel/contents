@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23231" systemVersion="24A348" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23507" systemVersion="24A348" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="FruitSaladModel" representedClassName="FruitSaladModel" syncable="YES" codeGenerationType="class">
+        <attribute name="compound" attributeType="String" defaultValueString=""/>
+        <attribute name="descript" attributeType="String" defaultValueString=""/>
+        <attribute name="id" attributeType="String" defaultValueString=""/>
+        <attribute name="imageUrl" attributeType="String" defaultValueString=""/>
+        <attribute name="isBasket" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isCitrusSalad" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isExoticSalad" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isFavorite" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isFruitSalad" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRecommended" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isSeasonSalad" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="nameSalad" attributeType="String"/>
+        <attribute name="packaging" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="UserModel" representedClassName="UserModel" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String"/>
     </entity>

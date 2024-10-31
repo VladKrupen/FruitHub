@@ -7,15 +7,15 @@
 
 import Foundation
 
-protocol UserDataVerification {
+protocol UserDataVerification: AnyObject {
     func validateUserData(user: User, completion: (Result<User, UserVerificationError>) -> Void)
 }
 
-protocol DeliveryDataVerification {
+protocol DeliveryDataVerification: AnyObject {
     func validateDeliveryData(deliveryData: DeliveryData, completion: (Result<DeliveryData, DeliveryDataVerificationError>) -> Void)
 }
 
-protocol CardDataVerification {
+protocol CardDataVerification: AnyObject {
     func validateCardData(cardData: CardData, completion: (Result<CardData, CardDataVerificationError>) -> Void)
 }
 

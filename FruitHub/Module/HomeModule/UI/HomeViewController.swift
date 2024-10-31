@@ -46,6 +46,7 @@ final class HomeViewController: UIViewController {
     //MARK: Bind
     private func bindViewModelToView() {
         viewModel?.fruitSaladPublisher
+            .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] fruitSalads in
                 self?.fruitSalads = fruitSalads
                 self?.setRecommendedFruitSalads(fruitSalads: fruitSalads)
@@ -54,12 +55,14 @@ final class HomeViewController: UIViewController {
             .store(in: &cancellables)
         
         viewModel?.userPublisher
+            .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] user in
                 self?.contentView.configureWelcomeLabel(name: user.name)
             })
             .store(in: &cancellables)
         
         viewModel?.completionPublisher
+            .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] results in
                 switch results {
                 case .success:

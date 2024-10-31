@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol WelcomeViewModelProtocol: ScreenTransition {
+protocol WelcomeViewModelProtocol: ScreenTransition, AnyObject {
     func goToNextScreen()
 }
 

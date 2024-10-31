@@ -20,4 +20,20 @@ struct FruitSalad: Codable {
     let isExoticSalad: Bool
     let isCitrusSalad: Bool
     let isSeasonSalad: Bool
+    var isBasket: Bool
+    var packaging: Int
+}
+
+struct FruitSaladHashable: Hashable {
+    let id: String
+    let imageUrl: String
+    let nameSalad: String
+    let price: Float
+    let compound: String
+    let description: String
+    let isRecommended: Bool
+    let isFruitSalad: Bool
+    let isExoticSalad: Bool
+    let isCitrusSalad: Bool
+    let isSeasonSalad: Bool
 }

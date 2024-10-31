@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-protocol SaladViewModelProtocol {
+protocol SaladViewModelProtocol: AnyObject {
     var counterPublisher: PassthroughSubject<Int, Never> { get set }
     var fruitSaladPublisher: PassthroughSubject<FruitSalad, Never> { get set }
     func viewDidLoaded()

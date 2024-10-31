@@ -10,14 +10,14 @@ import Combine
 import FirebaseFirestore
 
 protocol FirebaseManagerProtocol: AnyObject {
-    func getAllFruitsSalad() -> AnyPublisher<[FruitSalad], Error>
+    func getAllFruitSalads() -> AnyPublisher<[FruitSalad], Error>
 }
 
 final class FirebaseManager: FirebaseManagerProtocol {
     
     let reference = Firestore.firestore()
     
-    func getAllFruitsSalad() -> AnyPublisher<[FruitSalad], Error> {
+    func getAllFruitSalads() -> AnyPublisher<[FruitSalad], Error> {
         return Future<[FruitSalad], Error> { [weak self] promise in
             self?.reference.collection("FruitSalad").getDocuments { snapshot, error in
                 guard error == nil else {
@@ -48,6 +48,7 @@ final class FirebaseManager: FirebaseManagerProtocol {
                 }
                 promise(.success(fruitSalads))
             }
+//            promise(.success([]))
         }
         .eraseToAnyPublisher()
     }
