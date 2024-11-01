@@ -108,7 +108,6 @@ extension CoreDataManager: CoreDataReceivingUser {
 
 //MARK: CoreDataCreationFruitSalad
 extension CoreDataManager: CoreDataFruitSalads {
-        
     func createFruitSalads(fruitSalads: [FruitSalad]) -> AnyPublisher<Void, Error> {
         return Future { [weak self] promise in
             guard let self = self else { return }

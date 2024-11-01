@@ -64,7 +64,8 @@ final class OrderListView: UIView {
     
     //MARK: Configure
     func configurePriceLabel(total: Float) {
-        priceLabel.text = "$ \(total)"
+        let formattedString = String(format: "%.1f", total)
+        priceLabel.text = "$ \(formattedString)"
     }
     
     //MARK: Layout

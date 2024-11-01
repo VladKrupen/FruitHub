@@ -48,9 +48,7 @@ final class FirebaseManager: FirebaseManagerProtocol {
                 }
                 promise(.success(fruitSalads))
             }
-//            promise(.success([]))
         }
         .eraseToAnyPublisher()
     }
-    
 }

@@ -80,7 +80,8 @@ final class ModuleFactory {
     
     static func createOrderCompleteModule() -> OrderCompleteViewController {
         let orderCompleteViewController = OrderCompleteViewController()
-        let orderCompleteViewModel = OrderCompleteViewModel()
+        let orderCompleteViewModel = OrderCompleteViewModel(coreDataReceivingOrderList: coreDataManager,
+                                                            coreDataUpdatingFruitSalad: coreDataManager)
         orderCompleteViewController.viewModel = orderCompleteViewModel
         return orderCompleteViewController
     }
