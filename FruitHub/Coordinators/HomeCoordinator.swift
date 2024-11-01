@@ -31,6 +31,8 @@ final class HomeCoordinator: CoordinatorProtocol {
                 self?.showSaladModule(fruitSalad: fruitSalad, callingModule: .homeModule)
             case .basketPressed:
                 self?.showOrderListModule()
+            case .menuPressed:
+                self?.showMenuModule()
             }
         }
     }
@@ -112,6 +114,19 @@ final class HomeCoordinator: CoordinatorProtocol {
             self?.navigationController.dismiss(animated: true) {
                 orderCompleteController?.dismiss(animated: true)
             }
+        }
+    }
+    
+    private func showMenuModule() {
+        let menuController = ModuleFactory.createMenuModule()
+        if let sheetController = menuController.sheetPresentationController {
+            sheetController.detents = [.custom(resolver: { context in
+                return 150
+            })]
+        }
+        navigationController.present(menuController, animated: true)
+        menuController.viewModel?.completionHandler = { 
+            menuController.dismiss(animated: true)
         }
     }
 }

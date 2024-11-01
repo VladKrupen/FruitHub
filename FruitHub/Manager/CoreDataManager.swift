@@ -22,6 +22,10 @@ protocol CoreDataReceivingUser: AnyObject {
     func fetchUser() -> AnyPublisher<User, Error>
 }
 
+protocol CoreDataUpdatingUser: AnyObject {
+    func updateUser(user: User) -> AnyPublisher<Void, Error>
+}
+
 protocol CoreDataFruitSalads: AnyObject {
     func createFruitSalads(fruitSalads: [FruitSalad]) -> AnyPublisher<Void, Error>
     func fetchFruitSalads() -> AnyPublisher<[FruitSalad], Error>
@@ -98,6 +102,28 @@ extension CoreDataManager: CoreDataReceivingUser {
                     let user = User(name: name)
                     promise(.success(user))
                 } catch let error {
+                    promise(.failure(error))
+                }
+            }
+        }
+        .eraseToAnyPublisher()
+    }
+}
+
+//MARK: CoreDataUpdatingUser
+extension CoreDataManager: CoreDataUpdatingUser {
+    func updateUser(user: User) -> AnyPublisher<Void, Error> {
+        return Future { [weak self] promise in
+            guard let self = self else { return }
+            self.backgroundContext.perform {
+                let fetchRequest = UserModel.fetchRequest()
+                do {
+                    let userModels = try self.backgroundContext.fetch(fetchRequest)
+                    guard let userModel = userModels.last else { return }
+                    userModel.name = user.name
+                    try self.saveContext()
+                    promise(.success(()))
+                } catch {
                     promise(.failure(error))
                 }
             }

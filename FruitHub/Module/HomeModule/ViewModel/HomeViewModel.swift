@@ -17,6 +17,7 @@ protocol HomeViewModelProtocol: AnyObject {
     
     func cellWasPressed(fruitSalad: FruitSalad)
     func basketViewWasPressed()
+    func menuButtonWasPressed()
     func viewDidLoaded()
     func fetchFruitSalads()
     func updateFavoritStateForFruitSalad(fruitSalad: FruitSalad)
@@ -31,7 +32,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     private var fetchCancellable: AnyCancellable?
     private var updateCancellable: AnyCancellable?
     var fruitSaladPublisher: PassthroughSubject<[FruitSalad], Never> = .init()
-    var userPublisher: PassthroughSubject<User, Never> = .init()
+    var userPublisher: PassthroughSubject<User, Never>
     var completionPublisher: PassthroughSubject<Result<Void, Error>, Never> = .init()
     
     private let firebaseManager: FirebaseManagerProtocol
@@ -39,11 +40,12 @@ final class HomeViewModel: HomeViewModelProtocol {
     private let coreDataFruitSalads: CoreDataFruitSalads
     private let coreDataUpdatingFruitSalad: CoreDataUpdatingFruitSalad
     
-    init(firebaseManager: FirebaseManagerProtocol, coreDataReceivingUser: CoreDataReceivingUser, coreDataFruitSalads: CoreDataFruitSalads, coreDataUpdatingFruitSalad: CoreDataUpdatingFruitSalad) {
+    init(firebaseManager: FirebaseManagerProtocol, coreDataReceivingUser: CoreDataReceivingUser, coreDataFruitSalads: CoreDataFruitSalads, coreDataUpdatingFruitSalad: CoreDataUpdatingFruitSalad, userPublisher: PassthroughSubject<User, Never>) {
         self.firebaseManager = firebaseManager
         self.coreDataReceivingUser = coreDataReceivingUser
         self.coreDataFruitSalads = coreDataFruitSalads
         self.coreDataUpdatingFruitSalad = coreDataUpdatingFruitSalad
+        self.userPublisher = userPublisher
     }
 
     func cellWasPressed(fruitSalad: FruitSalad) {
@@ -56,6 +58,10 @@ final class HomeViewModel: HomeViewModelProtocol {
             return
         }
         completionHandler?(.basketPressed, nil)
+    }
+    
+    func menuButtonWasPressed() {
+        completionHandler?(.menuPressed, nil)
     }
     
     func viewDidLoaded() {

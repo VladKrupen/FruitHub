@@ -51,7 +51,7 @@ final class OrderCompleteViewController: UIViewController {
     //MARK: Alert
     private func showAlert(message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default)
+        let okAction = UIAlertAction(title: AlertAction.ok, style: .default)
         alert.addAction(okAction)
         DispatchQueue.main.async { [weak self] in
             self?.present(alert, animated: true)

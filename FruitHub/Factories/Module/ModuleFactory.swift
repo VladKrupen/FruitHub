@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Combine
 
 final class ModuleFactory {
     
-    static let dataVerificationManager = DataVerificationManager()
-    static let firebaseManager = FirebaseManager()
-    static let coreDataManager = CoreDataManager()
+    private static let dataVerificationManager = DataVerificationManager()
+    private static let firebaseManager = FirebaseManager()
+    private static let coreDataManager = CoreDataManager()
+    private static var sharedUserPublisher: PassthroughSubject<User, Never> = .init()
     
     static func createSplashModule() -> SplashViewController {
         let splashViewController = SplashViewController()
@@ -40,7 +42,8 @@ final class ModuleFactory {
         let homeViewModel = HomeViewModel(firebaseManager: firebaseManager,
                                           coreDataReceivingUser: coreDataManager,
                                           coreDataFruitSalads: coreDataManager,
-                                          coreDataUpdatingFruitSalad: coreDataManager)
+                                          coreDataUpdatingFruitSalad: coreDataManager,
+                                          userPublisher: sharedUserPublisher)
         homeViewController.viewModel = homeViewModel
         return homeViewController
     }
@@ -84,5 +87,14 @@ final class ModuleFactory {
                                                             coreDataUpdatingFruitSalad: coreDataManager)
         orderCompleteViewController.viewModel = orderCompleteViewModel
         return orderCompleteViewController
+    }
+    
+    static func createMenuModule() -> MenuViewController {
+        let menuViewController = MenuViewController()
+        let menuViewModel = MenuViewModel(coreDataUpdatingUser: coreDataManager,
+                                          coreDataReceivingUser: coreDataManager,
+                                          userPublisher: sharedUserPublisher)
+        menuViewController.viewModel = menuViewModel
+        return menuViewController
     }
 }

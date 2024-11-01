@@ -18,4 +18,5 @@ struct SystemImages {
     static let backward: String = "chevron.backward"
     static let minus: String = "minus"
     static let multiply: String = "multiply"
+    static let pencil: String = "pencil"
 }

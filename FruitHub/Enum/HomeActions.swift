@@ -10,4 +10,5 @@ import Foundation
 enum HomeActions {
     case saladCellPressed
     case basketPressed
+    case menuPressed
 }

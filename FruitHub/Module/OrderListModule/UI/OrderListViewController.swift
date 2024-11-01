@@ -89,7 +89,7 @@ final class OrderListViewController: UIViewController {
     //MARK: Alert
     private func showAlert(message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default) { [weak self] _ in
+        let okAction = UIAlertAction(title: AlertAction.ok, style: .default) { [weak self] _ in
             self?.viewModel?.backButtonWasPressed()
         }
         alert.addAction(okAction)

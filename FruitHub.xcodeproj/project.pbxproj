@@ -47,6 +47,11 @@
 		0171D63E2CAD3CD100A9AC88 /* CounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0171D63D2CAD3CD100A9AC88 /* CounterManager.swift */; };
 		0172D6F52CB97BE100902C50 /* XmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0172D6F42CB97BE100902C50 /* XmarkButton.swift */; };
 		0172D6F72CB985BD00902C50 /* CompleteDetailsActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0172D6F62CB985BD00902C50 /* CompleteDetailsActions.swift */; };
+		01832E022CD52B2E001DD772 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01832E012CD52B2E001DD772 /* MenuViewController.swift */; };
+		01832E042CD52B93001DD772 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01832E032CD52B93001DD772 /* MenuView.swift */; };
+		01832E082CD52CEE001DD772 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01832E072CD52CEE001DD772 /* MenuViewModel.swift */; };
+		01832E0A2CD53DCB001DD772 /* AlertTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01832E092CD53DCB001DD772 /* AlertTitle.swift */; };
+		01832E0E2CD53E46001DD772 /* AlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01832E0D2CD53E46001DD772 /* AlertAction.swift */; };
 		018D973F2CBE56CD00E679A5 /* DeliveryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018D973E2CBE56CD00E679A5 /* DeliveryData.swift */; };
 		018D97412CBE585E00E679A5 /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018D97402CBE585E00E679A5 /* AlertMessage.swift */; };
 		0199B3F92C9AB332006253EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199B3F82C9AB332006253EF /* AppDelegate.swift */; };
@@ -133,6 +138,11 @@
 		0171D63D2CAD3CD100A9AC88 /* CounterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterManager.swift; sourceTree = "<group>"; };
 		0172D6F42CB97BE100902C50 /* XmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmarkButton.swift; sourceTree = "<group>"; };
 		0172D6F62CB985BD00902C50 /* CompleteDetailsActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteDetailsActions.swift; sourceTree = "<group>"; };
+		01832E012CD52B2E001DD772 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		01832E032CD52B93001DD772 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		01832E072CD52CEE001DD772 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		01832E092CD53DCB001DD772 /* AlertTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTitle.swift; sourceTree = "<group>"; };
+		01832E0D2CD53E46001DD772 /* AlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAction.swift; sourceTree = "<group>"; };
 		018D973E2CBE56CD00E679A5 /* DeliveryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryData.swift; sourceTree = "<group>"; };
 		018D97402CBE585E00E679A5 /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		0199B3F52C9AB332006253EF /* FruitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -326,6 +336,32 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		01832DFE2CD52B0A001DD772 /* MenuModule */ = {
+			isa = PBXGroup;
+			children = (
+				01832E002CD52B20001DD772 /* UI */,
+				01832DFF2CD52B1A001DD772 /* ViewModel */,
+			);
+			path = MenuModule;
+			sourceTree = "<group>";
+		};
+		01832DFF2CD52B1A001DD772 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				01832E072CD52CEE001DD772 /* MenuViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01832E002CD52B20001DD772 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				01832E012CD52B2E001DD772 /* MenuViewController.swift */,
+				01832E032CD52B93001DD772 /* MenuView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		0199B3EC2C9AB332006253EF = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +477,7 @@
 				01B8AAC92CB965C2009BE3EB /* CompleteDetailsModule */,
 				010FAD142CBBBA62009D1250 /* CardDetailsModule */,
 				0154F5932CBD132000670F97 /* OrderCompleteModule */,
+				01832DFE2CD52B0A001DD772 /* MenuModule */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -491,6 +528,8 @@
 				011AFC3D2CAAF3C2006541F9 /* SaladCellIdentifier.swift */,
 				01B8AAC52CB93BD0009BE3EB /* NavigationItemTitle.swift */,
 				018D97402CBE585E00E679A5 /* AlertMessage.swift */,
+				01832E092CD53DCB001DD772 /* AlertTitle.swift */,
+				01832E0D2CD53E46001DD772 /* AlertAction.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -758,6 +797,7 @@
 				010FAD182CBBBA94009D1250 /* CardDetailsView.swift in Sources */,
 				011AFC3E2CAAF3C2006541F9 /* SaladCellIdentifier.swift in Sources */,
 				01B2B3ED2CA188090064B319 /* AnimationManager.swift in Sources */,
+				01832E042CD52B93001DD772 /* MenuView.swift in Sources */,
 				01B2B3F42CA1C82A0064B319 /* HomeViewController.swift in Sources */,
 				0199B4362C9AD3C4006253EF /* Colors.swift in Sources */,
 				0172D6F72CB985BD00902C50 /* CompleteDetailsActions.swift in Sources */,
@@ -767,6 +807,7 @@
 				0199B4422C9AE007006253EF /* WelcomeCoordinator.swift in Sources */,
 				0199B42F2C9ACF80006253EF /* UIColor+Extension.swift in Sources */,
 				0152323C2CD3F11D00B7E5C2 /* UserDefaultsManager.swift in Sources */,
+				01832E022CD52B2E001DD772 /* MenuViewController.swift in Sources */,
 				0199B4402C9ADEC5006253EF /* ScreenTransition.swift in Sources */,
 				010FAD1E2CBBBB5D009D1250 /* CardDetailsViewModel.swift in Sources */,
 				015D4E032CBE651E0085C65C /* User.swift in Sources */,
@@ -780,8 +821,10 @@
 				018D97412CBE585E00E679A5 /* AlertMessage.swift in Sources */,
 				0199B4242C9AC8BE006253EF /* SplashViewController.swift in Sources */,
 				0199B3F92C9AB332006253EF /* AppDelegate.swift in Sources */,
+				01832E0A2CD53DCB001DD772 /* AlertTitle.swift in Sources */,
 				015232382CD3D4B200B7E5C2 /* CallingModule.swift in Sources */,
 				0199B43D2C9ADCC9006253EF /* WelcomeViewModel.swift in Sources */,
+				01832E082CD52CEE001DD772 /* MenuViewModel.swift in Sources */,
 				0157A2AB2CA29F33005FEE4E /* SaladCell.swift in Sources */,
 				014D9DD32CBBEB2B00E99251 /* CardData.swift in Sources */,
 				0154F5992CBD137E00670F97 /* OrderCompleteView.swift in Sources */,
@@ -811,6 +854,7 @@
 				01B2B3DF2CA16E8B0064B319 /* EnterNameCoordinator.swift in Sources */,
 				010FAD1C2CBBBAE3009D1250 /* CardDetailsViewController.swift in Sources */,
 				01B2B3FA2CA1CE960064B319 /* HomeView.swift in Sources */,
+				01832E0E2CD53E46001DD772 /* AlertAction.swift in Sources */,
 				0199B3FB2C9AB332006253EF /* SceneDelegate.swift in Sources */,
 				010321CC2CCFC96200CF73C5 /* FruitHub.xcdatamodeld in Sources */,
 				015D4E052CBE6FC60085C65C /* DataVerificationManager.swift in Sources */,
