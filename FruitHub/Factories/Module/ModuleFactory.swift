@@ -9,7 +9,6 @@ import UIKit
 import Combine
 
 final class ModuleFactory {
-    
     private static let dataVerificationManager = DataVerificationManager()
     private static let firebaseManager = FirebaseManager()
     private static let coreDataManager = CoreDataManager()

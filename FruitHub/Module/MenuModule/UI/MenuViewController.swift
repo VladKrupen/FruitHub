@@ -10,6 +10,7 @@ import Combine
 
 final class MenuViewController: UIViewController {
     
+    private var user: User?
     private var cancellables: Set<AnyCancellable> = []
     
     var viewModel: MenuViewModel?
@@ -33,6 +34,7 @@ final class MenuViewController: UIViewController {
         viewModel?.userPublisher
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] user in
+                self?.user = user
                 self?.contentView.setNameLabel(name: user.name)
             })
             .store(in: &cancellables)
@@ -62,8 +64,9 @@ final class MenuViewController: UIViewController {
     //MARK: Alert
     private func showAlertEditName() {
         let alert = UIAlertController(title: AlertTitle.enterName, message: nil, preferredStyle: .alert)
-        alert.addTextField { textField in
-            textField.placeholder = Placeholders.nameField
+        alert.addTextField { [weak self] textField in
+            guard let user = self?.user else { return }
+            textField.placeholder = "\(user.name)"
         }
         let saveAction = UIAlertAction(title: AlertAction.save, style: .default) { [weak self] action in
             guard let name = alert.textFields?.first?.text else { return }
