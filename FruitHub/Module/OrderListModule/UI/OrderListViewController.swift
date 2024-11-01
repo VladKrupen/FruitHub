@@ -103,6 +103,11 @@ final class OrderListViewController: UIViewController {
         viewModel?.removeFruidSaladFromBasket(fruitSalad: orderList[index])
         orderList.remove(at: index)
         viewModel?.updateTotalAmount(orderList: orderList)
+        if orderList.isEmpty {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                self?.viewModel?.backButtonWasPressed()
+            }
+        }
     }
 }
 

@@ -95,6 +95,7 @@
 		01B8AACF2CB9667B009BE3EB /* CompleteDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8AACE2CB9667B009BE3EB /* CompleteDetailsView.swift */; };
 		01B8AAD12CB966DB009BE3EB /* CompleteDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8AAD02CB966DB009BE3EB /* CompleteDetailsViewModel.swift */; };
 		01CA6A322CBA806E00D4AF80 /* OrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CA6A312CBA806E00D4AF80 /* OrangeButton.swift */; };
+		01F07A982CD4FCBF002F0091 /* BasketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F07A972CD4FCBF002F0091 /* BasketError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -182,6 +183,7 @@
 		01B8AACE2CB9667B009BE3EB /* CompleteDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteDetailsView.swift; sourceTree = "<group>"; };
 		01B8AAD02CB966DB009BE3EB /* CompleteDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteDetailsViewModel.swift; sourceTree = "<group>"; };
 		01CA6A312CBA806E00D4AF80 /* OrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButton.swift; sourceTree = "<group>"; };
+		01F07A972CD4FCBF002F0091 /* BasketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +294,7 @@
 				015D4E072CBE71730085C65C /* UserVerificationError.swift */,
 				015D4E092CBE765C0085C65C /* DeliveryDataVerificationError.swift */,
 				015D4E0B2CBE7B770085C65C /* CardDataVerificationError.swift */,
+				01F07A972CD4FCBF002F0091 /* BasketError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01F07A982CD4FCBF002F0091 /* BasketError.swift in Sources */,
 				01B2B3E82CA17C520064B319 /* CustomTextField.swift in Sources */,
 				0199B4102C9AC3A0006253EF /* AppCoordinator.swift in Sources */,
 				0199B41E2C9AC853006253EF /* ModuleFactory.swift in Sources */,

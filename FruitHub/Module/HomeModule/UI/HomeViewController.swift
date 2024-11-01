@@ -52,6 +52,7 @@ final class HomeViewController: UIViewController {
                 self?.fruitSalads = fruitSalads
                 self?.setRecommendedFruitSalads(fruitSalads: fruitSalads)
                 self?.sortFruitSalads()
+                self?.updateBadgeForBasket()
             })
             .store(in: &cancellables)
         
@@ -69,10 +70,20 @@ final class HomeViewController: UIViewController {
                 case .success:
                     self?.contentView.hideSpiner()
                 case .failure(let error):
-                    self?.showAlert(message: error.localizedDescription)
+                    guard error as? BasketError == .emptyBasketError else {
+                        self?.showAlert(message: error.localizedDescription)
+                        return
+                    }
+                    self?.showAlert(message: AlertMessage.emptyBasket)
                 }
             })
             .store(in: &cancellables)
+    }
+    
+    //MARK: Update badge
+    private func updateBadgeForBasket() {
+        let orderList = fruitSalads.filter { $0.isBasket == true }
+        contentView.setBadgeForBasket(count: orderList.count)
     }
     
     //MARK: Update fruit salads
@@ -212,7 +223,7 @@ final class HomeViewController: UIViewController {
 extension HomeViewController {
     @objc private func basketViewTapped(_ sender: UIButton) {
         AnimationManager.animateClick(view: contentView.basket) { [weak self] in
-            self?.viewModel?.goToOrderListModule()
+            self?.viewModel?.basketViewWasPressed()
         }
     }
     
@@ -261,11 +272,11 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            viewModel?.goToSaladModule(fruitSalad: recommendedFruitSalads[indexPath.item])
+            viewModel?.cellWasPressed(fruitSalad: recommendedFruitSalads[indexPath.item])
         case 1:
             didSelectNavigationCell(collectionView: collectionView, indexPath: indexPath)
         case 2:
-            viewModel?.goToSaladModule(fruitSalad: filteredFruitSalads[indexPath.item])
+            viewModel?.cellWasPressed(fruitSalad: filteredFruitSalads[indexPath.item])
         default:
             fatalError()
         }

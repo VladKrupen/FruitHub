@@ -15,8 +15,8 @@ protocol HomeViewModelProtocol: AnyObject {
     var userPublisher: PassthroughSubject<User, Never> { get set }
     var completionPublisher: PassthroughSubject<Result<Void, Error>, Never> { get set }
     
-    func goToSaladModule(fruitSalad: FruitSalad)
-    func goToOrderListModule()
+    func cellWasPressed(fruitSalad: FruitSalad)
+    func basketViewWasPressed()
     func viewDidLoaded()
     func fetchFruitSalads()
     func updateFavoritStateForFruitSalad(fruitSalad: FruitSalad)
@@ -25,12 +25,14 @@ protocol HomeViewModelProtocol: AnyObject {
 final class HomeViewModel: HomeViewModelProtocol {
     var completionHandler: ((HomeActions, FruitSalad?) -> Void)?
     
+    private var orderList: [FruitSalad] = []
+    
     private var cancellables: Set<AnyCancellable> = .init()
     private var fetchCancellable: AnyCancellable?
     private var updateCancellable: AnyCancellable?
     var fruitSaladPublisher: PassthroughSubject<[FruitSalad], Never> = .init()
     var userPublisher: PassthroughSubject<User, Never> = .init()
-    var completionPublisher: PassthroughSubject<Result<Void, any Error>, Never> = .init()
+    var completionPublisher: PassthroughSubject<Result<Void, Error>, Never> = .init()
     
     private let firebaseManager: FirebaseManagerProtocol
     private let coreDataReceivingUser: CoreDataReceivingUser
@@ -44,11 +46,15 @@ final class HomeViewModel: HomeViewModelProtocol {
         self.coreDataUpdatingFruitSalad = coreDataUpdatingFruitSalad
     }
 
-    func goToSaladModule(fruitSalad: FruitSalad) {
+    func cellWasPressed(fruitSalad: FruitSalad) {
         completionHandler?(.saladCellPressed, fruitSalad)
     }
     
-    func goToOrderListModule() {
+    func basketViewWasPressed() {
+        guard !orderList.isEmpty else {
+            completionPublisher.send(.failure(BasketError.emptyBasketError))
+            return
+        }
         completionHandler?(.basketPressed, nil)
     }
     
@@ -88,6 +94,7 @@ final class HomeViewModel: HomeViewModelProtocol {
                 }
             } receiveValue: { [weak self] fruitSalads in
                 self?.fruitSaladPublisher.send(fruitSalads)
+                self?.orderList = fruitSalads.filter { $0.isBasket == true }
             }
     }
     

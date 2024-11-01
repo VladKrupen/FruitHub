@@ -71,6 +71,10 @@ final class HomeView: UIView {
         welcomeLabel.text = "Hello \(name), What fruit salad combo do you want today?"
     }
     
+    func setBadgeForBasket(count: Int) {
+        basket.badgeCount = count
+    }
+    
     //MARK: Setup Spiner
     func showSpiner() {
         menuButton.isHidden = true
