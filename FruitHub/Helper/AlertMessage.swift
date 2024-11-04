@@ -17,4 +17,5 @@ struct AlertMessage {
     static let invalidCardDate: String = "Invalid date format"
     static let invalidCardCVC: String = "Invalid CVC format"
     static let emptyBasket: String = "Your basket is empty"
+    static let updatedName: String = "Name can't be empty"
 }

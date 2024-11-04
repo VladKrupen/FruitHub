@@ -55,6 +55,10 @@ final class MenuViewModel: MenuViewModelProtocol {
     }
     
     func updateName(name: String) {
+        guard !name.isEmpty else {
+            errorMessagePublisher.send(AlertMessage.updatedName)
+            return
+        }
         let user = User(name: name)
         updatingCancellable = coreDataUpdatingUser.updateUser(user: user)
             .sink(receiveCompletion: { [weak self] completion in

@@ -65,12 +65,12 @@ final class MenuViewController: UIViewController {
     private func showAlertEditName() {
         let alert = UIAlertController(title: AlertTitle.enterName, message: nil, preferredStyle: .alert)
         alert.addTextField { [weak self] textField in
+            textField.font = UIFont.systemFont(ofSize: 26, weight: .medium)
             guard let user = self?.user else { return }
             textField.placeholder = "\(user.name)"
         }
         let saveAction = UIAlertAction(title: AlertAction.save, style: .default) { [weak self] action in
             guard let name = alert.textFields?.first?.text else { return }
-            self?.contentView.setNameLabel(name: name)
             self?.viewModel?.updateName(name: name)
         }
         let cancelAction = UIAlertAction(title: AlertAction.cancel, style: .destructive)
